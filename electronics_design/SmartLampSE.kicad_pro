@@ -409,7 +409,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "PROJ1.kicad_pro",
+    "filename": "SmartLampSE.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -486,123 +486,7 @@
       },
       {
         "netclass": "Signal",
-        "pattern": "Net-(C1-Pad1)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "Net-(C2-Pad1)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "Net-(IO1-Pad1)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "Net-(IO1-Pad2)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "Net-(IO1-Pad3)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "Net-(IO1-Pad4)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "Net-(IO1-Pad5)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "Net-(IO1-Pad6)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "Net-(IO1-Pad7)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "Net-(IO1-Pad8)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "Net-(M1-Pad17)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "Net-(M1-Pad18)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "icsp_clk"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "icsp_dat"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "mclr"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "unconnected-(M1-Pad11)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "unconnected-(M1-Pad12)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "unconnected-(M1-Pad16)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "unconnected-(M1-Pad2)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "unconnected-(M1-Pad24)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "unconnected-(M1-Pad3)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "unconnected-(M1-Pad4)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "unconnected-(M1-Pad5)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "unconnected-(M1-Pad6)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "unconnected-(M1-Pad7)"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "Net-(M1-VDD)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "Net-(IO1-Pin_1)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "Net-(IO1-Pin_3)"
-      },
-      {
-        "netclass": "Power",
-        "pattern": "Net-(M1-RC4{slash}SDI{slash}SDA)"
-      },
-      {
-        "netclass": "Signal",
-        "pattern": "Net-(M1-RE3{slash}~{MCLR}{slash}Vpp)"
+        "pattern": "signal_*"
       }
     ]
   },
