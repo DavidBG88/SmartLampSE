@@ -1,5 +1,6 @@
-# For PCBs designed using KiCad: https://www.kicad.org/
-# Format documentation: https://kicad.org/help/file-formats/
+# Kicad lock and autosaves
+electronics_design/#auto_saved_files#
+electronics_design/*.lck
 
 # Temporary files
 *.000
