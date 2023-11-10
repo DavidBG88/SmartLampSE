@@ -1,3 +1,46 @@
+######################################
+# ---------- Misc Files ------------ #
+######################################
+
+.DS_Store
+.vscode
+
+######################################
+# --------- MPLab Files ------------ #
+######################################
+
+*.d
+*.pre
+*.p1
+*.lst
+*.sym
+*.obj
+*.o
+*.sdb
+*.obj.dmp
+*.mk
+*.map
+*.properties
+*.production
+*.debug
+html/
+nbproject/private/
+nbproject/Package-*.bash
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+funclist
+nbproject/Makefile-*
+disassembly/
+.generated_files/
+
+######################################
+# --------- Kicad Files ------------ #
+######################################
+
 # Kicad lock and autosaves
 electronics_design/#auto_saved_files#
 electronics_design/*.lck
