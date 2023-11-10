@@ -8,34 +8,34 @@
 ######################################
 # --------- MPLab Files ------------ #
 ######################################
-
-*.d
-*.pre
-*.p1
-*.lst
-*.sym
-*.obj
-*.o
-*.sdb
-*.obj.dmp
-*.mk
-*.map
-*.properties
-*.production
-*.debug
-html/
-nbproject/private/
-nbproject/Package-*.bash
-build/
-nbbuild/
-dist/
-nbdist/
-nbactions.xml
-nb-configuration.xml
-funclist
-nbproject/Makefile-*
-disassembly/
-.generated_files/
+# Ignoring files according to https://microchipdeveloper.com/mplabx:version-control-working-with
+software/*.d
+software/*.pre
+software/*.p1
+software/*.lst
+software/*.sym
+software/*.obj
+software/*.o
+software/*.sdb
+software/*.obj.dmp
+software/*.mk
+software/*.map
+software/*.properties
+software/*.production
+software/*.debug
+software/board_test/html/
+software/board_test/nbproject/private/
+software/board_test/nbproject/Package-*.bash
+software/board_test/build/
+software/board_test/nbbuild/
+software/board_test/dist/
+software/board_test/nbdist/
+software/board_test/nbactions.xml
+software/board_test/nb-configuration.xml
+software/board_test/funclist
+software/board_test/nbproject/Makefile-*
+software/board_test/disassembly/
+software/board_test/.generated_files/
 
 ######################################
 # --------- Kicad Files ------------ #
@@ -46,28 +46,28 @@ electronics_design/#auto_saved_files#
 electronics_design/*.lck
 
 # Temporary files
-*.000
-*.bak
-*.bck
-*.kicad_pcb-bak
-*.kicad_sch-bak
-*-backups
-*.kicad_prl
-*.sch-bak
-*~
-_autosave-*
-*.tmp
-*-save.pro
-*-save.kicad_pcb
-fp-info-cache
+electronics_design/*.000
+electronics_design/*.bak
+electronics_design/*.bck
+electronics_design/*.kicad_pcb-bak
+electronics_design/*.kicad_sch-bak
+electronics_design/*-backups
+electronics_design/*.kicad_prl
+electronics_design/*.sch-bak
+electronics_design/*~
+electronics_design/_autosave-*
+electronics_design/*.tmp
+electronics_design/*-save.pro
+electronics_design/*-save.kicad_pcb
+electronics_design/fp-info-cache
 
 # Netlist files (exported from Eeschema)
-*.net
+electronics_design/*.net
 
 # Autorouter files (exported from Pcbnew)
-*.dsn
-*.ses
+electronics_design/*.dsn
+electronics_design/*.ses
 
 # Exported BOM files
-*.xml
-*.csv
+electronics_design/*.xml
+electronics_design/*.csv
