@@ -3,11 +3,13 @@
 void init_pwm()
 {
     TRISCbits.TRISC2 = 1;       // Disable CCP1 PWM output
+    T2CONbits.TMR2ON = 0;       // Disable Timer2
     CCP1CONbits.CCP1M = 0b1100; // Set CCP1 to PWM mode
 
-    // Periodo = 1 / (30 KHz) = 3.33e-5 seg
-    // Periodo = (PR2 + 1) * 4 * TOSC
-    // Periodo = (PR2 + 1) * 4 * 5e-8 (Asumiendo TOSC 20 MHz)
+    // Equation 11-1 from the manual
+    // T = 1 / (30 KHz) = 3.33e-5 seg
+    // T = (PR2 + 1) * 4 * TOSC
+    // T = (PR2 + 1) * 4 * 5e-8 (Assuming TOSC 20 MHz)
     // PR2 = 3.33e-5 / (4 * 5e-8) - 1
     // PR2 = 165.66 ~= 166
     PR2 = 166;
@@ -32,22 +34,18 @@ void pwm_tmr2_interrupt_handler()
     PIR1bits.TMR2IF = 0;  // Clear Timer2 interrupt flag
 }
 
-void set_pwm_duty_cycle(uint16_t duty_cycle)
+void set_pwm_duty_cycle(uint16_t conf_value)
 {
-    CCP2CONbits.DC2B0 = duty_cycle & 0b01;
-    CCP2CONbits.DC2B1 = duty_cycle & 0b10;
-    CCPR2L = (uint8_t)(duty_cycle >> 2);
+    CCPR1L = (uint8_t)(conf_value >> 2);
+    CCP1CONbits.DC1B1 = conf_value & (1 << 1);
+    CCP1CONbits.DC1B0 = conf_value & (1 << 0);
 }
 
-void set_pwm_duty_cycle_percentage(uint8_t percentage)
+uint16_t get_max_pwm_duty_cycle_conf_value()
 {
-    if (percentage > 100)
-        percentage = 100;
-    else if (percentage < 0)
-        percentage = 0;
-
-    // R = duty_cycle / (4 * (PR2 + 1));
-    // R * (4 * (PR2 + 1)) = duty_cycle;
-    uint16_t duty_cycle = (uint16_t)((percentage * 4 * (PR2 + 1)) / 100);
-    set_pwm_duty_cycle(duty_cycle);
+    // Equation 13-3 from the manual
+    // DCR = conf_value / (4 * (PR2 + 1))
+    // 1 = conf_value / (4 * (PR2 + 1))
+    // (4 * (PR2 + 1)) = conf_value
+    return (uint16_t) ((PR2 + 1) << 2);
 }

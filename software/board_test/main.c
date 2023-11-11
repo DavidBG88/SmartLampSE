@@ -10,14 +10,24 @@
 
 #include "pwm.h"
 
+int max_pwm_duty_cycle_conf_value;
+
 int main()
 {
+    INTCONbits.GIE = 1; // Enable interrupts
+    
     init_pwm();
-    set_pwm_duty_cycle_percentage(50);
-
-    while (1)
-    {
-    }
+    set_pwm_duty_cycle(get_max_pwm_duty_cycle_conf_value());
+    
+    while(1);
 
     return (EXIT_SUCCESS);
+}
+
+// 1010011010
+
+void __interrupt() interrupt_handler() {
+    if (PIR1bits.TMR2IF) {
+        pwm_tmr2_interrupt_handler();
+    }
 }
