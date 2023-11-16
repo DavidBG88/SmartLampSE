@@ -542,7 +542,7 @@
           <layoutConstraint xmi:type="notation:Location" xmi:id="_v7nrhYSvEe6oWtQyg54a4A" x="25" y="-10"/>
         </children>
         <element xmi:type="uml:Port" href="SmartLampSE.uml#_v7g90ISvEe6oWtQyg54a4A"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v7nrgYSvEe6oWtQyg54a4A" x="-10" y="70"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v7nrgYSvEe6oWtQyg54a4A" x="-10" y="50"/>
       </children>
       <children xmi:type="notation:Shape" xmi:id="_7NvgAISvEe6oWtQyg54a4A" type="Port_Shape">
         <children xmi:type="notation:DecorationNode" xmi:id="_7NvgAoSvEe6oWtQyg54a4A" type="Port_NameLabel">
@@ -552,7 +552,7 @@
           <layoutConstraint xmi:type="notation:Location" xmi:id="_7NvgBYSvEe6oWtQyg54a4A" x="25" y="-10"/>
         </children>
         <element xmi:type="uml:Port" href="SmartLampSE.uml#_2ZhjEISvEe6oWtQyg54a4A"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7NvgAYSvEe6oWtQyg54a4A" x="-10" y="110"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7NvgAYSvEe6oWtQyg54a4A" x="-10" y="90"/>
       </children>
       <children xmi:type="notation:Shape" xmi:id="_90NL8ISvEe6oWtQyg54a4A" type="Port_Shape">
         <children xmi:type="notation:DecorationNode" xmi:id="_90NL8oSvEe6oWtQyg54a4A" type="Port_NameLabel">
@@ -562,7 +562,7 @@
           <layoutConstraint xmi:type="notation:Location" xmi:id="_90NL9YSvEe6oWtQyg54a4A" x="25" y="-10"/>
         </children>
         <element xmi:type="uml:Port" href="SmartLampSE.uml#_2fEKYISvEe6oWtQyg54a4A"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_90NL8YSvEe6oWtQyg54a4A" x="-10" y="150"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_90NL8YSvEe6oWtQyg54a4A" x="-10" y="130"/>
       </children>
       <children xmi:type="notation:Shape" xmi:id="_LuLMcISwEe6oWtQyg54a4A" type="Port_Shape">
         <children xmi:type="notation:DecorationNode" xmi:id="_LuLMcoSwEe6oWtQyg54a4A" type="Port_NameLabel">
@@ -572,7 +572,7 @@
           <layoutConstraint xmi:type="notation:Location" xmi:id="_LuLMdYSwEe6oWtQyg54a4A" x="25" y="-10"/>
         </children>
         <element xmi:type="uml:Port" href="SmartLampSE.uml#_FsCq4ISwEe6oWtQyg54a4A"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LuLMcYSwEe6oWtQyg54a4A" x="-10" y="270"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LuLMcYSwEe6oWtQyg54a4A" x="-10" y="250"/>
       </children>
       <children xmi:type="notation:Shape" xmi:id="_fJNBwISwEe6oWtQyg54a4A" type="Port_Shape">
         <children xmi:type="notation:DecorationNode" xmi:id="_fJNBwoSwEe6oWtQyg54a4A" type="Port_NameLabel">
@@ -582,7 +582,7 @@
           <layoutConstraint xmi:type="notation:Location" xmi:id="_fJNBxYSwEe6oWtQyg54a4A" x="25" y="-10"/>
         </children>
         <element xmi:type="uml:Port" href="SmartLampSE.uml#_UUgJEISwEe6oWtQyg54a4A"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fJNBwYSwEe6oWtQyg54a4A" x="-10" y="330"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fJNBwYSwEe6oWtQyg54a4A" x="-10" y="310"/>
       </children>
       <children xmi:type="notation:Shape" xmi:id="_zcAMkISwEe6oWtQyg54a4A" type="Port_Shape">
         <children xmi:type="notation:DecorationNode" xmi:id="_zcAMkoSwEe6oWtQyg54a4A" type="Port_NameLabel">
@@ -592,7 +592,7 @@
           <layoutConstraint xmi:type="notation:Location" xmi:id="_zcAMlYSwEe6oWtQyg54a4A" x="25" y="-10"/>
         </children>
         <element xmi:type="uml:Port" href="SmartLampSE.uml#_tU2BEISwEe6oWtQyg54a4A"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zcAMkYSwEe6oWtQyg54a4A" x="-10" y="390"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zcAMkYSwEe6oWtQyg54a4A" x="-10" y="370"/>
       </children>
       <children xmi:type="notation:Shape" xmi:id="_n7sVoISxEe6oWtQyg54a4A" type="Port_Shape">
         <children xmi:type="notation:DecorationNode" xmi:id="_n7sVooSxEe6oWtQyg54a4A" type="Port_NameLabel">
@@ -602,7 +602,7 @@
           <layoutConstraint xmi:type="notation:Location" xmi:id="_n7sVpYSxEe6oWtQyg54a4A" x="25" y="-10"/>
         </children>
         <element xmi:type="uml:Port" href="SmartLampSE.uml#_bx_Y4ISxEe6oWtQyg54a4A"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_n7sVoYSxEe6oWtQyg54a4A" x="-10" y="210"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_n7sVoYSxEe6oWtQyg54a4A" x="-10" y="190"/>
       </children>
       <element xmi:type="uml:Class" href="SmartLampSE.uml#_cVLF0ISuEe6oWtQyg54a4A"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lIA_AYSvEe6oWtQyg54a4A" x="40" y="40" width="500" height="441"/>
