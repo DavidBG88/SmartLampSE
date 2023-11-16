@@ -8,26 +8,10 @@
 #include <stdio.h>
 #include <xc.h>
 
-#include "pwm.h"
-
-int max_pwm_duty_cycle_conf_value;
-
 int main() {
-    INTCONbits.GIE = 1;   // Enable interrupts
-    INTCONbits.PEIE = 1;  // Enable peripheral interrupts
+    // Escribir las pruebas aqui
 
-    init_pwm();
-    set_pwm_period(255, 0);
-    set_pwm_duty_cycle(get_max_pwm_duty_cycle() / 2);
-
-    while (1)
-        ;
+    while (1);
 
     return (EXIT_SUCCESS);
-}
-
-void __interrupt() interrupt_handler() {
-    if (PIR1bits.TMR2IF) {
-        pwm_tmr2_interrupt_handler();
-    }
 }
