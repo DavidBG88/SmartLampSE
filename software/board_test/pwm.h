@@ -44,8 +44,8 @@ void set_pwm_duty_cycle(uint16_t duty_cycle);
 
 /**
  * PWM max duty cycle getter.
- * @brief Returs the minimum value corresponding to a 100 percent duty cycle.
- * @returns Minimum value coressponding to a 100 percent duty cycle.
+ * @brief Returns the minimum value corresponding to a 100 percent duty cycle.
+ * @returns Minimum value corresponding to a 100 percent duty cycle.
  * @warning For more info on the duty cycle ratio equation check out equation 13-3 on the microcontroller's datasheet.
  */
 uint16_t get_max_pwm_duty_cycle();
