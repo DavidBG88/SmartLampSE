@@ -15,7 +15,7 @@
         <ownedAttribute xmi:type="uml:Port" xmi:id="_UQjAsYSxEe6oWtQyg54a4A" name="Sound" type="_1wmh4ISvEe6oWtQyg54a4A" aggregation="composite"/>
         <ownedAttribute xmi:type="uml:Port" xmi:id="_iDEVYISxEe6oWtQyg54a4A" name="Fan" visibility="public" type="_f3i5AISxEe6oWtQyg54a4A" aggregation="composite"/>
         <ownedAttribute xmi:type="uml:Port" xmi:id="_jgUWgISxEe6oWtQyg54a4A" name="CO2" type="_JtVWEISwEe6oWtQyg54a4A" aggregation="composite"/>
-        <ownedAttribute xmi:type="uml:Port" xmi:id="_jgUWgYSxEe6oWtQyg54a4A" name="RGBLight" type="_ejg6wISwEe6oWtQyg54a4A" aggregation="composite"/>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_jgUWgYSxEe6oWtQyg54a4A" name="RGB Light" type="_ejg6wISwEe6oWtQyg54a4A" aggregation="composite"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_cVLF0ISuEe6oWtQyg54a4A" name="Sistema de Monitorización y Actuación">
         <ownedAttribute xmi:type="uml:Port" xmi:id="_v7g90ISvEe6oWtQyg54a4A" name="Temperature" type="_1wmh4ISvEe6oWtQyg54a4A" aggregation="composite"/>
@@ -23,7 +23,7 @@
         <ownedAttribute xmi:type="uml:Port" xmi:id="_2fEKYISvEe6oWtQyg54a4A" name="Sound" type="_1wmh4ISvEe6oWtQyg54a4A" aggregation="composite"/>
         <ownedAttribute xmi:type="uml:Port" xmi:id="_bx_Y4ISxEe6oWtQyg54a4A" name="Fan" visibility="public" type="_f3i5AISxEe6oWtQyg54a4A" aggregation="composite"/>
         <ownedAttribute xmi:type="uml:Port" xmi:id="_FsCq4ISwEe6oWtQyg54a4A" name="CO2" type="_JtVWEISwEe6oWtQyg54a4A" aggregation="composite"/>
-        <ownedAttribute xmi:type="uml:Port" xmi:id="_UUgJEISwEe6oWtQyg54a4A" name="RGBLight" type="_ejg6wISwEe6oWtQyg54a4A" aggregation="composite"/>
+        <ownedAttribute xmi:type="uml:Port" xmi:id="_UUgJEISwEe6oWtQyg54a4A" name="RGB Light" type="_ejg6wISwEe6oWtQyg54a4A" aggregation="composite"/>
         <ownedAttribute xmi:type="uml:Port" xmi:id="_tU2BEISwEe6oWtQyg54a4A" name="Terminal" type="_w6_oYISwEe6oWtQyg54a4A" aggregation="composite"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_7vjpEISuEe6oWtQyg54a4A" name="Computadora">
@@ -33,31 +33,31 @@
         <ownedAttribute xmi:type="uml:Property" xmi:id="_Q2PnkISyEe6oWtQyg54a4A" name="computadora" type="_7vjpEISuEe6oWtQyg54a4A"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_R0y6gISyEe6oWtQyg54a4A" name="sistema de Monitorización y Actuación" type="_cVLF0ISuEe6oWtQyg54a4A"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_SSNPQISyEe6oWtQyg54a4A" name="circuito de Acondicionamiento" type="_cRzowISuEe6oWtQyg54a4A"/>
-        <ownedConnector xmi:type="uml:Connector" xmi:id="_loLlcISyEe6oWtQyg54a4A" name="Connector4">
+        <ownedConnector xmi:type="uml:Connector" xmi:id="_loLlcISyEe6oWtQyg54a4A" name="Terminal Connector">
           <end xmi:type="uml:ConnectorEnd" xmi:id="_loMMgISyEe6oWtQyg54a4A" partWithPort="_R0y6gISyEe6oWtQyg54a4A" role="_tU2BEISwEe6oWtQyg54a4A"/>
           <end xmi:type="uml:ConnectorEnd" xmi:id="_loMMgYSyEe6oWtQyg54a4A" partWithPort="_Q2PnkISyEe6oWtQyg54a4A" role="_rRLDsISxEe6oWtQyg54a4A"/>
         </ownedConnector>
-        <ownedConnector xmi:type="uml:Connector" xmi:id="_M5-J0ISzEe6oWtQyg54a4A" name="Connector5">
+        <ownedConnector xmi:type="uml:Connector" xmi:id="_M5-J0ISzEe6oWtQyg54a4A" name="Temperature Connector">
           <end xmi:type="uml:ConnectorEnd" xmi:id="_M5-w4ISzEe6oWtQyg54a4A" partWithPort="_SSNPQISyEe6oWtQyg54a4A" role="_SouuUISxEe6oWtQyg54a4A"/>
           <end xmi:type="uml:ConnectorEnd" xmi:id="_M5-w4YSzEe6oWtQyg54a4A" partWithPort="_R0y6gISyEe6oWtQyg54a4A" role="_v7g90ISvEe6oWtQyg54a4A"/>
         </ownedConnector>
-        <ownedConnector xmi:type="uml:Connector" xmi:id="_XjklwISzEe6oWtQyg54a4A" name="Connector6">
+        <ownedConnector xmi:type="uml:Connector" xmi:id="_XjklwISzEe6oWtQyg54a4A" name="Humidity Connector">
           <end xmi:type="uml:ConnectorEnd" xmi:id="_XjlM0ISzEe6oWtQyg54a4A" partWithPort="_R0y6gISyEe6oWtQyg54a4A" role="_2ZhjEISvEe6oWtQyg54a4A"/>
           <end xmi:type="uml:ConnectorEnd" xmi:id="_XjlM0YSzEe6oWtQyg54a4A" partWithPort="_SSNPQISyEe6oWtQyg54a4A" role="_UQjAsISxEe6oWtQyg54a4A"/>
         </ownedConnector>
-        <ownedConnector xmi:type="uml:Connector" xmi:id="_YF3agISzEe6oWtQyg54a4A" name="Connector7">
+        <ownedConnector xmi:type="uml:Connector" xmi:id="_YF3agISzEe6oWtQyg54a4A" name="Sound Connector">
           <end xmi:type="uml:ConnectorEnd" xmi:id="_YF4BkISzEe6oWtQyg54a4A" partWithPort="_SSNPQISyEe6oWtQyg54a4A" role="_UQjAsYSxEe6oWtQyg54a4A"/>
           <end xmi:type="uml:ConnectorEnd" xmi:id="_YF4BkYSzEe6oWtQyg54a4A" partWithPort="_R0y6gISyEe6oWtQyg54a4A" role="_2fEKYISvEe6oWtQyg54a4A"/>
         </ownedConnector>
-        <ownedConnector xmi:type="uml:Connector" xmi:id="_jepQoISzEe6oWtQyg54a4A" name="Connector8">
+        <ownedConnector xmi:type="uml:Connector" xmi:id="_jepQoISzEe6oWtQyg54a4A" name="Fan Connector">
           <end xmi:type="uml:ConnectorEnd" xmi:id="_jep3sISzEe6oWtQyg54a4A" partWithPort="_R0y6gISyEe6oWtQyg54a4A" role="_bx_Y4ISxEe6oWtQyg54a4A"/>
           <end xmi:type="uml:ConnectorEnd" xmi:id="_jep3sYSzEe6oWtQyg54a4A" partWithPort="_SSNPQISyEe6oWtQyg54a4A" role="_iDEVYISxEe6oWtQyg54a4A"/>
         </ownedConnector>
-        <ownedConnector xmi:type="uml:Connector" xmi:id="_xxUsEISzEe6oWtQyg54a4A" name="Connector9">
+        <ownedConnector xmi:type="uml:Connector" xmi:id="_xxUsEISzEe6oWtQyg54a4A" name="CO2 Connector">
           <end xmi:type="uml:ConnectorEnd" xmi:id="_xxUsEYSzEe6oWtQyg54a4A" partWithPort="_R0y6gISyEe6oWtQyg54a4A" role="_FsCq4ISwEe6oWtQyg54a4A"/>
           <end xmi:type="uml:ConnectorEnd" xmi:id="_xxUsEoSzEe6oWtQyg54a4A" partWithPort="_SSNPQISyEe6oWtQyg54a4A" role="_jgUWgISxEe6oWtQyg54a4A"/>
         </ownedConnector>
-        <ownedConnector xmi:type="uml:Connector" xmi:id="_49rlEISzEe6oWtQyg54a4A" name="Connector10">
+        <ownedConnector xmi:type="uml:Connector" xmi:id="_49rlEISzEe6oWtQyg54a4A" name="RGB Light Connector">
           <end xmi:type="uml:ConnectorEnd" xmi:id="_49sMIISzEe6oWtQyg54a4A" partWithPort="_R0y6gISyEe6oWtQyg54a4A" role="_UUgJEISwEe6oWtQyg54a4A"/>
           <end xmi:type="uml:ConnectorEnd" xmi:id="_49sMIYSzEe6oWtQyg54a4A" partWithPort="_SSNPQISyEe6oWtQyg54a4A" role="_jgUWgYSxEe6oWtQyg54a4A"/>
         </ownedConnector>
