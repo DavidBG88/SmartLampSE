@@ -36,6 +36,19 @@ software/board_test/funclist
 software/board_test/nbproject/Makefile-*
 software/board_test/disassembly/
 software/board_test/.generated_files/
+software/smart_lamp_se/html/
+software/smart_lamp_se/nbproject/private/
+software/smart_lamp_se/nbproject/Package-*.bash
+software/smart_lamp_se/build/
+software/smart_lamp_se/nbbuild/
+software/smart_lamp_se/dist/
+software/smart_lamp_se/nbdist/
+software/smart_lamp_se/nbactions.xml
+software/smart_lamp_se/nb-configuration.xml
+software/smart_lamp_se/funclist
+software/smart_lamp_se/nbproject/Makefile-*
+software/smart_lamp_se/disassembly/
+software/smart_lamp_se/.generated_files/
 
 ######################################
 # --------- Kicad Files ------------ #
