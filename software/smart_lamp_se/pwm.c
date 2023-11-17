@@ -1,5 +1,7 @@
 #include "pwm.h"
 
+#include <xc.h>
+
 void init_pwm() {
     TRISCbits.TRISC2 = 1;        // Disable CCP1 PWM output
     T2CONbits.TMR2ON = 0;        // Disable Timer2
