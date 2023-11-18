@@ -174,12 +174,11 @@
           <transition xmi:type="uml:Transition" xmi:id="_qMCusIYREe6vC-aSU4cbkg" name="Event Configuration Success" source="_i4v8sIYQEe6vC-aSU4cbkg" target="_khql0IYREe6vC-aSU4cbkg"/>
           <transition xmi:type="uml:Transition" xmi:id="_Hn0QMIYSEe6vC-aSU4cbkg" name="10 Ms Interrupt" source="_khql0IYREe6vC-aSU4cbkg" target="_uKEDcIYREe6vC-aSU4cbkg"/>
           <transition xmi:type="uml:Transition" xmi:id="_SMzR4IYSEe6vC-aSU4cbkg" name="Sound Data Read Success" source="_uKEDcIYREe6vC-aSU4cbkg" target="_khql0IYREe6vC-aSU4cbkg"/>
-          <transition xmi:type="uml:Transition" xmi:id="_XHuTwIYSEe6vC-aSU4cbkg" name="1000 Ms Interrupt" source="_khql0IYREe6vC-aSU4cbkg" target="_0RbDQIYREe6vC-aSU4cbkg"/>
-          <transition xmi:type="uml:Transition" xmi:id="_kE1DYIYSEe6vC-aSU4cbkg" name="Sound Data Send Success" source="_0RbDQIYREe6vC-aSU4cbkg" target="_khql0IYREe6vC-aSU4cbkg"/>
-          <transition xmi:type="uml:Transition" xmi:id="_miYq8IYSEe6vC-aSU4cbkg" name="5000 Ms Interrupt" source="_khql0IYREe6vC-aSU4cbkg" target="_-1ZYUIYREe6vC-aSU4cbkg"/>
-          <transition xmi:type="uml:Transition" xmi:id="_nPYT0IYSEe6vC-aSU4cbkg" name="Read and Send Environment Data Success" source="_-1ZYUIYREe6vC-aSU4cbkg" target="_khql0IYREe6vC-aSU4cbkg"/>
-          <transition xmi:type="uml:Transition" xmi:id="_pp8RwIYSEe6vC-aSU4cbkg" name="Read Environment Data Success" source="_-1ZYUIYREe6vC-aSU4cbkg" target="_ArCrUIYSEe6vC-aSU4cbkg"/>
-          <transition xmi:type="uml:Transition" xmi:id="_qckokIYSEe6vC-aSU4cbkg" name="Send Environment Data Success" source="_ArCrUIYSEe6vC-aSU4cbkg" target="_-1ZYUIYREe6vC-aSU4cbkg"/>
+          <transition xmi:type="uml:Transition" xmi:id="_XHuTwIYSEe6vC-aSU4cbkg" name="1000 Ms Interrupt Flag" source="_uKEDcIYREe6vC-aSU4cbkg" target="_0RbDQIYREe6vC-aSU4cbkg"/>
+          <transition xmi:type="uml:Transition" xmi:id="_kE1DYIYSEe6vC-aSU4cbkg" name="Send Sound Data Success" source="_0RbDQIYREe6vC-aSU4cbkg" target="_khql0IYREe6vC-aSU4cbkg"/>
+          <transition xmi:type="uml:Transition" xmi:id="_miYq8IYSEe6vC-aSU4cbkg" name="5000 Ms Interrupt Flag" source="_0RbDQIYREe6vC-aSU4cbkg" target="_-1ZYUIYREe6vC-aSU4cbkg"/>
+          <transition xmi:type="uml:Transition" xmi:id="_uV7rgIYtEe6vC-aSU4cbkg" name="Read Environment Data Success" source="_-1ZYUIYREe6vC-aSU4cbkg" target="_ArCrUIYSEe6vC-aSU4cbkg"/>
+          <transition xmi:type="uml:Transition" xmi:id="_69TbsIYtEe6vC-aSU4cbkg" name="Send Environment Data Success" source="_ArCrUIYSEe6vC-aSU4cbkg" target="_khql0IYREe6vC-aSU4cbkg"/>
           <subvertex xmi:type="uml:State" xmi:id="_l6NYAIYPEe6vC-aSU4cbkg" name="Peripheral Initialization">
             <ownedComment xmi:type="uml:Comment" xmi:id="_LfmaEIYSEe6vC-aSU4cbkg">
               <body></body>
@@ -211,13 +210,13 @@ run_every_n_ticks(12500, every_5000ms);  // Every 5000ms -> 12500 ticks</body>
               <body>while(1);</body>
             </entry>
           </subvertex>
-          <subvertex xmi:type="uml:State" xmi:id="_uKEDcIYREe6vC-aSU4cbkg" name="Read Sound Data">
+          <subvertex xmi:type="uml:State" xmi:id="_uKEDcIYREe6vC-aSU4cbkg" name="Reading Sound Data">
             <entry xmi:type="uml:FunctionBehavior" xmi:id="_V2TdQIYUEe6vC-aSU4cbkg" name="Read Sound Data">
               <language>C</language>
               <body>sound_data_arr[next_sound_idx++] = read_sound_level();</body>
             </entry>
           </subvertex>
-          <subvertex xmi:type="uml:State" xmi:id="_0RbDQIYREe6vC-aSU4cbkg" name="Send Sound Data">
+          <subvertex xmi:type="uml:State" xmi:id="_0RbDQIYREe6vC-aSU4cbkg" name="Sending Sound Data">
             <entry xmi:type="uml:FunctionBehavior" xmi:id="_i-XfsIYUEe6vC-aSU4cbkg" name="Send Sound Data">
               <language>C</language>
               <body>next_sound_idx = 0;
@@ -225,12 +224,8 @@ SoundLevel max_sound_level = max(sound_data_arr, SOUND_DATA_ARR_SIZE);
 send_uart_sound_data(max_sound_level);</body>
             </entry>
           </subvertex>
-          <subvertex xmi:type="uml:State" xmi:id="_-1ZYUIYREe6vC-aSU4cbkg" name="Read Environment Data"/>
-          <subvertex xmi:type="uml:State" xmi:id="_ArCrUIYSEe6vC-aSU4cbkg" name="Send Environment Data">
-            <ownedComment xmi:type="uml:Comment" xmi:id="_Ozz80IYSEe6vC-aSU4cbkg">
-              <body></body>
-            </ownedComment>
-          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_-1ZYUIYREe6vC-aSU4cbkg" name="Reading Environment Data"/>
+          <subvertex xmi:type="uml:State" xmi:id="_ArCrUIYSEe6vC-aSU4cbkg" name="Sending Environment Data"/>
         </region>
       </packagedElement>
     </packagedElement>
@@ -346,5 +341,4 @@ send_uart_sound_data(max_sound_level);</body>
   <Blocks:BindingConnector xmi:id="_N8Tp4IYOEe6vC-aSU4cbkg" base_Connector="_N8SbwIYOEe6vC-aSU4cbkg"/>
   <Blocks:BindingConnector xmi:id="_d2HbMoYOEe6vC-aSU4cbkg" base_Connector="_d2GNEIYOEe6vC-aSU4cbkg"/>
   <ActionLanguage:TextualRepresentation xmi:id="_LfnoMIYSEe6vC-aSU4cbkg" base_Comment="_LfmaEIYSEe6vC-aSU4cbkg" language="org.eclipse.papyrus.uml.textedit.state.xtext.UmlState"/>
-  <ActionLanguage:TextualRepresentation xmi:id="_Oz0j4IYSEe6vC-aSU4cbkg" base_Comment="_Ozz80IYSEe6vC-aSU4cbkg" language="org.eclipse.papyrus.uml.textedit.state.xtext.UmlState"/>
 </xmi:XMI>
