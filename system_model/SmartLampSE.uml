@@ -117,116 +117,128 @@
       <packagedElement xmi:type="uml:Signal" xmi:id="_f3i5AISxEe6oWtQyg54a4A" name="PWM Signal"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_PxlpcISuEe6oWtQyg54a4A" name="Diagrams">
-      <packagedElement xmi:type="uml:Association" xmi:id="_LOZ8sISvEe6oWtQyg54a4A" memberEnd="_LOZ8s4SvEe6oWtQyg54a4A _LOZ8tISvEe6oWtQyg54a4A">
-        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LOZ8sYSvEe6oWtQyg54a4A" source="org.eclipse.papyrus">
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LOZ8soSvEe6oWtQyg54a4A" key="nature" value="UML_Nature"/>
-        </eAnnotations>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_LOZ8s4SvEe6oWtQyg54a4A" name="circuito de acondicionamiento" type="_cRzowISuEe6oWtQyg54a4A" aggregation="composite" association="_LOZ8sISvEe6oWtQyg54a4A"/>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_LOZ8tISvEe6oWtQyg54a4A" name="smartlampse" type="_-wBwcISuEe6oWtQyg54a4A" association="_LOZ8sISvEe6oWtQyg54a4A"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_bArmsIYwEe6vC-aSU4cbkg" name="BDD SmartLampSE">
+        <packagedElement xmi:type="uml:Association" xmi:id="_LOZ8sISvEe6oWtQyg54a4A" name="SmartLampSE CA" memberEnd="_LOZ8s4SvEe6oWtQyg54a4A _LOZ8tISvEe6oWtQyg54a4A">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LOZ8sYSvEe6oWtQyg54a4A" source="org.eclipse.papyrus">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LOZ8soSvEe6oWtQyg54a4A" key="nature" value="UML_Nature"/>
+          </eAnnotations>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_LOZ8s4SvEe6oWtQyg54a4A" name="circuito de acondicionamiento" type="_cRzowISuEe6oWtQyg54a4A" aggregation="composite" association="_LOZ8sISvEe6oWtQyg54a4A"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_LOZ8tISvEe6oWtQyg54a4A" name="smartlampse" type="_-wBwcISuEe6oWtQyg54a4A" association="_LOZ8sISvEe6oWtQyg54a4A"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_M2XZAISvEe6oWtQyg54a4A" name="SmartLampSE SMA" memberEnd="_M2YAEoSvEe6oWtQyg54a4A _M2YAE4SvEe6oWtQyg54a4A">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_M2YAEISvEe6oWtQyg54a4A" source="org.eclipse.papyrus">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_M2YAEYSvEe6oWtQyg54a4A" key="nature" value="UML_Nature"/>
+          </eAnnotations>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_M2YAEoSvEe6oWtQyg54a4A" name="sistema de monitorización y actuación" type="_cVLF0ISuEe6oWtQyg54a4A" aggregation="composite" association="_M2XZAISvEe6oWtQyg54a4A"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_M2YAE4SvEe6oWtQyg54a4A" name="smartlampse" type="_-wBwcISuEe6oWtQyg54a4A" association="_M2XZAISvEe6oWtQyg54a4A"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_O9oAcISvEe6oWtQyg54a4A" name="SmartLampSE PC" memberEnd="_O9ongoSvEe6oWtQyg54a4A _O9ong4SvEe6oWtQyg54a4A">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_O9ongISvEe6oWtQyg54a4A" source="org.eclipse.papyrus">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_O9ongYSvEe6oWtQyg54a4A" key="nature" value="UML_Nature"/>
+          </eAnnotations>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_O9ongoSvEe6oWtQyg54a4A" name="computadora" type="_7vjpEISuEe6oWtQyg54a4A" aggregation="composite" association="_O9oAcISvEe6oWtQyg54a4A"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_O9ong4SvEe6oWtQyg54a4A" name="smartlampse" type="_-wBwcISuEe6oWtQyg54a4A" association="_O9oAcISvEe6oWtQyg54a4A"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_PuOW8ISvEe6oWtQyg54a4A" name="SmartLampSE EM" memberEnd="_PuOW84SvEe6oWtQyg54a4A _PuOW9ISvEe6oWtQyg54a4A">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PuOW8YSvEe6oWtQyg54a4A" source="org.eclipse.papyrus">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PuOW8oSvEe6oWtQyg54a4A" key="nature" value="UML_Nature"/>
+          </eAnnotations>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_PuOW84SvEe6oWtQyg54a4A" name="estructura mecánica" type="_T79_MISuEe6oWtQyg54a4A" aggregation="composite" association="_PuOW8ISvEe6oWtQyg54a4A"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_PuOW9ISvEe6oWtQyg54a4A" name="smartlampse" type="_-wBwcISuEe6oWtQyg54a4A" association="_PuOW8ISvEe6oWtQyg54a4A"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_LwhcMIS4Ee6oWtQyg54a4A" name="SMA Devices" memberEnd="_LwiDQoS4Ee6oWtQyg54a4A _LwiqUIS4Ee6oWtQyg54a4A">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LwiDQIS4Ee6oWtQyg54a4A" source="org.eclipse.papyrus">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LwiDQYS4Ee6oWtQyg54a4A" key="nature" value="UML_Nature"/>
+          </eAnnotations>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_LwiDQoS4Ee6oWtQyg54a4A" name="devices" type="_CiY4sIS4Ee6oWtQyg54a4A" aggregation="composite" association="_LwhcMIS4Ee6oWtQyg54a4A"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_LwiqUIS4Ee6oWtQyg54a4A" name="sistema de monitorización y actuación" type="_cVLF0ISuEe6oWtQyg54a4A" association="_LwhcMIS4Ee6oWtQyg54a4A"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_bmEYkIS4Ee6oWtQyg54a4A" name="SMA Controller" memberEnd="_bmEYk4S4Ee6oWtQyg54a4A _bmE_oIS4Ee6oWtQyg54a4A">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_bmEYkYS4Ee6oWtQyg54a4A" source="org.eclipse.papyrus">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bmEYkoS4Ee6oWtQyg54a4A" key="nature" value="UML_Nature"/>
+          </eAnnotations>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_bmEYk4S4Ee6oWtQyg54a4A" name="controller" type="_Un4ecIS4Ee6oWtQyg54a4A" aggregation="composite" association="_bmEYkIS4Ee6oWtQyg54a4A"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_bmE_oIS4Ee6oWtQyg54a4A" name="sistema de monitorización y actuación" type="_cVLF0ISuEe6oWtQyg54a4A" association="_bmEYkIS4Ee6oWtQyg54a4A"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_y9PTUIS4Ee6oWtQyg54a4A" name="SMA HAL" memberEnd="_y9PTU4S4Ee6oWtQyg54a4A _y9P6YIS4Ee6oWtQyg54a4A">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_y9PTUYS4Ee6oWtQyg54a4A" source="org.eclipse.papyrus">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_y9PTUoS4Ee6oWtQyg54a4A" key="nature" value="UML_Nature"/>
+          </eAnnotations>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_y9PTU4S4Ee6oWtQyg54a4A" name="hal" type="_nMPxgIS4Ee6oWtQyg54a4A" aggregation="composite" association="_y9PTUIS4Ee6oWtQyg54a4A"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="_y9P6YIS4Ee6oWtQyg54a4A" name="sistema de monitorización y actuación" type="_cVLF0ISuEe6oWtQyg54a4A" association="_y9PTUIS4Ee6oWtQyg54a4A"/>
+        </packagedElement>
       </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_M2XZAISvEe6oWtQyg54a4A" memberEnd="_M2YAEoSvEe6oWtQyg54a4A _M2YAE4SvEe6oWtQyg54a4A">
-        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_M2YAEISvEe6oWtQyg54a4A" source="org.eclipse.papyrus">
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_M2YAEYSvEe6oWtQyg54a4A" key="nature" value="UML_Nature"/>
-        </eAnnotations>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_M2YAEoSvEe6oWtQyg54a4A" name="sistema de monitorización y actuación" type="_cVLF0ISuEe6oWtQyg54a4A" aggregation="composite" association="_M2XZAISvEe6oWtQyg54a4A"/>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_M2YAE4SvEe6oWtQyg54a4A" name="smartlampse" type="_-wBwcISuEe6oWtQyg54a4A" association="_M2XZAISvEe6oWtQyg54a4A"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_O9oAcISvEe6oWtQyg54a4A" memberEnd="_O9ongoSvEe6oWtQyg54a4A _O9ong4SvEe6oWtQyg54a4A">
-        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_O9ongISvEe6oWtQyg54a4A" source="org.eclipse.papyrus">
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_O9ongYSvEe6oWtQyg54a4A" key="nature" value="UML_Nature"/>
-        </eAnnotations>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_O9ongoSvEe6oWtQyg54a4A" name="computadora" type="_7vjpEISuEe6oWtQyg54a4A" aggregation="composite" association="_O9oAcISvEe6oWtQyg54a4A"/>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_O9ong4SvEe6oWtQyg54a4A" name="smartlampse" type="_-wBwcISuEe6oWtQyg54a4A" association="_O9oAcISvEe6oWtQyg54a4A"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_PuOW8ISvEe6oWtQyg54a4A" memberEnd="_PuOW84SvEe6oWtQyg54a4A _PuOW9ISvEe6oWtQyg54a4A">
-        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PuOW8YSvEe6oWtQyg54a4A" source="org.eclipse.papyrus">
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PuOW8oSvEe6oWtQyg54a4A" key="nature" value="UML_Nature"/>
-        </eAnnotations>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_PuOW84SvEe6oWtQyg54a4A" name="estructura mecánica" type="_T79_MISuEe6oWtQyg54a4A" aggregation="composite" association="_PuOW8ISvEe6oWtQyg54a4A"/>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_PuOW9ISvEe6oWtQyg54a4A" name="smartlampse" type="_-wBwcISuEe6oWtQyg54a4A" association="_PuOW8ISvEe6oWtQyg54a4A"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_LwhcMIS4Ee6oWtQyg54a4A" memberEnd="_LwiDQoS4Ee6oWtQyg54a4A _LwiqUIS4Ee6oWtQyg54a4A">
-        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LwiDQIS4Ee6oWtQyg54a4A" source="org.eclipse.papyrus">
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_LwiDQYS4Ee6oWtQyg54a4A" key="nature" value="UML_Nature"/>
-        </eAnnotations>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_LwiDQoS4Ee6oWtQyg54a4A" name="devices" type="_CiY4sIS4Ee6oWtQyg54a4A" aggregation="composite" association="_LwhcMIS4Ee6oWtQyg54a4A"/>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_LwiqUIS4Ee6oWtQyg54a4A" name="sistema de monitorización y actuación" type="_cVLF0ISuEe6oWtQyg54a4A" association="_LwhcMIS4Ee6oWtQyg54a4A"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_bmEYkIS4Ee6oWtQyg54a4A" memberEnd="_bmEYk4S4Ee6oWtQyg54a4A _bmE_oIS4Ee6oWtQyg54a4A">
-        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_bmEYkYS4Ee6oWtQyg54a4A" source="org.eclipse.papyrus">
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bmEYkoS4Ee6oWtQyg54a4A" key="nature" value="UML_Nature"/>
-        </eAnnotations>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_bmEYk4S4Ee6oWtQyg54a4A" name="controller" type="_Un4ecIS4Ee6oWtQyg54a4A" aggregation="composite" association="_bmEYkIS4Ee6oWtQyg54a4A"/>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_bmE_oIS4Ee6oWtQyg54a4A" name="sistema de monitorización y actuación" type="_cVLF0ISuEe6oWtQyg54a4A" association="_bmEYkIS4Ee6oWtQyg54a4A"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_y9PTUIS4Ee6oWtQyg54a4A" memberEnd="_y9PTU4S4Ee6oWtQyg54a4A _y9P6YIS4Ee6oWtQyg54a4A">
-        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_y9PTUYS4Ee6oWtQyg54a4A" source="org.eclipse.papyrus">
-          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_y9PTUoS4Ee6oWtQyg54a4A" key="nature" value="UML_Nature"/>
-        </eAnnotations>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_y9PTU4S4Ee6oWtQyg54a4A" name="hal" type="_nMPxgIS4Ee6oWtQyg54a4A" aggregation="composite" association="_y9PTUIS4Ee6oWtQyg54a4A"/>
-        <ownedEnd xmi:type="uml:Property" xmi:id="_y9P6YIS4Ee6oWtQyg54a4A" name="sistema de monitorización y actuación" type="_cVLF0ISuEe6oWtQyg54a4A" association="_y9PTUIS4Ee6oWtQyg54a4A"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:StateMachine" xmi:id="_Hng1kIYPEe6vC-aSU4cbkg" name="SM Controller">
-        <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_PtxyEIYPEe6vC-aSU4cbkg" name="Program Init" kind="entryPoint"/>
-        <region xmi:type="uml:Region" xmi:id="_MAj5cIYPEe6vC-aSU4cbkg" name="Region1">
-          <transition xmi:type="uml:Transition" xmi:id="_tmWkUIYPEe6vC-aSU4cbkg" name="Program Starts" source="_PtxyEIYPEe6vC-aSU4cbkg" target="_l6NYAIYPEe6vC-aSU4cbkg"/>
-          <transition xmi:type="uml:Transition" xmi:id="_RQTp4IYREe6vC-aSU4cbkg" name="Peripheral Initialization Success" source="_l6NYAIYPEe6vC-aSU4cbkg" target="_i4v8sIYQEe6vC-aSU4cbkg"/>
-          <transition xmi:type="uml:Transition" xmi:id="_qMCusIYREe6vC-aSU4cbkg" name="Event Configuration Success" source="_i4v8sIYQEe6vC-aSU4cbkg" target="_khql0IYREe6vC-aSU4cbkg"/>
-          <transition xmi:type="uml:Transition" xmi:id="_Hn0QMIYSEe6vC-aSU4cbkg" name="10 Ms Interrupt" source="_khql0IYREe6vC-aSU4cbkg" target="_uKEDcIYREe6vC-aSU4cbkg"/>
-          <transition xmi:type="uml:Transition" xmi:id="_SMzR4IYSEe6vC-aSU4cbkg" name="Sound Data Read Success" source="_uKEDcIYREe6vC-aSU4cbkg" target="_khql0IYREe6vC-aSU4cbkg"/>
-          <transition xmi:type="uml:Transition" xmi:id="_XHuTwIYSEe6vC-aSU4cbkg" name="1000 Ms Interrupt Flag" source="_uKEDcIYREe6vC-aSU4cbkg" target="_0RbDQIYREe6vC-aSU4cbkg"/>
-          <transition xmi:type="uml:Transition" xmi:id="_kE1DYIYSEe6vC-aSU4cbkg" name="Send Sound Data Success" source="_0RbDQIYREe6vC-aSU4cbkg" target="_khql0IYREe6vC-aSU4cbkg"/>
-          <transition xmi:type="uml:Transition" xmi:id="_miYq8IYSEe6vC-aSU4cbkg" name="5000 Ms Interrupt Flag" source="_0RbDQIYREe6vC-aSU4cbkg" target="_-1ZYUIYREe6vC-aSU4cbkg"/>
-          <transition xmi:type="uml:Transition" xmi:id="_uV7rgIYtEe6vC-aSU4cbkg" name="Read Environment Data Success" source="_-1ZYUIYREe6vC-aSU4cbkg" target="_ArCrUIYSEe6vC-aSU4cbkg"/>
-          <transition xmi:type="uml:Transition" xmi:id="_69TbsIYtEe6vC-aSU4cbkg" name="Send Environment Data Success" source="_ArCrUIYSEe6vC-aSU4cbkg" target="_khql0IYREe6vC-aSU4cbkg"/>
-          <subvertex xmi:type="uml:State" xmi:id="_l6NYAIYPEe6vC-aSU4cbkg" name="Peripheral Initialization">
-            <ownedComment xmi:type="uml:Comment" xmi:id="_LfmaEIYSEe6vC-aSU4cbkg">
-              <body></body>
-            </ownedComment>
-            <entry xmi:type="uml:FunctionBehavior" xmi:id="_dUUq0IYQEe6vC-aSU4cbkg" name="Init Peripherals">
-              <language>C</language>
-              <body>init_i2c();
+      <packagedElement xmi:type="uml:Package" xmi:id="_d9n48IYwEe6vC-aSU4cbkg" name="SMD Controller">
+        <packagedElement xmi:type="uml:StateMachine" xmi:id="_Hng1kIYPEe6vC-aSU4cbkg" name="SM Controller">
+          <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_PtxyEIYPEe6vC-aSU4cbkg" name="Program Init" kind="entryPoint"/>
+          <region xmi:type="uml:Region" xmi:id="_MAj5cIYPEe6vC-aSU4cbkg" name="Region1">
+            <transition xmi:type="uml:Transition" xmi:id="_tmWkUIYPEe6vC-aSU4cbkg" name="Program Starts" source="_PtxyEIYPEe6vC-aSU4cbkg" target="_l6NYAIYPEe6vC-aSU4cbkg"/>
+            <transition xmi:type="uml:Transition" xmi:id="_RQTp4IYREe6vC-aSU4cbkg" name="Peripheral Initialization Success" source="_l6NYAIYPEe6vC-aSU4cbkg" target="_i4v8sIYQEe6vC-aSU4cbkg"/>
+            <transition xmi:type="uml:Transition" xmi:id="_qMCusIYREe6vC-aSU4cbkg" name="Event Configuration Success" source="_i4v8sIYQEe6vC-aSU4cbkg" target="_khql0IYREe6vC-aSU4cbkg"/>
+            <transition xmi:type="uml:Transition" xmi:id="_Hn0QMIYSEe6vC-aSU4cbkg" name="10 Ms Interrupt" source="_khql0IYREe6vC-aSU4cbkg" target="_uKEDcIYREe6vC-aSU4cbkg"/>
+            <transition xmi:type="uml:Transition" xmi:id="_SMzR4IYSEe6vC-aSU4cbkg" name="Sound Data Read Success" source="_uKEDcIYREe6vC-aSU4cbkg" target="_khql0IYREe6vC-aSU4cbkg"/>
+            <transition xmi:type="uml:Transition" xmi:id="_XHuTwIYSEe6vC-aSU4cbkg" name="1000 Ms Interrupt Flag" source="_uKEDcIYREe6vC-aSU4cbkg" target="_0RbDQIYREe6vC-aSU4cbkg"/>
+            <transition xmi:type="uml:Transition" xmi:id="_kE1DYIYSEe6vC-aSU4cbkg" name="Send Sound Data Success" source="_0RbDQIYREe6vC-aSU4cbkg" target="_khql0IYREe6vC-aSU4cbkg"/>
+            <transition xmi:type="uml:Transition" xmi:id="_miYq8IYSEe6vC-aSU4cbkg" name="5000 Ms Interrupt Flag" source="_0RbDQIYREe6vC-aSU4cbkg" target="_-1ZYUIYREe6vC-aSU4cbkg"/>
+            <transition xmi:type="uml:Transition" xmi:id="_uV7rgIYtEe6vC-aSU4cbkg" name="Read Environment Data Success" source="_-1ZYUIYREe6vC-aSU4cbkg" target="_ArCrUIYSEe6vC-aSU4cbkg"/>
+            <transition xmi:type="uml:Transition" xmi:id="_69TbsIYtEe6vC-aSU4cbkg" name="Send Environment Data Success" source="_ArCrUIYSEe6vC-aSU4cbkg" target="_khql0IYREe6vC-aSU4cbkg"/>
+            <subvertex xmi:type="uml:State" xmi:id="_l6NYAIYPEe6vC-aSU4cbkg" name="Peripheral Initialization">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_LfmaEIYSEe6vC-aSU4cbkg">
+                <body></body>
+              </ownedComment>
+              <entry xmi:type="uml:FunctionBehavior" xmi:id="_dUUq0IYQEe6vC-aSU4cbkg" name="Init Peripherals">
+                <language>C</language>
+                <body>init_i2c();
 init_spi();
 init_adc();
 init_uart();
 init_pwm();
 init_timing();
 </body>
-            </entry>
-          </subvertex>
-          <subvertex xmi:type="uml:State" xmi:id="_i4v8sIYQEe6vC-aSU4cbkg" name="Event Configuration">
-            <entry xmi:type="uml:FunctionBehavior" xmi:id="_Ek2q8IYREe6vC-aSU4cbkg" name="Setup Timing Events">
-              <language>C</language>
-              <body>set_tick_duration(256 - 250, PR1to8);              // Tick = 1.6us * 250 = 400us
+              </entry>
+            </subvertex>
+            <subvertex xmi:type="uml:State" xmi:id="_i4v8sIYQEe6vC-aSU4cbkg" name="Event Configuration">
+              <entry xmi:type="uml:FunctionBehavior" xmi:id="_Ek2q8IYREe6vC-aSU4cbkg" name="Setup Timing Events">
+                <language>C</language>
+                <body>set_tick_duration(256 - 250, PR1to8);              // Tick = 1.6us * 250 = 400us
 
 run_every_n_ticks(25, every_10ms);                 // Every 10ms   -> 25 ticks
 run_every_n_ticks(2500, every_1000ms);     // Every 1000ms -> 2500 ticks
 run_every_n_ticks(12500, every_5000ms);  // Every 5000ms -> 12500 ticks</body>
-            </entry>
-          </subvertex>
-          <subvertex xmi:type="uml:State" xmi:id="_khql0IYREe6vC-aSU4cbkg" name="Waiting">
-            <entry xmi:type="uml:FunctionBehavior" xmi:id="_9soukIYTEe6vC-aSU4cbkg" name="Wait">
-              <language>C</language>
-              <body>while(1);</body>
-            </entry>
-          </subvertex>
-          <subvertex xmi:type="uml:State" xmi:id="_uKEDcIYREe6vC-aSU4cbkg" name="Reading Sound Data">
-            <entry xmi:type="uml:FunctionBehavior" xmi:id="_V2TdQIYUEe6vC-aSU4cbkg" name="Read Sound Data">
-              <language>C</language>
-              <body>sound_data_arr[next_sound_idx++] = read_sound_level();</body>
-            </entry>
-          </subvertex>
-          <subvertex xmi:type="uml:State" xmi:id="_0RbDQIYREe6vC-aSU4cbkg" name="Sending Sound Data">
-            <entry xmi:type="uml:FunctionBehavior" xmi:id="_i-XfsIYUEe6vC-aSU4cbkg" name="Send Sound Data">
-              <language>C</language>
-              <body>next_sound_idx = 0;
+              </entry>
+            </subvertex>
+            <subvertex xmi:type="uml:State" xmi:id="_khql0IYREe6vC-aSU4cbkg" name="Waiting">
+              <entry xmi:type="uml:FunctionBehavior" xmi:id="_9soukIYTEe6vC-aSU4cbkg" name="Wait">
+                <language>C</language>
+                <body>while(1);</body>
+              </entry>
+            </subvertex>
+            <subvertex xmi:type="uml:State" xmi:id="_uKEDcIYREe6vC-aSU4cbkg" name="Reading Sound Data">
+              <entry xmi:type="uml:FunctionBehavior" xmi:id="_V2TdQIYUEe6vC-aSU4cbkg" name="Read Sound Data">
+                <language>C</language>
+                <body>sound_data_arr[next_sound_idx++] = read_sound_level();</body>
+              </entry>
+            </subvertex>
+            <subvertex xmi:type="uml:State" xmi:id="_0RbDQIYREe6vC-aSU4cbkg" name="Sending Sound Data">
+              <entry xmi:type="uml:FunctionBehavior" xmi:id="_i-XfsIYUEe6vC-aSU4cbkg" name="Send Sound Data">
+                <language>C</language>
+                <body>next_sound_idx = 0;
 SoundLevel max_sound_level = max(sound_data_arr, SOUND_DATA_ARR_SIZE);
 send_uart_sound_data(max_sound_level);</body>
-            </entry>
-          </subvertex>
-          <subvertex xmi:type="uml:State" xmi:id="_-1ZYUIYREe6vC-aSU4cbkg" name="Reading Environment Data"/>
-          <subvertex xmi:type="uml:State" xmi:id="_ArCrUIYSEe6vC-aSU4cbkg" name="Sending Environment Data"/>
-        </region>
+              </entry>
+            </subvertex>
+            <subvertex xmi:type="uml:State" xmi:id="_-1ZYUIYREe6vC-aSU4cbkg" name="Reading Environment Data">
+              <entry xmi:type="uml:FunctionBehavior" xmi:id="_tqnywIYvEe6vC-aSU4cbkg" name="Read Environment Data" body="">
+                <language>C</language>
+              </entry>
+            </subvertex>
+            <subvertex xmi:type="uml:State" xmi:id="_ArCrUIYSEe6vC-aSU4cbkg" name="Sending Environment Data">
+              <entry xmi:type="uml:FunctionBehavior" xmi:id="_yI1DcIYvEe6vC-aSU4cbkg" name="Send Environment Data" body="">
+                <language>C</language>
+              </entry>
+            </subvertex>
+          </region>
+        </packagedElement>
       </packagedElement>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_LrxqoISuEe6oWtQyg54a4A">
