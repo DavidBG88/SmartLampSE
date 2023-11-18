@@ -2191,7 +2191,7 @@
                 <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-1dCtIYREe6vC-aSU4cbkg" y="-1" width="221"/>
               </children>
               <element xmi:type="uml:State" href="SmartLampSE.uml#_-1ZYUIYREe6vC-aSU4cbkg"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-1cboYYREe6vC-aSU4cbkg" x="129" y="570" width="221" height="61"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-1cboYYREe6vC-aSU4cbkg" x="129" y="550" width="221" height="61"/>
             </children>
             <children xmi:type="notation:Shape" xmi:id="_ArGVsIYSEe6vC-aSU4cbkg" type="State_Shape">
               <children xmi:type="notation:DecorationNode" xmi:id="_ArGVsoYSEe6vC-aSU4cbkg" type="State_NameLabel">
@@ -2204,7 +2204,7 @@
                 <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ArGVtoYSEe6vC-aSU4cbkg" y="-1" width="201"/>
               </children>
               <element xmi:type="uml:State" href="SmartLampSE.uml#_ArCrUIYSEe6vC-aSU4cbkg"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ArGVsYYSEe6vC-aSU4cbkg" x="609" y="570" width="201" height="64"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ArGVsYYSEe6vC-aSU4cbkg" x="609" y="550" width="201" height="64"/>
             </children>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MAkgiYYPEe6vC-aSU4cbkg"/>
           </children>
@@ -2390,12 +2390,15 @@
     </edges>
     <edges xmi:type="notation:Connector" xmi:id="_uV_V4IYtEe6vC-aSU4cbkg" type="Transition_Edge" source="_-1cboIYREe6vC-aSU4cbkg" target="_ArGVsIYSEe6vC-aSU4cbkg">
       <children xmi:type="notation:DecorationNode" xmi:id="_uV_88IYtEe6vC-aSU4cbkg" type="Transition_NameLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_h_xVMIYvEe6vC-aSU4cbkg" name="IS_UPDATED_POSITION" booleanValue="true"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_uV_88YYtEe6vC-aSU4cbkg" x="-3" y="-13"/>
       </children>
       <children xmi:type="notation:DecorationNode" xmi:id="_uV_88oYtEe6vC-aSU4cbkg" type="Transition_GuardLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_h_0YgIYvEe6vC-aSU4cbkg" name="IS_UPDATED_POSITION" booleanValue="true"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_uV_884YtEe6vC-aSU4cbkg" y="-20"/>
       </children>
       <children xmi:type="notation:DecorationNode" xmi:id="_uV_89IYtEe6vC-aSU4cbkg" type="Transition_StereotypeLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_h_4C4IYvEe6vC-aSU4cbkg" name="IS_UPDATED_POSITION" booleanValue="true"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_uV_89YYtEe6vC-aSU4cbkg" y="60"/>
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_uV_V4YYtEe6vC-aSU4cbkg"/>
@@ -2406,12 +2409,15 @@
     </edges>
     <edges xmi:type="notation:Connector" xmi:id="_69XtIIYtEe6vC-aSU4cbkg" type="Transition_Edge" source="_ArGVsIYSEe6vC-aSU4cbkg" target="_khsbAIYREe6vC-aSU4cbkg">
       <children xmi:type="notation:DecorationNode" xmi:id="_69XtI4YtEe6vC-aSU4cbkg" type="Transition_NameLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_iWBSAIYvEe6vC-aSU4cbkg" name="IS_UPDATED_POSITION" booleanValue="true"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_69XtJIYtEe6vC-aSU4cbkg" x="4" y="111"/>
       </children>
       <children xmi:type="notation:DecorationNode" xmi:id="_69XtJYYtEe6vC-aSU4cbkg" type="Transition_GuardLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_iWE8YIYvEe6vC-aSU4cbkg" name="IS_UPDATED_POSITION" booleanValue="true"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_69XtJoYtEe6vC-aSU4cbkg" y="-20"/>
       </children>
       <children xmi:type="notation:DecorationNode" xmi:id="_69XtJ4YtEe6vC-aSU4cbkg" type="Transition_StereotypeLabel">
+        <styles xmi:type="notation:BooleanValueStyle" xmi:id="_iWImwIYvEe6vC-aSU4cbkg" name="IS_UPDATED_POSITION" booleanValue="true"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_69XtKIYtEe6vC-aSU4cbkg" y="60"/>
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_69XtIYYtEe6vC-aSU4cbkg"/>
