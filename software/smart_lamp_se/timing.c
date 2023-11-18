@@ -31,7 +31,7 @@ void timing_tmr0_interrupt_handler() {
         tf->ticks_left -= 1;
 
         if (tf->ticks_left == 0) {
-            tf->function_ptr();
+            (*tf->function_ptr)();
             tf->ticks_left = tf->ticks;
         }
     }
@@ -56,6 +56,7 @@ void set_tick_duration(uint8_t tmr0, TMR0Prescaler pr) {
 
 void run_every_n_ticks(uint16_t ticks, void (*function_ptr)(void)) {
     TimingFunction* tf = &timing_functions[next_func_idx];
+    ++next_func_idx;
 
     tf->function_ptr = function_ptr;
     tf->ticks_left = tf->ticks = ticks;
