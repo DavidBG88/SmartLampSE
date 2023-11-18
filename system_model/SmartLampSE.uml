@@ -182,6 +182,11 @@
             <transition xmi:type="uml:Transition" xmi:id="_miYq8IYSEe6vC-aSU4cbkg" name="5000 Ms Interrupt Flag" source="_0RbDQIYREe6vC-aSU4cbkg" target="_-1ZYUIYREe6vC-aSU4cbkg"/>
             <transition xmi:type="uml:Transition" xmi:id="_uV7rgIYtEe6vC-aSU4cbkg" name="Read Environment Data Success" source="_-1ZYUIYREe6vC-aSU4cbkg" target="_ArCrUIYSEe6vC-aSU4cbkg"/>
             <transition xmi:type="uml:Transition" xmi:id="_69TbsIYtEe6vC-aSU4cbkg" name="Send Environment Data Success" source="_ArCrUIYSEe6vC-aSU4cbkg" target="_khql0IYREe6vC-aSU4cbkg"/>
+            <transition xmi:type="uml:Transition" xmi:id="_GfCAMIYzEe6vC-aSU4cbkg" name="UART Command Received" source="_khql0IYREe6vC-aSU4cbkg" target="_3RrsQIYyEe6vC-aSU4cbkg"/>
+            <transition xmi:type="uml:Transition" xmi:id="_z3Le0IYzEe6vC-aSU4cbkg" name="Change Light Command" source="_3RrsQIYyEe6vC-aSU4cbkg" target="_A9fDMIYzEe6vC-aSU4cbkg"/>
+            <transition xmi:type="uml:Transition" xmi:id="_36T9EIYzEe6vC-aSU4cbkg" name="Change Fan Speed" source="_3RrsQIYyEe6vC-aSU4cbkg" target="_D8S9sIYzEe6vC-aSU4cbkg"/>
+            <transition xmi:type="uml:Transition" xmi:id="_JT0mkIY0Ee6vC-aSU4cbkg" name="Light Changed Successfully" source="_A9fDMIYzEe6vC-aSU4cbkg" target="_khql0IYREe6vC-aSU4cbkg"/>
+            <transition xmi:type="uml:Transition" xmi:id="_J7m_UIY0Ee6vC-aSU4cbkg" name="Fan Speed Changed Successfully" source="_D8S9sIYzEe6vC-aSU4cbkg" target="_khql0IYREe6vC-aSU4cbkg"/>
             <subvertex xmi:type="uml:State" xmi:id="_l6NYAIYPEe6vC-aSU4cbkg" name="Peripheral Initialization">
               <ownedComment xmi:type="uml:Comment" xmi:id="_LfmaEIYSEe6vC-aSU4cbkg">
                 <body></body>
@@ -236,6 +241,15 @@ send_uart_sound_data(max_sound_level);</body>
               <entry xmi:type="uml:FunctionBehavior" xmi:id="_yI1DcIYvEe6vC-aSU4cbkg" name="Send Environment Data" body="">
                 <language>C</language>
               </entry>
+            </subvertex>
+            <subvertex xmi:type="uml:State" xmi:id="_3RrsQIYyEe6vC-aSU4cbkg" name="Receiving Command">
+              <entry xmi:type="uml:FunctionBehavior" xmi:id="_n3_1YIZGEe6vC-aSU4cbkg" name="Read Command"/>
+            </subvertex>
+            <subvertex xmi:type="uml:State" xmi:id="_A9fDMIYzEe6vC-aSU4cbkg" name="Changing Light Color">
+              <entry xmi:type="uml:FunctionBehavior" xmi:id="_qstYsIZGEe6vC-aSU4cbkg" name="Change Light Color"/>
+            </subvertex>
+            <subvertex xmi:type="uml:State" xmi:id="_D8S9sIYzEe6vC-aSU4cbkg" name="Changing Fan Speed">
+              <entry xmi:type="uml:FunctionBehavior" xmi:id="_pTMoEIZGEe6vC-aSU4cbkg" name="Change Fan Speed"/>
             </subvertex>
           </region>
         </packagedElement>
