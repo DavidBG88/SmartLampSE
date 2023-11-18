@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Blocks="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks" xmlns:DeprecatedElements="http://www.eclipse.org/papyrus/sysml/1.6/SysML/DeprecatedElements" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML#//blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML/DeprecatedElements http://www.eclipse.org/papyrus/sysml/1.6/SysML#//deprecatedelements">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ActionLanguage="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile" xmlns:Blocks="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks" xmlns:DeprecatedElements="http://www.eclipse.org/papyrus/sysml/1.6/SysML/DeprecatedElements" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML#//blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML/DeprecatedElements http://www.eclipse.org/papyrus/sysml/1.6/SysML#//deprecatedelements">
   <uml:Model xmi:id="_LrjoMISuEe6oWtQyg54a4A" name="SmartLampSE">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_LsZ8xISuEe6oWtQyg54a4A">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -28,6 +28,46 @@
         <ownedAttribute xmi:type="uml:Property" xmi:id="_GDZhUIS4Ee6oWtQyg54a4A" name="Devices" type="_CiY4sIS4Ee6oWtQyg54a4A"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_Vyw9MIS4Ee6oWtQyg54a4A" name="Controller" type="_Un4ecIS4Ee6oWtQyg54a4A"/>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_ocYjsIS4Ee6oWtQyg54a4A" name="HAL" type="_nMPxgIS4Ee6oWtQyg54a4A"/>
+        <ownedConnector xmi:type="uml:Connector" xmi:id="_J4-XUIYOEe6vC-aSU4cbkg" name="BindingConnector11">
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_J4_lcIYOEe6vC-aSU4cbkg" role="_tU2BEISwEe6oWtQyg54a4A"/>
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_J5AMgIYOEe6vC-aSU4cbkg" role="_ocYjsIS4Ee6oWtQyg54a4A"/>
+        </ownedConnector>
+        <ownedConnector xmi:type="uml:Connector" xmi:id="_K36EwIYOEe6vC-aSU4cbkg" name="BindingConnector12">
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_K37S4IYOEe6vC-aSU4cbkg" role="_UUgJEISwEe6oWtQyg54a4A"/>
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_K37S4YYOEe6vC-aSU4cbkg" role="_ocYjsIS4Ee6oWtQyg54a4A"/>
+        </ownedConnector>
+        <ownedConnector xmi:type="uml:Connector" xmi:id="_Lf1ncIYOEe6vC-aSU4cbkg" name="BindingConnector13">
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_Lf21kIYOEe6vC-aSU4cbkg" role="_FsCq4ISwEe6oWtQyg54a4A"/>
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_Lf21kYYOEe6vC-aSU4cbkg" role="_ocYjsIS4Ee6oWtQyg54a4A"/>
+        </ownedConnector>
+        <ownedConnector xmi:type="uml:Connector" xmi:id="_MDDpQIYOEe6vC-aSU4cbkg" name="BindingConnector14">
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_MDFecIYOEe6vC-aSU4cbkg" role="_bx_Y4ISxEe6oWtQyg54a4A"/>
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_MDGFgIYOEe6vC-aSU4cbkg" role="_ocYjsIS4Ee6oWtQyg54a4A"/>
+        </ownedConnector>
+        <ownedConnector xmi:type="uml:Connector" xmi:id="_Mvn0UIYOEe6vC-aSU4cbkg" name="BindingConnector15">
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_MvpCcIYOEe6vC-aSU4cbkg" role="_2fEKYISvEe6oWtQyg54a4A"/>
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_MvpCcYYOEe6vC-aSU4cbkg" role="_ocYjsIS4Ee6oWtQyg54a4A"/>
+        </ownedConnector>
+        <ownedConnector xmi:type="uml:Connector" xmi:id="_NZzZwIYOEe6vC-aSU4cbkg" name="BindingConnector16">
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_NZ0n4IYOEe6vC-aSU4cbkg" role="_2ZhjEISvEe6oWtQyg54a4A"/>
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_NZ0n4YYOEe6vC-aSU4cbkg" role="_ocYjsIS4Ee6oWtQyg54a4A"/>
+        </ownedConnector>
+        <ownedConnector xmi:type="uml:Connector" xmi:id="_N8SbwIYOEe6vC-aSU4cbkg" name="BindingConnector17">
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_N8TC0IYOEe6vC-aSU4cbkg" role="_v7g90ISvEe6oWtQyg54a4A"/>
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_N8TC0YYOEe6vC-aSU4cbkg" role="_ocYjsIS4Ee6oWtQyg54a4A"/>
+        </ownedConnector>
+        <ownedConnector xmi:type="uml:Connector" xmi:id="_ayXWUIYOEe6vC-aSU4cbkg" name="Connector18">
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_ayXWUYYOEe6vC-aSU4cbkg" role="_GDZhUIS4Ee6oWtQyg54a4A"/>
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_ayXWUoYOEe6vC-aSU4cbkg" role="_ocYjsIS4Ee6oWtQyg54a4A"/>
+        </ownedConnector>
+        <ownedConnector xmi:type="uml:Connector" xmi:id="_bQgq4IYOEe6vC-aSU4cbkg" name="Connector19">
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_bQhR8IYOEe6vC-aSU4cbkg" role="_GDZhUIS4Ee6oWtQyg54a4A"/>
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_bQhR8YYOEe6vC-aSU4cbkg" role="_Vyw9MIS4Ee6oWtQyg54a4A"/>
+        </ownedConnector>
+        <ownedConnector xmi:type="uml:Connector" xmi:id="_d2GNEIYOEe6vC-aSU4cbkg" name="BindingConnector20">
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_d2HbMIYOEe6vC-aSU4cbkg" role="_ocYjsIS4Ee6oWtQyg54a4A"/>
+          <end xmi:type="uml:ConnectorEnd" xmi:id="_d2HbMYYOEe6vC-aSU4cbkg" role="_Vyw9MIS4Ee6oWtQyg54a4A"/>
+        </ownedConnector>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_7vjpEISuEe6oWtQyg54a4A" name="Computadora">
         <ownedAttribute xmi:type="uml:Port" xmi:id="_rRLDsISxEe6oWtQyg54a4A" name="Terminal" type="_w6_oYISwEe6oWtQyg54a4A" aggregation="composite"/>
@@ -126,6 +166,73 @@
         <ownedEnd xmi:type="uml:Property" xmi:id="_y9PTU4S4Ee6oWtQyg54a4A" name="hal" type="_nMPxgIS4Ee6oWtQyg54a4A" aggregation="composite" association="_y9PTUIS4Ee6oWtQyg54a4A"/>
         <ownedEnd xmi:type="uml:Property" xmi:id="_y9P6YIS4Ee6oWtQyg54a4A" name="sistema de monitorización y actuación" type="_cVLF0ISuEe6oWtQyg54a4A" association="_y9PTUIS4Ee6oWtQyg54a4A"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:StateMachine" xmi:id="_Hng1kIYPEe6vC-aSU4cbkg" name="SM Controller">
+        <connectionPoint xmi:type="uml:Pseudostate" xmi:id="_PtxyEIYPEe6vC-aSU4cbkg" name="Program Init" kind="entryPoint"/>
+        <region xmi:type="uml:Region" xmi:id="_MAj5cIYPEe6vC-aSU4cbkg" name="Region1">
+          <transition xmi:type="uml:Transition" xmi:id="_tmWkUIYPEe6vC-aSU4cbkg" name="Program Starts" source="_PtxyEIYPEe6vC-aSU4cbkg" target="_l6NYAIYPEe6vC-aSU4cbkg"/>
+          <transition xmi:type="uml:Transition" xmi:id="_RQTp4IYREe6vC-aSU4cbkg" name="Peripheral Initialization Success" source="_l6NYAIYPEe6vC-aSU4cbkg" target="_i4v8sIYQEe6vC-aSU4cbkg"/>
+          <transition xmi:type="uml:Transition" xmi:id="_qMCusIYREe6vC-aSU4cbkg" name="Event Configuration Success" source="_i4v8sIYQEe6vC-aSU4cbkg" target="_khql0IYREe6vC-aSU4cbkg"/>
+          <transition xmi:type="uml:Transition" xmi:id="_Hn0QMIYSEe6vC-aSU4cbkg" name="10 Ms Interrupt" source="_khql0IYREe6vC-aSU4cbkg" target="_uKEDcIYREe6vC-aSU4cbkg"/>
+          <transition xmi:type="uml:Transition" xmi:id="_SMzR4IYSEe6vC-aSU4cbkg" name="Sound Data Read Success" source="_uKEDcIYREe6vC-aSU4cbkg" target="_khql0IYREe6vC-aSU4cbkg"/>
+          <transition xmi:type="uml:Transition" xmi:id="_XHuTwIYSEe6vC-aSU4cbkg" name="1000 Ms Interrupt" source="_khql0IYREe6vC-aSU4cbkg" target="_0RbDQIYREe6vC-aSU4cbkg"/>
+          <transition xmi:type="uml:Transition" xmi:id="_kE1DYIYSEe6vC-aSU4cbkg" name="Sound Data Send Success" source="_0RbDQIYREe6vC-aSU4cbkg" target="_khql0IYREe6vC-aSU4cbkg"/>
+          <transition xmi:type="uml:Transition" xmi:id="_miYq8IYSEe6vC-aSU4cbkg" name="5000 Ms Interrupt" source="_khql0IYREe6vC-aSU4cbkg" target="_-1ZYUIYREe6vC-aSU4cbkg"/>
+          <transition xmi:type="uml:Transition" xmi:id="_nPYT0IYSEe6vC-aSU4cbkg" name="Read and Send Environment Data Success" source="_-1ZYUIYREe6vC-aSU4cbkg" target="_khql0IYREe6vC-aSU4cbkg"/>
+          <transition xmi:type="uml:Transition" xmi:id="_pp8RwIYSEe6vC-aSU4cbkg" name="Read Environment Data Success" source="_-1ZYUIYREe6vC-aSU4cbkg" target="_ArCrUIYSEe6vC-aSU4cbkg"/>
+          <transition xmi:type="uml:Transition" xmi:id="_qckokIYSEe6vC-aSU4cbkg" name="Send Environment Data Success" source="_ArCrUIYSEe6vC-aSU4cbkg" target="_-1ZYUIYREe6vC-aSU4cbkg"/>
+          <subvertex xmi:type="uml:State" xmi:id="_l6NYAIYPEe6vC-aSU4cbkg" name="Peripheral Initialization">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_LfmaEIYSEe6vC-aSU4cbkg">
+              <body></body>
+            </ownedComment>
+            <entry xmi:type="uml:FunctionBehavior" xmi:id="_dUUq0IYQEe6vC-aSU4cbkg" name="Init Peripherals">
+              <language>C</language>
+              <body>init_i2c();
+init_spi();
+init_adc();
+init_uart();
+init_pwm();
+init_timing();
+</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_i4v8sIYQEe6vC-aSU4cbkg" name="Event Configuration">
+            <entry xmi:type="uml:FunctionBehavior" xmi:id="_Ek2q8IYREe6vC-aSU4cbkg" name="Setup Timing Events">
+              <language>C</language>
+              <body>set_tick_duration(256 - 250, PR1to8);              // Tick = 1.6us * 250 = 400us
+
+run_every_n_ticks(25, every_10ms);                 // Every 10ms   -> 25 ticks
+run_every_n_ticks(2500, every_1000ms);     // Every 1000ms -> 2500 ticks
+run_every_n_ticks(12500, every_5000ms);  // Every 5000ms -> 12500 ticks</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_khql0IYREe6vC-aSU4cbkg" name="Waiting">
+            <entry xmi:type="uml:FunctionBehavior" xmi:id="_9soukIYTEe6vC-aSU4cbkg" name="Wait">
+              <language>C</language>
+              <body>while(1);</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_uKEDcIYREe6vC-aSU4cbkg" name="Read Sound Data">
+            <entry xmi:type="uml:FunctionBehavior" xmi:id="_V2TdQIYUEe6vC-aSU4cbkg" name="Read Sound Data">
+              <language>C</language>
+              <body>sound_data_arr[next_sound_idx++] = read_sound_level();</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_0RbDQIYREe6vC-aSU4cbkg" name="Send Sound Data">
+            <entry xmi:type="uml:FunctionBehavior" xmi:id="_i-XfsIYUEe6vC-aSU4cbkg" name="Send Sound Data">
+              <language>C</language>
+              <body>next_sound_idx = 0;
+SoundLevel max_sound_level = max(sound_data_arr, SOUND_DATA_ARR_SIZE);
+send_uart_sound_data(max_sound_level);</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_-1ZYUIYREe6vC-aSU4cbkg" name="Read Environment Data"/>
+          <subvertex xmi:type="uml:State" xmi:id="_ArCrUIYSEe6vC-aSU4cbkg" name="Send Environment Data">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_Ozz80IYSEe6vC-aSU4cbkg">
+              <body></body>
+            </ownedComment>
+          </subvertex>
+        </region>
+      </packagedElement>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_LrxqoISuEe6oWtQyg54a4A">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Lrzf0ISuEe6oWtQyg54a4A" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -187,6 +294,12 @@
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
     </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_ohMBUIYPEe6vC-aSU4cbkg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ohNPcIYPEe6vC-aSU4cbkg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+    </profileApplication>
   </uml:Model>
   <Blocks:Block xmi:id="_T8BCgISuEe6oWtQyg54a4A" base_Class="_T79_MISuEe6oWtQyg54a4A"/>
   <Blocks:Block xmi:id="_cR0P0ISuEe6oWtQyg54a4A" base_Class="_cRzowISuEe6oWtQyg54a4A"/>
@@ -224,4 +337,14 @@
   <Blocks:Block xmi:id="_CiaG0IS4Ee6oWtQyg54a4A" base_Class="_CiY4sIS4Ee6oWtQyg54a4A"/>
   <Blocks:Block xmi:id="_Un6ToIS4Ee6oWtQyg54a4A" base_Class="_Un4ecIS4Ee6oWtQyg54a4A"/>
   <Blocks:Block xmi:id="_nMQ_oIS4Ee6oWtQyg54a4A" base_Class="_nMPxgIS4Ee6oWtQyg54a4A"/>
+  <Blocks:BindingConnector xmi:id="_J5AMgYYOEe6vC-aSU4cbkg" base_Connector="_J4-XUIYOEe6vC-aSU4cbkg"/>
+  <Blocks:BindingConnector xmi:id="_K37S4oYOEe6vC-aSU4cbkg" base_Connector="_K36EwIYOEe6vC-aSU4cbkg"/>
+  <Blocks:BindingConnector xmi:id="_Lf21koYOEe6vC-aSU4cbkg" base_Connector="_Lf1ncIYOEe6vC-aSU4cbkg"/>
+  <Blocks:BindingConnector xmi:id="_MDGFgYYOEe6vC-aSU4cbkg" base_Connector="_MDDpQIYOEe6vC-aSU4cbkg"/>
+  <Blocks:BindingConnector xmi:id="_MvpCcoYOEe6vC-aSU4cbkg" base_Connector="_Mvn0UIYOEe6vC-aSU4cbkg"/>
+  <Blocks:BindingConnector xmi:id="_NZ0n4oYOEe6vC-aSU4cbkg" base_Connector="_NZzZwIYOEe6vC-aSU4cbkg"/>
+  <Blocks:BindingConnector xmi:id="_N8Tp4IYOEe6vC-aSU4cbkg" base_Connector="_N8SbwIYOEe6vC-aSU4cbkg"/>
+  <Blocks:BindingConnector xmi:id="_d2HbMoYOEe6vC-aSU4cbkg" base_Connector="_d2GNEIYOEe6vC-aSU4cbkg"/>
+  <ActionLanguage:TextualRepresentation xmi:id="_LfnoMIYSEe6vC-aSU4cbkg" base_Comment="_LfmaEIYSEe6vC-aSU4cbkg" language="org.eclipse.papyrus.uml.textedit.state.xtext.UmlState"/>
+  <ActionLanguage:TextualRepresentation xmi:id="_Oz0j4IYSEe6vC-aSU4cbkg" base_Comment="_Ozz80IYSEe6vC-aSU4cbkg" language="org.eclipse.papyrus.uml.textedit.state.xtext.UmlState"/>
 </xmi:XMI>
