@@ -1,8 +1,8 @@
 #ifndef UART_H
 #define UART_H
 
-#include <stdint.h>
 #include <stdbool.h>
+#include <stdint.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -14,6 +14,12 @@ extern "C" {
  * @warning Must be called before any other UART function.
  */
 void init_uart();
+
+/**
+ * UART set baud rate.
+ * @brief Sets the UART module's baud rate to according to the following equation [baud_rate = FOSC / (64 * (spbrg + 1))].
+ */
+void set_uart_baud_rate(uint16_t spbrg);
 
 /**
  * Send byte over UART.
@@ -34,6 +40,12 @@ bool uart_input_data_ready();
  * @return The first byte from the UART input queue.
  */
 uint8_t read_uart_byte();
+
+/**
+ * Send a char over UART.
+ * @brief Sends a char over UART. Used for stdio compatibility.
+ */
+void putch(char txData);
 
 #ifdef __cplusplus
 }

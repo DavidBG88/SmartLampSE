@@ -11,6 +11,7 @@
 #include "adc.h"
 #include "pwm.h"
 #include "timing.h"
+#include "uart.h"
 
 uint8_t debug_10ms = 0;
 uint8_t debug_1000ms = 0;
@@ -45,6 +46,13 @@ int main() {
 
     init_adc();
     adc = read_adc_0();
+
+    init_uart();
+    set_uart_baud_rate(32);  // 9600 bauds / sec
+    send_uart_byte('A');
+    send_uart_byte('B');
+    send_uart_byte('C');
+    send_uart_byte('\n');
 
     while (1) {}
 
