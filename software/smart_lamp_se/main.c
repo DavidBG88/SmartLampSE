@@ -8,12 +8,14 @@
 #include <stdio.h>
 #include <xc.h>
 
+#include "adc.h"
 #include "pwm.h"
 #include "timing.h"
 
 uint8_t debug_10ms = 0;
 uint8_t debug_1000ms = 0;
 uint8_t debug_5000ms = 0;
+uint16_t adc = 0;
 
 void every_10ms() {
     debug_10ms = !debug_10ms;
@@ -36,14 +38,15 @@ int main() {
     set_pwm_period(255, 0);
     set_pwm_duty_cycle(get_max_pwm_duty_cycle() / 2);
 
-    init_timing();
     set_tick_duration(256 - 250, PR1to8);    // Tick = 1.6us * 250 = 400us
     run_every_n_ticks(25, every_10ms);       // Every 10ms   -> 25 ticks
     run_every_n_ticks(2500, every_1000ms);   // Every 1000ms -> 2500 ticks
     run_every_n_ticks(12500, every_5000ms);  // Every 5000ms -> 12500 ticks
 
-    while (1)
-        ;
+    init_adc();
+    adc = read_adc_0();
+
+    while (1) {}
 
     return (EXIT_SUCCESS);
 }
@@ -51,7 +54,5 @@ int main() {
 void __interrupt() interrupt_handler() {
     if (PIR1bits.TMR2IF) {
         pwm_tmr2_interrupt_handler();
-    } else if (INTCONbits.T0IF) {
-        timing_tmr0_interrupt_handler();
     }
 }
