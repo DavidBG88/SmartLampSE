@@ -21,7 +21,7 @@ inline uint16_t read_adc(uint8_t channel) {
 
     while (ADCON0bits.nDONE) {}  // Only waits 11 cycles
 
-    return (ADRESH << 8) | ADRESL;
+    return ((uint16_t) ADRESH << 8) | ADRESL;
 }
 
 uint16_t read_adc_0() {
