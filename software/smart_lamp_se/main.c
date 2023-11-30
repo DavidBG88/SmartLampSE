@@ -24,6 +24,7 @@ void every_10ms() {
 
 void every_1000ms() {
     debug_1000ms = !debug_1000ms;
+    //uart_puts("ABC\n");
 }
 
 void every_5000ms() {
@@ -39,6 +40,7 @@ int main() {
     set_pwm_period(255, 0);
     set_pwm_duty_cycle(get_max_pwm_duty_cycle() / 2);
 
+    init_timing();
     set_tick_duration(256 - 250, PR1to8);    // Tick = 1.6us * 250 = 400us
     run_every_n_ticks(25, every_10ms);       // Every 10ms   -> 25 ticks
     run_every_n_ticks(2500, every_1000ms);   // Every 1000ms -> 2500 ticks
@@ -47,20 +49,33 @@ int main() {
     init_adc();
     adc = read_adc_0();
 
-    init_uart();
-    set_uart_baud_rate(32);  // 9600 bauds / sec
-    send_uart_byte('A');
-    send_uart_byte('B');
-    send_uart_byte('C');
-    send_uart_byte('\n');
+    PIE1bits.RCIE = 1;  // Disable RX interrupt
 
-    while (1) {}
+    uart_init();
+    uart_set_baud_rate(32);  // 9600 bauds / sec
+    uart_puts("ABC\n");
+
+    while (1) {
+        //SLEEP();
+        //NOP();
+    }
 
     return (EXIT_SUCCESS);
 }
 
 void __interrupt() interrupt_handler() {
-    if (PIR1bits.TMR2IF) {
+    if (PIR1bits.RCIF) {
+        uint8_t i = 0;
+        uint8_t input_data[32];
+        while (i < 32 && uart_read_available())
+            input_data[i++] = uart_read_byte();
+
+        uart_write_data(input_data, i);
+
+        PIR1bits.RCIF = 0;
+    } else if (PIR1bits.TMR2IF) {
         pwm_tmr2_interrupt_handler();
+    } else if (INTCONbits.T0IF) {
+        timing_tmr0_interrupt_handler();
     }
 }

@@ -2,44 +2,81 @@
 
 #include <xc.h>
 
-void init_uart() {
+inline void enable_transmission() {
+    TXSTAbits.TXEN = 1;
+}
+
+inline void disable_transmision() {
+    TXSTAbits.TXEN = 0;
+}
+
+// To call raw_write_byte, tansmission must be enabled
+inline void raw_write_byte(uint8_t byte) {
+    while (!PIR1bits.TXIF) {}  // Simulator
+    // while (!TXSTAbits.TRMT) {} // Hardware
+    TXREG = byte;
+}
+
+void uart_init() {
     // Set 8 bit asynchronous
     TXSTAbits.BRGH = 0;
     BAUDCTLbits.BRG16 = 0;
     // Baud Rate = FOSC / (64 (spbrg + 1))
 
     TXSTAbits.SYNC = 0;  // Asynchronous
-    TXSTAbits.TX9 = 0;   // TX 8 data bit
-    RCSTAbits.RX9 = 0;   // TX 8 data bit
-
-    PIE1bits.TXIE = 0;  // Disable TX interrupt
-    PIE1bits.RCIE = 0;  // Disable RX interrupt
-
     RCSTAbits.SPEN = 1;  // Serial port enable
 
-    TXSTAbits.TXEN = 0;  // Reset transmitter
-    TXSTAbits.TXEN = 1;  // Enable transmitter
+    TXSTAbits.TX9 = 0;  // TX 8 data bit
+    RCSTAbits.RX9 = 0;  // RX 8 data bit
+
+    uart_enable_reception();
 }
 
-void set_uart_baud_rate(uint16_t spbrg) {
+void uart_set_baud_rate(uint16_t spbrg) {
     SPBRG = (uint8_t)spbrg;
     SPBRGH = (uint8_t)(spbrg >> 8);
 }
 
-void send_uart_byte(uint8_t byte) {
-    while (!PIR1bits.TXIF) {}  // Simulator
-    // while (!TXSTAbits.TRMT) {} // Hardware
-    TXREG = byte;
+void uart_write_byte(uint8_t byte) {
+    enable_transmission();
+
+    raw_write_byte(byte);
+
+    disable_transmision();
 }
 
-bool uart_input_data_ready() {
-    return false;
+void uart_write_data(const uint8_t* data, size_t length) {
+    enable_transmission();
+
+    const uint8_t* last_byte_ptr = data + length;
+    for (const uint8_t* byte_ptr = data; byte_ptr < last_byte_ptr; ++byte_ptr)
+        raw_write_byte(*byte_ptr);
+
+    disable_transmision();
 }
 
-uint8_t read_uart_byte() {
-    return 0;
+void uart_puts(const char* str) {
+    enable_transmission();
+
+    for (const char* char_ptr = str; *char_ptr != '\0'; ++char_ptr)
+        raw_write_byte(*char_ptr);
+
+    disable_transmision();
 }
 
-void putch(char txData) {
-    send_uart_byte((char)txData);
+void uart_enable_reception() {
+    RCSTAbits.CREN = 1;
+}
+
+void uart_disable_reception() {
+    RCSTAbits.CREN = 0;
+}
+
+bool uart_read_available() {
+    return PIR1bits.RCIF;
+}
+
+uint8_t uart_read_byte() {
+    while (!PIR1bits.RCIF) {}
+    return RCREG;
 }
