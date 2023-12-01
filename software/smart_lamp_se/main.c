@@ -6,10 +6,10 @@
 #define _XTAL_FREQ 20000000  // necessary for __delay_us
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <xc.h>
 
 #include "adc.h"
-#include "command.h"
 #include "pwm.h"
 #include "timing.h"
 #include "uart.h"
@@ -26,26 +26,63 @@ void every_10ms() {
 void every_1000ms() {
     debug_1000ms = !debug_1000ms;
 
-    char int_buff[32];
+    char message[16];
 
-    itoa(read_adc_0(), int_buff, 10);
-    uart_puts("ADC 0: ");
-    uart_puts(int_buff);
-    uart_puts("\r\n");
+    sprintf(message, "ADC 0: %d\r\n", read_adc_0());
+    uart_puts(message);
 
-    itoa(read_adc_1(), int_buff, 10);
-    uart_puts("ADC 1: ");
-    uart_puts(int_buff);
-    uart_puts("\r\n");
+    sprintf(message, "ADC 1: %d\r\n", read_adc_1());
+    uart_puts(message);
 
-    itoa(read_adc_2(), int_buff, 10);
-    uart_puts("ADC 2: ");
-    uart_puts(int_buff);
-    uart_puts("\r\n");
+    sprintf(message, "ADC 2: %d\r\n", read_adc_2());
+    uart_puts(message);
 }
 
 void every_5000ms() {
     debug_5000ms = !debug_5000ms;
+}
+
+void update_light(uint8_t r, uint8_t g, uint8_t b) {
+    char message[16];
+    sprintf(message, "LIGHT: (%d, %d, %d)\r\n", r, g, b);
+    uart_puts(message);
+}
+
+void update_fan_speed(uint8_t speed) {
+    char message[16];
+    sprintf(message, "FAN SPEED: %d\r\n", speed);
+    uart_puts(message);
+}
+
+void report_invalid_command(uint8_t command) {}
+
+void match_incomming_uart_command() {
+    /*
+    | Dato       | Codigo | Tipo                        |
+    | ---------- | ------ | --------------------------- |
+    | Luz        | 0      | (uint8_t, uint8_t, uint8_t) |
+    | Ventilador | 1      | float                       |
+    */
+
+    uint8_t command = uart_read_byte();
+
+    switch (command) {
+        case 0: {  // Light
+            uint8_t rgb[3];
+            uart_read_n_bytes(sizeof(rgb), rgb);
+            update_light(rgb[0], rgb[1], rgb[2]);
+            break;
+        }
+        case 1: {  // Fan speed
+            uint8_t speed;
+            uart_read_n_bytes(sizeof(speed), &speed);
+            update_fan_speed(speed);
+            break;
+        }
+        default:
+            report_invalid_command(command);
+            break;
+    }
 }
 
 int main() {
@@ -87,13 +124,15 @@ int main() {
 
 void __interrupt() interrupt_handler() {
     if (PIR1bits.RCIF) {
-        uint8_t i = 0;
-        uint8_t input_data[32];
-        while (i < 32 && uart_read_available())
-            input_data[i++] = uart_read_byte();
+        /* ECHO BACK UART FOR TESTING
+        uint8_t input_byte = uart_read_byte();
 
-        uart_write_data(input_data, i);
+        char output[8];
+        sprintf(output, "%d", input_byte);
+        uart_puts(output);
+        */
 
+        match_incomming_uart_command();
         PIR1bits.RCIF = 0;
     } else if (PIR1bits.TMR2IF) {
         pwm_tmr2_interrupt_handler();
