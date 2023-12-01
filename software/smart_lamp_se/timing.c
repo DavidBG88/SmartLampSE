@@ -35,8 +35,6 @@ void timing_tmr0_interrupt_handler() {
             tf->ticks_left = tf->ticks;
         }
     }
-
-    INTCONbits.T0IF = 0;
 }
 
 void set_tick_duration(uint8_t tmr0, TMR0Prescaler pr) {
