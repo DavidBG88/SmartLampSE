@@ -10,6 +10,8 @@
 
 #include <xc.h>
 #include <stdio.h>
+#include <i2c-v2.h>
+#include <uart.h>
 
 void init_portB() {
     TRISBbits.TRISB0 = 0; // Configure port RB0 as output
@@ -77,10 +79,26 @@ void every_500ms() {
 void main() {
     OSCCON = 0b00001000; // External cristal
 
-    init_adc();
+    /*
+     * init_adc();
     init_uart();
     init_tmr0_5ms();
     init_portB();
+    */
+    char ack;
+    char dato, dato2, daton;
+    
+    i2c_start();
+    ack = i2c_write(0x81);
+    ack = 1;
+    dato = i2c_read(ack);
+    uart_puts(dato);
+    dato2 = i2c_read(ack);
+    uart_puts(dato2);
+    ack = 0;
+    daton = i2c_read(ack);
+    uart_puts(daton);
+    i2c_stop();
 
     while(1);
 }
@@ -110,38 +128,4 @@ void putch(char data) {
   while(!TXSTAbits.TRMT); // Para el microchip
   TXREG = data;
 }
-
-/*
-    Test I2C
-
-    void init_portC() {
-    TRISCbits.TRISC4 = 1; // Configure port RC4 (SDA) as input
-    TRISCbits.TRISC3 = 1; // Configure port RC3 (SCL) as input
-    }
-    
-    SSPCONbits.SSPEN = 1; // 
-    SSPCONbits.SSPM = ;
-        NOTA:
-        SSPM<3:0>: Synchronous Serial Port Mode Select bits
-        0000 = SPI Master mode, clock = FOSC/4
-        0001 = SPI Master mode, clock = FOSC/16
-        0010 = SPI Master mode, clock = FOSC/64
-        
-        The following events will cause SSP Interrupt Flag bit,
-        SSPIF, to be set (SSP Interrupt if enabled):
-            ? Start condition
-            ? Stop condition
-            ? Data transfer byte transmitted/received
-            ? Acknowledge transmit
-            ? Repeated Start condition
-    
-    
-    void main{
-        i2c_start();
-        ack = i2c_write(0x80);
-        ack = i2c_write(dato);
-        ack = i2c_write(daton);
-        i2c_stop();
-    }
-/*
  
