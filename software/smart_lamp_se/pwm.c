@@ -31,7 +31,6 @@ void init_pwm() {
 void pwm_tmr2_interrupt_handler() {
     TRISCbits.TRISC2 = 0;  // Enable CCP1 PWM output
     PIE1bits.TMR2IE = 0;   // Disable Timer2 interrupts
-    PIR1bits.TMR2IF = 0;   // Clear Timer2 interrupt flag
 }
 
 void set_pwm_period(uint8_t pr2, uint8_t tmr2ckps) {
