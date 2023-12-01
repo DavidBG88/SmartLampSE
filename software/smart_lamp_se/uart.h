@@ -66,6 +66,12 @@ bool uart_read_available();
  */
 uint8_t uart_read_byte();
 
+/**
+ * Read the next n bytes from the UART input queue.
+ * @brief Reads the next n bytes from the UART interface and stores them in `bytes`.
+ */
+void uart_read_n_bytes(uint8_t byte_num, uint8_t* bytes);
+
 #ifdef __cplusplus
 }
 #endif

@@ -34,6 +34,8 @@ void uart_init() {
     TXSTAbits.TX9 = 0;  // TX 8 data bit
     RCSTAbits.RX9 = 0;  // RX 8 data bit
 
+    RCSTAbits.OERR = 0;  // Can't receive if overrun error flag is set
+
     uart_enable_reception();
 }
 
@@ -84,4 +86,9 @@ bool uart_read_available() {
 uint8_t uart_read_byte() {
     while (!PIR1bits.RCIF) {}
     return RCREG;
+}
+
+void uart_read_n_bytes(uint8_t byte_num, uint8_t* bytes) {
+    for (uint8_t i = 0; i < byte_num; ++i)
+        bytes[i] = uart_read_byte();
 }
