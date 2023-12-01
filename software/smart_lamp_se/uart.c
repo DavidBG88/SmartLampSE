@@ -2,18 +2,23 @@
 
 #include <xc.h>
 
+inline void wait_until_write_finished() {
+    //while (!PIR1bits.TXIF) {}  // Simulator
+    while (!TXSTAbits.TRMT) {}  // Hardware
+}
+
 inline void enable_transmission() {
     TXSTAbits.TXEN = 1;
 }
 
 inline void disable_transmision() {
+    wait_until_write_finished();
     TXSTAbits.TXEN = 0;
 }
 
 // To call raw_write_byte, tansmission must be enabled
 inline void raw_write_byte(uint8_t byte) {
-    while (!PIR1bits.TXIF) {}  // Simulator
-    // while (!TXSTAbits.TRMT) {} // Hardware
+    wait_until_write_finished();
     TXREG = byte;
 }
 
