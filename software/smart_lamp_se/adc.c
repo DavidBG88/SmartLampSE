@@ -2,7 +2,7 @@
 
 #include <xc.h>
 
-void ADC_read(void) {
+void ADC_init(void) {
     ADCON0bits.ADCS = 0b10;  // ADCS = 1.6 us at 20 MHz
     ADCON1bits.ADFM = 1;     // Justify right
     ADCON1bits.VCFG0 = 0;    // AVdd
