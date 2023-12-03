@@ -2,23 +2,23 @@
 
 #include "spi.h"
 
-static uint8_t num_leds;
+uint8_t num_leds;
 
-static void send_start_frame(void) {
+void send_start_frame(void) {
     spi_write_read(0);
     spi_write_read(0);
     spi_write_read(0);
     spi_write_read(0);
 }
 
-static void send_end_frame(void) {
+void send_end_frame(void) {
     spi_write_read(1);
     spi_write_read(1);
     spi_write_read(1);
     spi_write_read(1);
 }
 
-static void send_color_frame(uint8_t power, uint8_t r, uint8_t g, uint8_t b) {
+void send_color_frame(uint8_t power, uint8_t r, uint8_t g, uint8_t b) {
     spi_write_read(0b11100000 | power);
     spi_write_read(b);
     spi_write_read(g);
