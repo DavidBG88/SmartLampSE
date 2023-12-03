@@ -8,6 +8,10 @@
       <itemPath>pwm.h</itemPath>
       <itemPath>timing.h</itemPath>
       <itemPath>uart.h</itemPath>
+      <itemPath>APA102.h</itemPath>
+      <itemPath>i2c.h</itemPath>
+      <itemPath>iAQ-Core.h</itemPath>
+      <itemPath>spi.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -21,6 +25,10 @@
       <itemPath>timing.c</itemPath>
       <itemPath>adc.c</itemPath>
       <itemPath>uart.c</itemPath>
+      <itemPath>APA102.c</itemPath>
+      <itemPath>i2c.c</itemPath>
+      <itemPath>iAQ-Core.c</itemPath>
+      <itemPath>spi.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
