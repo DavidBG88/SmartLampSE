@@ -17,12 +17,12 @@ static TimingFunction timing_functions[MAX_TIMING_FUNCTIONS];
 static uint8_t tmr0_conf = 0;
 static uint8_t pr_bits_conf = 0;
 
-void init_timing() {
+void init_timing(void) {
     OPTION_REGbits.T0CS = 0;
     INTCONbits.T0IF = 0;
 }
 
-void timing_tmr0_interrupt_handler() {
+void timing_tmr0_interrupt_handler(void) {
     TMR0 = tmr0_conf;
 
     for (uint8_t i = 0; i < next_func_idx; ++i) {

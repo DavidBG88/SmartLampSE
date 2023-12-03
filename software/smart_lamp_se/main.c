@@ -12,6 +12,7 @@
 
 #include "APA102.h"
 #include "adc.h"
+#include "eeprom.h"
 #include "iAQCore.h"
 #include "pwm.h"
 #include "timing.h"
@@ -24,11 +25,11 @@ uint8_t debug_1000ms = 0;
 uint8_t debug_5000ms = 0;
 uint16_t adc = 0;
 
-void every_10ms() {
+void every_10ms(void) {
     debug_10ms = !debug_10ms;
 }
 
-void every_1000ms() {
+void every_1000ms(void) {
     debug_1000ms = !debug_1000ms;
 
     char message[16];
@@ -43,7 +44,7 @@ void every_1000ms() {
     uart_puts(message);
 }
 
-void every_5000ms() {
+void every_5000ms(void) {
     debug_5000ms = !debug_5000ms;
 }
 
@@ -71,7 +72,7 @@ void report_invalid_command(uint8_t command) {
     // NO INVALID COMMAND REPORT PROTOCOL SPECIFIED
 }
 
-void match_incomming_uart_command() {
+void match_incomming_uart_command(void) {
     /*
     | Dato       | Codigo | Tipo                                 |
     | ---------- | ------ | ------------------------------------ |
@@ -100,7 +101,7 @@ void match_incomming_uart_command() {
     }
 }
 
-int main() {
+int main(void) {
     // Enable interrupts
     INTCONbits.GIE = 1;   // Enable interrupts
     INTCONbits.PEIE = 1;  // Enable peripheral interrupts
@@ -142,7 +143,7 @@ int main() {
     return (EXIT_SUCCESS);
 }
 
-void __interrupt() interrupt_handler() {
+void __interrupt() interrupt_handler(void) {
     if (PIR1bits.RCIF) {
         /* ECHO BACK UART FOR TESTING
         uint8_t input_byte = uart_read_byte();

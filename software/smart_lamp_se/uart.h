@@ -14,7 +14,7 @@ extern "C" {
  * @brief Initializes the UART module.
  * @warning Must be called before any other UART function.
  */
-void uart_init();
+void uart_init(void);
 
 /**
  * UART set baud rate.
@@ -44,27 +44,27 @@ void uart_puts(const char* str);
  * Enable UART reception.
  * @brief Enables UART reception. It is enabled by default, but can be disabled with `uart_disable_recpetion`.
  */
-void uart_enable_reception();
+void uart_enable_reception(void);
 
 /**
  * Disable UART reception.
  * @brief Disables UART reception.
  */
-void uart_disable_reception();
+void uart_disable_reception(void);
 
 /**
  * Check if the input UART queue is not empty.
  * @brief Returns true if the UART queue is not empty.
  * @return True if the UART queue is not empty.
  */
-bool uart_read_available();
+bool uart_read_available(void);
 
 /**
  * Read a byte from the UART input queue.
  * @brief Reads a byte from the UART input queue.
  * @return The first byte from the UART input queue.
  */
-uint8_t uart_read_byte();
+uint8_t uart_read_byte(void);
 
 /**
  * Read the next n bytes from the UART input queue.

@@ -4,14 +4,14 @@
 
 static uint8_t num_leds;
 
-static void send_start_frame() {
+static void send_start_frame(void) {
     spi_write_read(0);
     spi_write_read(0);
     spi_write_read(0);
     spi_write_read(0);
 }
 
-static void send_end_frame() {
+static void send_end_frame(void) {
     spi_write_read(1);
     spi_write_read(1);
     spi_write_read(1);

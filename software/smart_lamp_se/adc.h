@@ -14,7 +14,7 @@ typedef enum ADCPin { ADC0 = 8, ADC1 = 10, ADC2 = 12 } ADCPin;
  * @brief Initializes the ADC module.
  * @warning Must be called before any other ADC function.
  */
-void init_adc();
+void init_adc(void);
 
 /**
  * Read ADC pin 

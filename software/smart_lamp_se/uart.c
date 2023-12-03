@@ -2,12 +2,12 @@
 
 #include <xc.h>
 
-static inline void wait_until_write_finished() {
+static inline void wait_until_write_finished(void) {
     //while (!PIR1bits.TXIF) {}  // Simulator
     while (!TXSTAbits.TRMT) {}  // Hardware
 }
 
-void uart_init() {
+void uart_init(void) {
     // Set 8 bit asynchronous
     TXSTAbits.BRGH = 0;
     BAUDCTLbits.BRG16 = 0;
@@ -46,11 +46,11 @@ void uart_puts(const char* str) {
         uart_write_byte(*char_ptr);
 }
 
-bool uart_read_available() {
+bool uart_read_available(void) {
     return PIR1bits.RCIF;
 }
 
-uint8_t uart_read_byte() {
+uint8_t uart_read_byte(void) {
     while (!uart_read_available()) {}
     return RCREG;
 }

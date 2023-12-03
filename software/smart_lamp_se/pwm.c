@@ -2,7 +2,7 @@
 
 #include <xc.h>
 
-void init_pwm() {
+void init_pwm(void) {
     TRISCbits.TRISC2 = 1;        // Disable CCP1 PWM output
     T2CONbits.TMR2ON = 0;        // Disable Timer2
     CCP1CONbits.CCP1M = 0b1100;  // Set CCP1 to PWM mode
@@ -28,7 +28,7 @@ void init_pwm() {
     T2CONbits.TMR2ON = 1;  // Enable Timer2
 }
 
-void pwm_tmr2_interrupt_handler() {
+void pwm_tmr2_interrupt_handler(void) {
     TRISCbits.TRISC2 = 0;  // Enable CCP1 PWM output
     PIE1bits.TMR2IE = 0;   // Disable Timer2 interrupts
 }
@@ -44,7 +44,7 @@ void set_pwm_duty_cycle(uint16_t duty_cycle) {
     CCP1CONbits.DC1B0 = duty_cycle & (1 << 0);
 }
 
-uint16_t get_max_pwm_duty_cycle() {
+uint16_t get_max_pwm_duty_cycle(void) {
     // Equation 13-3 from the datasheet
     // DCR = conf_value / (4 * (PR2 + 1))
     // 1 = conf_value / (4 * (PR2 + 1))

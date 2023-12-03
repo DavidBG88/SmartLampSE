@@ -19,7 +19,7 @@ uint8_t spi_write_read(uint8_t one_byte) {
         spi_clk = 0;
         //__delay_us(10);
         if (x > 1)
-            answer = answer << 1;
+            answer = (uint8_t)(answer << 1);
     }
 
     return answer;

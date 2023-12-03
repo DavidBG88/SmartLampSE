@@ -27,7 +27,7 @@ typedef enum TMR0Prescaler {
  * @warning General Interrupt Enable flag must be enabled (INTCONbits.GIE = 1).
  * @warning Timer0 INterrupt Enable flag must be enabled (INTCONbits.T0IE = 1).
  */
-void init_timing();
+void init_timing(void);
 
 /**
  * Timing timer0 interrupt handler.
@@ -35,7 +35,7 @@ void init_timing();
  * @warning Must be added to the interrupt handler and called when the Timer0 interrupt flag is raised.
  * @warning General Interrupt Enable flag must be enabled.
  */
-void timing_tmr0_interrupt_handler();
+void timing_tmr0_interrupt_handler(void);
 
 /**
  * Set the Timing module's tick duration.
