@@ -111,7 +111,7 @@ int main(void) {
     ADC_init();
 
     // Initialize iAQCore sensor
-    iAQCore_init();
+    IAQCORE_init();
 
     // Initialize APA102 light strip
     APA102_init(NUM_LEDS);

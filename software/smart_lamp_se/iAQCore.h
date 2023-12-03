@@ -7,16 +7,16 @@
 extern "C" {
 #endif
 
-typedef struct iAQCore_Reading {
+typedef struct IAQCORE_Reading {
     uint8_t status;
     uint16_t eco2_ppm;
     uint16_t etvoc_ppb;
     uint32_t resistance;
-} iAQCore_Reading;
+} IAQCORE_Reading;
 
-void iAQCore_init(void);
+void IAQCORE_init(void);
 
-iAQCore_Reading iAQCore_read(void);
+IAQCORE_Reading IAQCORE_read(void);
 
 #ifdef __cplusplus
 }
