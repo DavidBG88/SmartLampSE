@@ -14,7 +14,7 @@ void wait_MSSP(void) {
     return;
 }
 
-void i2c_init(void) {
+void I2C_init(void) {
     SSPCONbits.SSPM = 0b1000;  // Set MSSP to I2C master mode
 
     // Clock = FOSC / (4 * (SSPADD + 1))
@@ -30,26 +30,26 @@ void i2c_init(void) {
     SSPCONbits.SSPEN = 1;  // Enable MSSP
 }
 
-void i2c_start(void) {
+void I2C_start(void) {
     SSPCON2bits.SEN = 1;
     wait_MSSP();  //Wait to complete
     return;
 }
 
-void i2c_stop(void) {
+void I2C_stop(void) {
     SSPCON2bits.PEN = 1;
     wait_MSSP();  //Wait to complete
     return;
 }
 
-void i2c_rstart(void) {
+void I2C_restart(void) {
     SSPCON2bits.RSEN = 1;
     wait_MSSP();  //Wait to complete
     return;
 }
 
-uint8_t i2c_write(uint8_t I2C_data) {
-    SSPBUF = I2C_data;
+uint8_t I2C_write(uint8_t byte) {
+    SSPBUF = byte;
     wait_MSSP();                             //Wait to complete
     return ((uint8_t)!SSPCON2bits.ACKSTAT);  //Returns 1 if byte is acknowledge
 }
@@ -57,13 +57,13 @@ uint8_t i2c_write(uint8_t I2C_data) {
 // master_ack = 1 => acknowledge. master_ack = 0 => not acknowledge
 // Master must start (or restart) comunications first and send
 // address with the lower bit set.
-uint8_t i2c_read(uint8_t master_ack) {
-    uint8_t I2C_data;
+uint8_t I2C_read(uint8_t master_ack) {
+    uint8_t byte;
 
     SSPCON2bits.RCEN = 1;
     wait_MSSP();  // Wait for data
 
-    I2C_data = SSPBUF;  // It is necessary to read the buffer for SCL progress
+    byte = SSPBUF;  // It is necessary to read the buffer for SCL progress
 
     if (master_ack)
         SSPCON2bits.ACKDT = 0;
@@ -72,15 +72,15 @@ uint8_t i2c_read(uint8_t master_ack) {
 
     SSPCON2bits.ACKEN = 1;
     wait_MSSP();
-    return (I2C_data);
+    return (byte);
 }
 
-uint8_t i2c_write_address(uint8_t address, uint8_t read_write_bit) {
-    return i2c_write((uint8_t)(address << 1) | (read_write_bit & 0b1));
+uint8_t I2C_write_address(uint8_t address, uint8_t read_write_bit) {
+    return I2C_write((uint8_t)(address << 1) | (read_write_bit & 0b1));
 }
 
-void i2c_read_n_bytes(uint8_t* bytes, uint8_t num_bytes) {
+void I2C_read_n_bytes(uint8_t* bytes, uint8_t num_bytes) {
     for (uint8_t i = 0; i < num_bytes; ++i) {
-        bytes[i] = i2c_read(I2C_ACK_OK_BIT);
+        bytes[i] = I2C_read(I2C_ACK_OK_BIT);
     }
 }
