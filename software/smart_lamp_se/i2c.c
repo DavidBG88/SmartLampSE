@@ -41,7 +41,7 @@ uint8_t i2c_write(uint8_t I2C_data) {
 // master_ack = 1 => acknowledge. master_ack = 0 => not acknowledge
 // Master must start (or restart) comunications first and send
 // address with the lower bit set.
-uint8_t i2c_read(uint_t master_ack) {
+uint8_t i2c_read(uint8_t master_ack) {
     uint8_t I2C_data;
 
     SSPCON2bits.RCEN = 1;
@@ -60,7 +60,7 @@ uint8_t i2c_read(uint_t master_ack) {
 }
 
 uint8_t i2c_write_address(uint8_t address, uint8_t read_write_bit) {
-    i2c_write(address << 1 | (read_write_bit & 1));
+    return i2c_write((uint8_t)(address << 1) | (read_write_bit & 0b1));
 }
 
 void i2c_read_n_bytes(uint8_t* bytes, uint8_t num_bytes) {
