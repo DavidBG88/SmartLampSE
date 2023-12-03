@@ -14,6 +14,6 @@
 #define spi_dat_out PORTBbits.RB5
 #define spi_dat_in PORTBbits.RB6
 
-uint8_t spi_write_read(uint8_t one_byte);
+uint8_t SPI_write_read(uint8_t byte);
 
 #endif  // SPI_H

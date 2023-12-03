@@ -5,24 +5,24 @@
 uint8_t num_leds;
 
 void send_start_frame(void) {
-    spi_write_read(0);
-    spi_write_read(0);
-    spi_write_read(0);
-    spi_write_read(0);
+    SPI_write_read(0);
+    SPI_write_read(0);
+    SPI_write_read(0);
+    SPI_write_read(0);
 }
 
 void send_end_frame(void) {
-    spi_write_read(1);
-    spi_write_read(1);
-    spi_write_read(1);
-    spi_write_read(1);
+    SPI_write_read(1);
+    SPI_write_read(1);
+    SPI_write_read(1);
+    SPI_write_read(1);
 }
 
 void send_color_frame(uint8_t power, uint8_t r, uint8_t g, uint8_t b) {
-    spi_write_read(0b11100000 | power);
-    spi_write_read(b);
-    spi_write_read(g);
-    spi_write_read(r);
+    SPI_write_read(0b11100000 | power);
+    SPI_write_read(b);
+    SPI_write_read(g);
+    SPI_write_read(r);
 }
 
 void APA102_init(uint8_t config_num_leds) {
