@@ -59,7 +59,7 @@ void update_light(uint8_t p, uint8_t r, uint8_t g, uint8_t b) {
 }
 
 void update_fan_speed(uint8_t speed) {
-    set_pwm_duty_cycle(get_max_pwm_duty_cycle() * speed / 255);
+    PWM_set_duty_cycle(PWM_get_max_duty_cycle() * speed / 255);
 
     /*
     char message[16];
@@ -117,9 +117,9 @@ int main(void) {
     APA102_init(NUM_LEDS);
 
     // Initialize PWM
-    init_pwm();
-    set_pwm_period(255, 0);
-    set_pwm_duty_cycle(0);
+    PWM_init();
+    PWM_set_period(255, 0);
+    PWM_set_duty_cycle(0);
 
     // Initialize timing
     init_timing();
@@ -156,7 +156,7 @@ void __interrupt() interrupt_handler(void) {
         match_incomming_uart_command();
         PIR1bits.RCIF = 0;
     } else if (PIR1bits.TMR2IF) {
-        pwm_tmr2_interrupt_handler();
+        PWM_tmr2_interrupt_handler();
         PIR1bits.TMR2IF = 0;
     } else if (INTCONbits.T0IF) {
         timing_tmr0_interrupt_handler();

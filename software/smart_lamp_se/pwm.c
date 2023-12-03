@@ -2,7 +2,7 @@
 
 #include <xc.h>
 
-void init_pwm(void) {
+void PWM_init(void) {
     TRISCbits.TRISC2 = 1;        // Disable CCP1 PWM output
     T2CONbits.TMR2ON = 0;        // Disable Timer2
     CCP1CONbits.CCP1M = 0b1100;  // Set CCP1 to PWM mode
@@ -15,7 +15,7 @@ void init_pwm(void) {
     // PR2 = 165.66 ~= 166
     // PR2 = 166;
     // T2CONbits.T2CKPS = 0b00;
-    set_pwm_period(166, 0);  // Default frequency is 30 Khz
+    PWM_set_period(166, 0);  // Default frequency is 30 Khz
 
     // Reset PWM duty cycle on CCP1
     CCPR1L = 0;
@@ -28,23 +28,23 @@ void init_pwm(void) {
     T2CONbits.TMR2ON = 1;  // Enable Timer2
 }
 
-void pwm_tmr2_interrupt_handler(void) {
+void PWM_tmr2_interrupt_handler(void) {
     TRISCbits.TRISC2 = 0;  // Enable CCP1 PWM output
     PIE1bits.TMR2IE = 0;   // Disable Timer2 interrupts
 }
 
-void set_pwm_period(uint8_t pr2, uint8_t tmr2ckps) {
+void PWM_set_period(uint8_t pr2, uint8_t tmr2ckps) {
     PR2 = pr2;
     T2CONbits.T2CKPS = tmr2ckps & 0b11;
 }
 
-void set_pwm_duty_cycle(uint16_t duty_cycle) {
+void PWM_set_duty_cycle(uint16_t duty_cycle) {
     CCPR1L = (uint8_t)(duty_cycle >> 2);
     CCP1CONbits.DC1B1 = duty_cycle & (1 << 1);
     CCP1CONbits.DC1B0 = duty_cycle & (1 << 0);
 }
 
-uint16_t get_max_pwm_duty_cycle(void) {
+uint16_t PWM_get_max_duty_cycle(void) {
     // Equation 13-3 from the datasheet
     // DCR = conf_value / (4 * (PR2 + 1))
     // 1 = conf_value / (4 * (PR2 + 1))
