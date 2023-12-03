@@ -7,6 +7,8 @@
 extern "C" {
 #endif
 
+typedef enum ADCPin { ADC0 = 8, ADC1 = 10, ADC2 = 12 } ADCPin;
+
 /**
  * ADC init function.
  * @brief Initializes the ADC module.
@@ -15,28 +17,12 @@ extern "C" {
 void init_adc();
 
 /**
- * Read ADC pin 0.
- * @brief Reads the ADC pin 0 analog signal.
- * @return Digital value of the analog signal in ADC pin 0.
+ * Read ADC pin 
+ * @brief Reads the ADC pin analog signal.
+ * @return Digital value of the analog signal in ADC pin.
  * @warning This function assumes that the acquisition time has already been waited for.
  */
-uint16_t read_adc_0();
-
-/**
- * Read ADC pin 1.
- * @brief Reads the ADC pin 1 analog signal.
- * @return Digital value of the analog signal in ADC pin 1.
- * @warning This function assumes that the acquisition time has already been waited for.
- */
-uint16_t read_adc_1();
-
-/**
- * Read ADC pin 2.
- * @brief Reads the ADC pin 2 analog signal.
- * @return Digital value of the analog signal in ADC pin 2.
- * @warning This function assumes that the acquisition time has already been waited for.
- */
-uint16_t read_adc_2();
+uint16_t read_adc(ADCPin pin);
 
 #ifdef __cplusplus
 }
