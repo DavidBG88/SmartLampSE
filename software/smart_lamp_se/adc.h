@@ -14,7 +14,7 @@ typedef enum ADCPin { ADC0 = 8, ADC1 = 10, ADC2 = 12 } ADCPin;
  * @brief Initializes the ADC module.
  * @warning Must be called before any other ADC function.
  */
-void init_adc(void);
+void ADC_init(void);
 
 /**
  * Read ADC pin 
@@ -22,7 +22,7 @@ void init_adc(void);
  * @return Digital value of the analog signal in ADC pin.
  * @warning This function assumes that the acquisition time has already been waited for.
  */
-uint16_t read_adc(ADCPin pin);
+uint16_t ADC_read(ADCPin pin);
 
 #ifdef __cplusplus
 }

@@ -34,13 +34,13 @@ void every_1000ms(void) {
 
     char message[16];
 
-    sprintf(message, "ADC 0: %d\r\n", read_adc(ADC0));
+    sprintf(message, "ADC 0: %d\r\n", ADC_read(ADC0));
     uart_puts(message);
 
-    sprintf(message, "ADC 1: %d\r\n", read_adc(ADC1));
+    sprintf(message, "ADC 1: %d\r\n", ADC_read(ADC1));
     uart_puts(message);
 
-    sprintf(message, "ADC 2: %d\r\n", read_adc(ADC2));
+    sprintf(message, "ADC 2: %d\r\n", ADC_read(ADC2));
     uart_puts(message);
 }
 
@@ -108,7 +108,7 @@ int main(void) {
     INTCONbits.T0IE = 1;  // Enable Timer0 interrupts
 
     // Initialize ADC
-    init_adc();
+    ADC_init();
 
     // Initialize iAQCore sensor
     iAQCore_init();
