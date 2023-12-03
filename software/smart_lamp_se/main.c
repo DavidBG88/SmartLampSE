@@ -35,13 +35,13 @@ void every_1000ms(void) {
     char message[16];
 
     sprintf(message, "ADC 0: %d\r\n", ADC_read(ADC0));
-    uart_puts(message);
+    UART_puts(message);
 
     sprintf(message, "ADC 1: %d\r\n", ADC_read(ADC1));
-    uart_puts(message);
+    UART_puts(message);
 
     sprintf(message, "ADC 2: %d\r\n", ADC_read(ADC2));
-    uart_puts(message);
+    UART_puts(message);
 }
 
 void every_5000ms(void) {
@@ -54,7 +54,7 @@ void update_light(uint8_t p, uint8_t r, uint8_t g, uint8_t b) {
     /*
     char message[16];
     sprintf(message, "LIGHT: (%d, %d, %d)\r\n", r, g, b);
-    uart_puts(message);
+    UART_puts(message);
     */
 }
 
@@ -64,7 +64,7 @@ void update_fan_speed(uint8_t speed) {
     /*
     char message[16];
     sprintf(message, "FAN SPEED: %d\r\n", speed);
-    uart_puts(message);
+    UART_puts(message);
     */
 }
 
@@ -80,18 +80,18 @@ void match_incomming_uart_command(void) {
     | Ventilador | 1      | uint8_t                              |
     */
 
-    uint8_t command = uart_read_byte();
+    uint8_t command = UART_read_byte();
 
     switch (command) {
         case 0: {  // Light
             uint8_t prgb[4];
-            uart_read_n_bytes(sizeof(prgb), prgb);
+            UART_read_n_bytes(prgb, sizeof(prgb));
             update_light(prgb[0], prgb[1], prgb[2], prgb[3]);
             break;
         }
         case 1: {  // Fan speed
             uint8_t speed;
-            uart_read_n_bytes(sizeof(speed), &speed);
+            UART_read_n_bytes(&speed, sizeof(speed));
             update_fan_speed(speed);
             break;
         }
@@ -131,8 +131,8 @@ int main(void) {
     TIMING_run_every_n_ticks(12500, every_5000ms);  // Every 5000ms -> 12500 ticks
 
     // Initialize UART
-    uart_init();
-    uart_set_baud_rate(32);  // 9600 bauds / sec
+    UART_init();
+    UART_set_baud_rate(32);  // 9600 bauds / sec
     PIE1bits.RCIE = 1;       // Enable RX interrupt
 
     while (1) {
