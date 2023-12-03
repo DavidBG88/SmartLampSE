@@ -27,7 +27,7 @@ typedef enum TMR0Prescaler {
  * @warning General Interrupt Enable flag must be enabled (INTCONbits.GIE = 1).
  * @warning Timer0 INterrupt Enable flag must be enabled (INTCONbits.T0IE = 1).
  */
-void init_timing(void);
+void TIMING_init(void);
 
 /**
  * Timing timer0 interrupt handler.
@@ -35,13 +35,13 @@ void init_timing(void);
  * @warning Must be added to the interrupt handler and called when the Timer0 interrupt flag is raised.
  * @warning General Interrupt Enable flag must be enabled.
  */
-void timing_tmr0_interrupt_handler(void);
+void TIMING_tmr0_interrupt_handler(void);
 
 /**
  * Set the Timing module's tick duration.
  * @brief Sets the Timing module's tick duration.
  */
-void set_tick_duration(uint8_t tmr0, TMR0Prescaler pr);
+void TIMING_set_tick_duration(uint8_t tmr0, TMR0Prescaler pr);
 
 /**
  * Add a function to the Timing's callback queue.
@@ -49,7 +49,7 @@ void set_tick_duration(uint8_t tmr0, TMR0Prescaler pr);
  * @warning In case two functions should run simultaneously, priority will be given in the order they were added to the Timing module's function list.
  * @warning If two functions are called at the same time, they will be called in the order specified by their priorities.
  */
-void run_every_n_ticks(uint16_t ticks, void (*function_ptr)(void));
+void TIMING_run_every_n_ticks(uint16_t ticks, void (*function_ptr)(void));
 
 #ifdef __cplusplus
 }

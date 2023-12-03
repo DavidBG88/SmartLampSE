@@ -17,12 +17,12 @@ static TimingFunction timing_functions[MAX_TIMING_FUNCTIONS];
 static uint8_t tmr0_conf = 0;
 static uint8_t pr_bits_conf = 0;
 
-void init_timing(void) {
+void TIMING_init(void) {
     OPTION_REGbits.T0CS = 0;
     INTCONbits.T0IF = 0;
 }
 
-void timing_tmr0_interrupt_handler(void) {
+void TIMING_tmr0_interrupt_handler(void) {
     TMR0 = tmr0_conf;
 
     for (uint8_t i = 0; i < next_func_idx; ++i) {
@@ -37,7 +37,7 @@ void timing_tmr0_interrupt_handler(void) {
     }
 }
 
-void set_tick_duration(uint8_t tmr0, TMR0Prescaler pr) {
+void TIMING_set_tick_duration(uint8_t tmr0, TMR0Prescaler pr) {
     // Store configuration
     tmr0_conf = tmr0;
     pr_bits_conf = pr;
@@ -52,7 +52,7 @@ void set_tick_duration(uint8_t tmr0, TMR0Prescaler pr) {
     TMR0 = tmr0_conf;  // Start the timer
 }
 
-void run_every_n_ticks(uint16_t ticks, void (*function_ptr)(void)) {
+void TIMING_run_every_n_ticks(uint16_t ticks, void (*function_ptr)(void)) {
     TimingFunction* tf = &timing_functions[next_func_idx];
     ++next_func_idx;
 

@@ -122,13 +122,13 @@ int main(void) {
     PWM_set_duty_cycle(0);
 
     // Initialize timing
-    init_timing();
-    set_tick_duration(256 - 250, PR1to8);  // Tick = 1.6us * 250 = 400us
+    TIMING_init();
+    TIMING_set_tick_duration(256 - 250, PR1to8);  // Tick = 1.6us * 250 = 400us
 
     // Set timing callbacks
-    run_every_n_ticks(25, every_10ms);       // Every 10ms   -> 25 ticks
-    run_every_n_ticks(2500, every_1000ms);   // Every 1000ms -> 2500 ticks
-    run_every_n_ticks(12500, every_5000ms);  // Every 5000ms -> 12500 ticks
+    TIMING_run_every_n_ticks(25, every_10ms);       // Every 10ms   -> 25 ticks
+    TIMING_run_every_n_ticks(2500, every_1000ms);   // Every 1000ms -> 2500 ticks
+    TIMING_run_every_n_ticks(12500, every_5000ms);  // Every 5000ms -> 12500 ticks
 
     // Initialize UART
     uart_init();
@@ -159,7 +159,7 @@ void __interrupt() interrupt_handler(void) {
         PWM_tmr2_interrupt_handler();
         PIR1bits.TMR2IF = 0;
     } else if (INTCONbits.T0IF) {
-        timing_tmr0_interrupt_handler();
+        TIMING_tmr0_interrupt_handler();
         INTCONbits.T0IF = 0;
     }
 }
