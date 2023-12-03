@@ -14,6 +14,22 @@ void wait_MSSP(void) {
     return;
 }
 
+void i2c_init(void) {
+    SSPCONbits.SSPM = 0b1000;  // Set MSSP to I2C master mode
+
+    // Clock = FOSC / (4 * (SSPADD + 1))
+    // 100 kHz = 20 Mhz / (4 * (SSPADD + 1))
+    // 4 * (SSPADD + 1) = (20 * 10^6) / (10^5)
+    // SSPADD + 1 = 200 / 4
+    // SSPADD = 50 - 1
+    // SSPADD = 49
+    SSPADD = 49;  // 100 kHz when FOSC = 20 Mhz
+
+    SSPSTATbits.SMP = 1;  // Disable slew rate control
+
+    SSPCONbits.SSPEN = 1;  // Enable MSSP
+}
+
 void i2c_start(void) {
     SSPCON2bits.SEN = 1;
     wait_MSSP();  //Wait to complete
