@@ -7,12 +7,17 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+
 #include <xc.h>
 
+#include "APA102.h"
 #include "adc.h"
+#include "iAQCore.h"
 #include "pwm.h"
 #include "timing.h"
 #include "uart.h"
+
+#define NUM_LEDS 10
 
 uint8_t debug_10ms = 0;
 uint8_t debug_1000ms = 0;
@@ -28,13 +33,13 @@ void every_1000ms() {
 
     char message[16];
 
-    sprintf(message, "ADC 0: %d\r\n", read_adc_0());
+    sprintf(message, "ADC 0: %d\r\n", read_adc(ADC0));
     uart_puts(message);
 
-    sprintf(message, "ADC 1: %d\r\n", read_adc_1());
+    sprintf(message, "ADC 1: %d\r\n", read_adc(ADC1));
     uart_puts(message);
 
-    sprintf(message, "ADC 2: %d\r\n", read_adc_2());
+    sprintf(message, "ADC 2: %d\r\n", read_adc(ADC2));
     uart_puts(message);
 }
 
@@ -42,35 +47,45 @@ void every_5000ms() {
     debug_5000ms = !debug_5000ms;
 }
 
-void update_light(uint8_t r, uint8_t g, uint8_t b) {
+void update_light(uint8_t p, uint8_t r, uint8_t g, uint8_t b) {
+    APA102_set_color(p, r, g, b);
+
+    /*
     char message[16];
     sprintf(message, "LIGHT: (%d, %d, %d)\r\n", r, g, b);
     uart_puts(message);
+    */
 }
 
 void update_fan_speed(uint8_t speed) {
+    set_pwm_duty_cycle(get_max_pwm_duty_cycle() * speed / 255);
+
+    /*
     char message[16];
     sprintf(message, "FAN SPEED: %d\r\n", speed);
     uart_puts(message);
+    */
 }
 
-void report_invalid_command(uint8_t command) {}
+void report_invalid_command(uint8_t command) {
+    // NO INVALID COMMAND REPORT PROTOCOL SPECIFIED
+}
 
 void match_incomming_uart_command() {
     /*
-    | Dato       | Codigo | Tipo                        |
-    | ---------- | ------ | --------------------------- |
-    | Luz        | 0      | (uint8_t, uint8_t, uint8_t) |
-    | Ventilador | 1      | float                       |
+    | Dato       | Codigo | Tipo                                 |
+    | ---------- | ------ | ------------------------------------ |
+    | Luz        | 0      | (uint8_t, uint8_t, uint8_t, uint8_t) |
+    | Ventilador | 1      | uint8_t                              |
     */
 
     uint8_t command = uart_read_byte();
 
     switch (command) {
         case 0: {  // Light
-            uint8_t rgb[3];
-            uart_read_n_bytes(sizeof(rgb), rgb);
-            update_light(rgb[0], rgb[1], rgb[2]);
+            uint8_t prgb[4];
+            uart_read_n_bytes(sizeof(prgb), prgb);
+            update_light(prgb[0], prgb[1], prgb[2], prgb[3]);
             break;
         }
         case 1: {  // Fan speed
@@ -93,7 +108,12 @@ int main() {
 
     // Initialize ADC
     init_adc();
-    adc = read_adc_0();
+
+    // Initialize iAQCore sensor
+    iAQCore_init();
+
+    // Initialize APA102 light strip
+    APA102_init(NUM_LEDS);
 
     // Initialize PWM
     init_pwm();
