@@ -14,7 +14,9 @@ typedef struct iAQCore_Reading {
     uint32_t resistance;
 } iAQCore_Reading;
 
-iAQCore_Reading iAQCore_read();
+void iAQCore_init(void);
+
+iAQCore_Reading iAQCore_read(void);
 
 #ifdef __cplusplus
 }
