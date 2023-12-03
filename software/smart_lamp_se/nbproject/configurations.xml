@@ -12,6 +12,7 @@
       <itemPath>i2c.h</itemPath>
       <itemPath>spi.h</itemPath>
       <itemPath>iAQCore.h</itemPath>
+      <itemPath>eeprom.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -29,6 +30,7 @@
       <itemPath>i2c.c</itemPath>
       <itemPath>spi.c</itemPath>
       <itemPath>iAQCore.c</itemPath>
+      <itemPath>eeprom.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
