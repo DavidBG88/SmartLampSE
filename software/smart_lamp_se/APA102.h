@@ -1,5 +1,5 @@
-#ifndef IAQ_CORE_H
-#define IAQ_CORE_H
+#ifndef APA102_H
+#define APA102_H
 
 #include <stdint.h>
 
@@ -15,4 +15,4 @@ void APA102_set_color(uint8_t power, uint8_t r, uint8_t g, uint8_t b);
 }
 #endif
 
-#endif  // IAQ_CORE_H
+#endif  // APA102_H
