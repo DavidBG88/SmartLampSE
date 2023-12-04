@@ -7,7 +7,7 @@
 
 #define _XTAL_FREQ 20000000  // necessary for __delay_us
 
-const uint8_t tx_data[] = {'A', 'B', 'C', 255, 0};
+const uint8_t tx_data[] = {'A', 'B', 'C', 'D', 'E'};
 const uint8_t tx_data_len = sizeof(tx_data) / sizeof(tx_data[0]);
 
 void uart_tx_test() {

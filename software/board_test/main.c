@@ -16,6 +16,9 @@
 #include "uart_rx_test.h"
 #include "uart_tx_test.h"
 
+#include "pwm.h"
+#include "timing.h"
+
 // If a new test is added, update the run_test function switch case expression
 typedef enum Test {
     UART_TX_TEST,
@@ -30,8 +33,13 @@ typedef enum Test {
 void run_test(Test test);
 
 void main() {
+    // Enable interrupts
+    INTCONbits.GIE = 1;   // Enable interrupts
+    INTCONbits.PEIE = 1;  // Enable peripheral interrupts
+    INTCONbits.T0IE = 1;  // Enable Timer0 interrupts
+
     // Select test to run here
-    run_test(UART_TX_TEST);
+    run_test(PWM_TEST);
 }
 
 void run_test(Test test) {
@@ -57,5 +65,15 @@ void run_test(Test test) {
         case TIMING_TEST:
             timing_test();
             break;
+    }
+}
+
+void __interrupt() interrupt_handler(void) {
+    if (PIR1bits.TMR2IF) {
+        PWM_tmr2_interrupt_handler();
+        PIR1bits.TMR2IF = 0;
+    } else if (INTCONbits.T0IF) {
+        TIMING_tmr0_interrupt_handler();
+        INTCONbits.T0IF = 0;
     }
 }

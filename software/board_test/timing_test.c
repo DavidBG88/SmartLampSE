@@ -1,3 +1,7 @@
 #include "timing_test.h"
 
-void timing_test() {}
+#include "timing.h"
+
+void timing_test() {
+    TIMING_init();
+}
