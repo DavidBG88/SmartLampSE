@@ -145,15 +145,11 @@ int main(void) {
 
 void __interrupt() interrupt_handler(void) {
     if (PIR1bits.RCIF) {
-        /* ECHO BACK UART FOR TESTING
-        uint8_t input_byte = uart_read_byte();
+        // ECHO BACK UART FOR TESTING
+        //uint8_t input_byte = UART_read_byte();
+        //UART_write_byte(input_byte);
 
-        char output[8];
-        sprintf(output, "%d", input_byte);
-        uart_puts(output);
-        */
-
-        match_incomming_uart_command();
+        //match_incomming_uart_command();
         PIR1bits.RCIF = 0;
     } else if (PIR1bits.TMR2IF) {
         PWM_tmr2_interrupt_handler();
