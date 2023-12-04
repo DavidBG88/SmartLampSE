@@ -3,10 +3,18 @@
 #pragma config PWRTE = ON, BOR4V = BOR21V, WRT = OFF
 
 #pragma intrinsic(_delay)
-#define _XTAL_FREQ 20000000 // necessary for __delay_us
+#define _XTAL_FREQ 20000000  // necessary for __delay_us
 
-#include <xc.h>
 #include <stdio.h>
+#include <xc.h>
+
+#include "co2_i2c_test.h"
+#include "eeprom_test.h"
+#include "light_spi_test.h"
+#include "pwm_test.h"
+#include "timing_test.h"
+#include "uart_rx_test.h"
+#include "uart_tx_test.h"
 
 // If a new test is added, update the run_test function switch case expression
 typedef enum Test {

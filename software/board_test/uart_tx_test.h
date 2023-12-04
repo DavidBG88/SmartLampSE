@@ -3,4 +3,4 @@
 
 void uart_tx_test();
 
-#endif
+#endif  // UART_TX_TEST_H
