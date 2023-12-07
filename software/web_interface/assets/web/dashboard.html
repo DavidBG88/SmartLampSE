@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+        }
+
+        main {
+            margin: 2em;
+        }
+
+        .sensor-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .sensor {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1em;
+            margin: 1em;
+            flex: 1 0 30%;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 1em;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        label {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        select {
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-top: 1em;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <h1>Sensor Dashboard</h1>
+</header>
+<main>
+    <label for="serialPort">Serial Port:</label>
+    <select id="serialPort" name="serialPort" onchange="sendPortConfiguration()">
+        <option disabled selected value> -- No Ports Found -- </option>
+        <!-- Options will be dynamically added here using JavaScript -->
+    </select>
+
+    <div class="sensor-container">
+        <div class="sensor">
+            <h2>Temperature</h2>
+            <p>Value: 25°C</p>
+        </div>
+        <div class="sensor">
+            <h2>Humidity</h2>
+            <p>Value: 50%</p>
+        </div>
+        <div class="sensor">
+            <h2>Light Intensity</h2>
+            <p>Value: 800 Lux</p>
+        </div>
+        <div class="sensor">
+            <h2>Pressure</h2>
+            <p>Value: 1013 hPa</p>
+        </div>
+    </div>
+    <button onclick="window.location.href='light_config'">Light Configuration</button>
+    <button onclick="window.location.href='fan_config'">Fan Configuration</button>
+
+    <script>
+        function sendPortConfiguration() {
+            const selectedPort = document.getElementById('serialPort').value;
+            // Add logic to send the selected port to the API
+            fetch('/serial_ports', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ port: selectedPort }),
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to send configuration to the API');
+                    }
+                    return response;
+                })
+                .then(data => console.log('Configuration sent successfully:', data))
+                .catch(error => console.error('Error sending configuration:', error));
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Fetch serial port options from the API
+            fetch('/serial_ports')
+                .then(response => response.json())
+                .then(data => {
+                    const serialPortSelect = document.getElementById('serialPort');
+                    // Populate the dropdown with options
+                    data["ports"].forEach(port => {
+                        const option = document.createElement('option');
+                        option.value = port;
+                        option.textContent = port;
+                        serialPortSelect.appendChild(option);
+                    });
+
+                    sendPortConfiguration();
+                })
+                .catch(error => console.error('Error fetching serial ports:', error));
+        });
+    </script>
+</main>
+</body>
+
+</html>
