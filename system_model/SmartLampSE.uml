@@ -295,9 +295,26 @@ send_uart_sound_data(max_sound_level);</body>
             <nestedClassifier xmi:type="uml:Class" xmi:id="_86cbIJYCEe6aQ52eLh7MKg" name="MO-30.2"/>
             <nestedClassifier xmi:type="uml:Class" xmi:id="_Hw5AQJYDEe6aQ52eLh7MKg" name="MO-30.3"/>
             <nestedClassifier xmi:type="uml:Class" xmi:id="_ZWasgJYDEe6aQ52eLh7MKg" name="MO-30.4"/>
-            <nestedClassifier xmi:type="uml:Class" xmi:id="_DRkf0JYEEe6aQ52eLh7MKg" name="MO-30.5"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_VH55IJYNEe6aQ52eLh7MKg" name="MO-30.6"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_VH55IZYNEe6aQ52eLh7MKg" name="MO-30.7"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_VH55IpYNEe6aQ52eLh7MKg" name="MO-30.8"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_VH6gMJYNEe6aQ52eLh7MKg" name="MO-30.9"/>
           </packagedElement>
-          <packagedElement xmi:type="uml:Class" xmi:id="_86C9EJYDEe6aQ52eLh7MKg" name="MO-40"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_86C9EJYDEe6aQ52eLh7MKg" name="MO-40">
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_hzZCYJYPEe6aQ52eLh7MKg" name="MO-40.1"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_P1D_IJYQEe6aQ52eLh7MKg" name="MO-40.2"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_aQvT0JYQEe6aQ52eLh7MKg" name="MO-40.3"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_oAJDEJYQEe6aQ52eLh7MKg" name="MO-40.4"/>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_oFSzYJYREe6aQ52eLh7MKg" name="Actuator Configuration Requirements">
+          <packagedElement xmi:type="uml:Class" xmi:id="_IFyUYJYSEe6aQ52eLh7MKg" name="AC-10">
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_0DTyoJYTEe6aQ52eLh7MKg" name="AC-10.1"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_mpvUAJYUEe6aQ52eLh7MKg" name="AC-10.2"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_tB0s4JYTEe6aQ52eLh7MKg" name="AC-29">
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_nxVYwJYVEe6aQ52eLh7MKg" name="AC-29.1"/>
+          </packagedElement>
         </packagedElement>
       </packagedElement>
     </packagedElement>
@@ -427,10 +444,22 @@ send_uart_sound_data(max_sound_level);</body>
   <Requirements:Requirement xmi:id="_tTXf8JX_Ee6aQ52eLh7MKg" base_NamedElement="_tTWR0JX_Ee6aQ52eLh7MKg" id="MO-20.1" text="SMA-LAMP debe muestrear el nivel de ruido cada 10 milisegundos." base_Class="_tTWR0JX_Ee6aQ52eLh7MKg"/>
   <Requirements:Requirement xmi:id="_IBB1YZYAEe6aQ52eLh7MKg" base_NamedElement="_IBB1YJYAEe6aQ52eLh7MKg" id="MO-20.2" text="SMA-LAMP debe enviar cada segundo por UART el nivel de ruido máximo de las muestras tomadas durante ese segundo." base_Class="_IBB1YJYAEe6aQ52eLh7MKg"/>
   <Requirements:Requirement xmi:id="_bWO6EJYBEe6aQ52eLh7MKg" base_NamedElement="_bWOTAJYBEe6aQ52eLh7MKg" id="MO-30" text="El nivel de CO2, humedad relativa, temperatura y la iluminancia, deben ser muestreados cada 5 segundos y actualizarse en pantalla con el mismo periodo." base_Class="_bWOTAJYBEe6aQ52eLh7MKg"/>
-  <Requirements:Requirement xmi:id="_dOVOsZYCEe6aQ52eLh7MKg" base_NamedElement="_dOVOsJYCEe6aQ52eLh7MKg" id="MO-30.1" text="SMA-LAMP debe muestrear y enviar por UART la CO2 cada 5 segundos." base_Class="_dOVOsJYCEe6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_dOVOsZYCEe6aQ52eLh7MKg" base_NamedElement="_dOVOsJYCEe6aQ52eLh7MKg" id="MO-30.1" text="A partir del momento en el que el sensor de CO2 esté disponible, SMA-LAMP debe muestrear y enviar por UART el nivel de CO2 cada 5 segundos." base_Class="_dOVOsJYCEe6aQ52eLh7MKg"/>
   <Requirements:Requirement xmi:id="_86dCMJYCEe6aQ52eLh7MKg" base_NamedElement="_86cbIJYCEe6aQ52eLh7MKg" id="MO-30.2" text="SMA-LAMP debe muestrear y enviar por UART la humedad relativa cada 5 segundos." base_Class="_86cbIJYCEe6aQ52eLh7MKg"/>
   <Requirements:Requirement xmi:id="_Hw5AQZYDEe6aQ52eLh7MKg" base_NamedElement="_Hw5AQJYDEe6aQ52eLh7MKg" id="MO-30.3" text="SMA-LAMP debe muestrear y enviar por UART la temperatura cada 5 segundos." base_Class="_Hw5AQJYDEe6aQ52eLh7MKg"/>
   <Requirements:Requirement xmi:id="_ZWasgZYDEe6aQ52eLh7MKg" base_NamedElement="_ZWasgJYDEe6aQ52eLh7MKg" id="MO-30.4" text="SMA-LAMP debe muestrear y enviar por UART la iluminancia cada 5 segundos." base_Class="_ZWasgJYDEe6aQ52eLh7MKg"/>
-  <Requirements:Requirement xmi:id="_86DkIJYDEe6aQ52eLh7MKg" base_NamedElement="_86C9EJYDEe6aQ52eLh7MKg" id="MO-40" text="El nivel de ruido es una señal en voltaje. Deben considerarse las siguientes categorías para el ruido:&#xA;- Ruido bajo: La lectura del convertidor analógico digital está en el intervalo [0,400].&#xA;- Ruido intermedio: La lectura del convertidor analógico digital está en el intervalo [401, 900].&#xA;- Ruido alto: La lectura del convertidor analógico digital está por encima de 900." base_Class="_86C9EJYDEe6aQ52eLh7MKg"/>
-  <Requirements:Requirement xmi:id="_DRkf0ZYEEe6aQ52eLh7MKg" base_NamedElement="_DRkf0JYEEe6aQ52eLh7MKg" id="MO-30.5" text="SMA-LAMP debe muestrear y enviar por UART la iluminancia cada 5 segundos." base_Class="_DRkf0JYEEe6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_86DkIJYDEe6aQ52eLh7MKg" base_NamedElement="_86C9EJYDEe6aQ52eLh7MKg" id="MO-40" text="La unidades a utilizar para las magnitudes muestreadas (salvo el ruido, que ya ha sido categorizado) deben ser:&#xA;- PPM (partes por millon) para el nivel de CO2.&#xA;- % (tanto por ciento) para la humedad relativa.&#xA;- ºC (grados centígrados) para la temperatura.&#xA;- lx (Lux) para la iluminancia." base_Class="_86C9EJYDEe6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_VH6gMpYNEe6aQ52eLh7MKg" base_NamedElement="_VH55IJYNEe6aQ52eLh7MKg" id="MO-30.6" text="A partir del momento en el que el sensor de CO2 esté disponible, SMA-COMP debe recibir el nivel de CO2 por USB y mostrarlo en pantalla cada 5 segundos" base_Class="_VH55IJYNEe6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_VH6gM5YNEe6aQ52eLh7MKg" base_NamedElement="_VH55IZYNEe6aQ52eLh7MKg" id="MO-30.7" text="SMA-COMP debe recibir la humedad relativa por USB y mostrarla cada 5 segundos" base_Class="_VH55IZYNEe6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_VH6gNJYNEe6aQ52eLh7MKg" base_NamedElement="_VH55IpYNEe6aQ52eLh7MKg" id="MO-30.8" text="SMA-COMP debe recibir la temperatura por USB y mostrarla cada 5 segundos" base_Class="_VH55IpYNEe6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_VH7HQJYNEe6aQ52eLh7MKg" base_NamedElement="_VH6gMJYNEe6aQ52eLh7MKg" id="MO-30.9" text="SMA-COMP debe recibir la iluminancia por USB y mostrarla cada 5 segundos" base_Class="_VH6gMJYNEe6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_hzaQgJYPEe6aQ52eLh7MKg" base_NamedElement="_hzZCYJYPEe6aQ52eLh7MKg" id="MO-40.1" text="SMA-COMP debe mostrar las medidas de CO2 en partes por millón." base_Class="_hzZCYJYPEe6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_P1D_IZYQEe6aQ52eLh7MKg" base_NamedElement="_P1D_IJYQEe6aQ52eLh7MKg" id="MO-40.2" text="SMA-COMP debe mostrar las medidas de humedad relativa en porcentaje." base_Class="_P1D_IJYQEe6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_aQv64JYQEe6aQ52eLh7MKg" base_NamedElement="_aQvT0JYQEe6aQ52eLh7MKg" id="MO-40.3" text="SMA-COMP debe mostrar las medidas de temperatura en grados Celsius." base_Class="_aQvT0JYQEe6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_oAJDEZYQEe6aQ52eLh7MKg" base_NamedElement="_oAJDEJYQEe6aQ52eLh7MKg" id="MO-40.4" text="SMA-COMP debe mostrar las medidas de iluminancia en luxes." base_Class="_oAJDEJYQEe6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_IFzigJYSEe6aQ52eLh7MKg" base_NamedElement="_IFyUYJYSEe6aQ52eLh7MKg" id="AC-10" text="SMA-COMP debe ofrecer al usuario la posibilidad de cambiar el comportamiento de los LEDs. Para ellos debe suministrar la posibilidad de especificar el color con un código RGB, en el que se permita un valor entre 0 y 255 para cada color. Al mismo tiempo debe permitir codificar el nivel de iluminación con un código que pueda tomar valores entre 0 y 31." base_Class="_IFyUYJYSEe6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_tB0s4ZYTEe6aQ52eLh7MKg" base_NamedElement="_tB0s4JYTEe6aQ52eLh7MKg" id="AC-29" text="SMA-COMP debe ofrecer al usuario la posibilidad de cambiar la velocidad del ventilador. Dicha velocidad se codifica en tanto por ciento con valores posibles entre 0 % y 100 %" base_Class="_tB0s4JYTEe6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_0DTyoZYTEe6aQ52eLh7MKg" base_NamedElement="_0DTyoJYTEe6aQ52eLh7MKg" id="AC-10.1" text="SMA-COMP debe ofrecer al usuario la posibilidad de cambiar el color de los leds mediante un selector RGB con precisión de 8 bits por color." base_Class="_0DTyoJYTEe6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_mpv7EJYUEe6aQ52eLh7MKg" base_NamedElement="_mpvUAJYUEe6aQ52eLh7MKg" id="AC-10.2" text="SMA-COMP debe ofrecer al usuario la posibilidad de cambiar la intensidad de los leds entre los niveles 0 y 31." base_Class="_mpvUAJYUEe6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_nxVYwZYVEe6aQ52eLh7MKg" base_NamedElement="_nxVYwJYVEe6aQ52eLh7MKg" id="AC-29.1" text="SMA-COMP debe ofrecer al usuario la posibilidad de cambiar la velocidad del ventilador entre 0% y 100%." base_Class="_nxVYwJYVEe6aQ52eLh7MKg"/>
 </xmi:XMI>
