@@ -1,7 +1,8 @@
 use axum::{routing::{get, post}, http::{StatusCode, Uri}, Router, Json};
 use axum::extract::State;
+use axum::extract::ws::{Message, WebSocket, WebSocketUpgrade};
 use serde::{Deserialize, Serialize};
-use axum::response::{Html, Redirect};
+use axum::response::{Html, IntoResponse, Redirect};
 use serialport::SerialPortInfo;
 
 use crate::api::errors::ApiErrorCode;
@@ -14,9 +15,9 @@ use crate::model::model::ServerModel;
 
 #[derive(Serialize)]
 struct EnvironmentVariables {
-    co2: u32,
+    co2: Option<u32>,
     humidity: u32,
-    luminance: u32,
+    light_intensity: u32,
     temperature: u32,
 }
 
@@ -53,6 +54,7 @@ pub fn routes(model: ServerModel) -> Router {
         .route("/fan_config", post(post_fan_config_handler))
         .route("/serial_ports", get(get_serial_ports_handler))
         .route("/serial_ports", post(post_serial_ports_handler))
+        .route("/sensors", get(get_sensors_handler))
         .fallback(fallback_handler)
         .with_state(model)
 }
@@ -65,7 +67,7 @@ async fn get_dashboard_handler() -> ApiResponse<Html<String>> {
     serve_html("assets/web/dashboard.html")
 }
 
-async fn get_light_config_handler() -> ApiResponse<Html<String>> {
+async fn get_light_config_handler(State(server_model): State<ServerModel>) -> ApiResponse<Html<String>> {
     serve_html("assets/web/light_config.html")
 }
 
@@ -97,6 +99,15 @@ async fn post_serial_ports_handler(State(server_model): State<ServerModel>, ApiJ
         Ok(_) => OkApiResponse(StatusCode::OK, "Port updated".to_string()),
         Err(_) => ErrApiResponse(PortNotFound, "Port not found".to_string()),
     }
+}
+
+async fn get_sensors_handler(State(server_model): State<ServerModel>) -> ApiResponse<Json<EnvironmentVariables>> {
+    OkApiResponse(StatusCode::OK, Json(EnvironmentVariables {
+        co2: server_model.get_co2().await,
+        temperature: server_model.get_temperature().await,
+        light_intensity: server_model.get_light_intensity().await,
+        humidity: server_model.get_humidity().await,
+    }))
 }
 
 async fn fallback_handler(uri: Uri) -> ApiResponse<()> {

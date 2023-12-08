@@ -76,32 +76,52 @@
 <main>
     <label for="serialPort">Serial Port:</label>
     <select id="serialPort" name="serialPort" onchange="sendPortConfiguration()">
-        <option disabled selected value> -- No Ports Found -- </option>
         <!-- Options will be dynamically added here using JavaScript -->
     </select>
 
     <div class="sensor-container">
-        <div class="sensor">
+        <div class="sensor" id="temperature-sensor">
             <h2>Temperature</h2>
-            <p>Value: 25°C</p>
+            <p>Sensor Offline</p>
         </div>
-        <div class="sensor">
+        <div class="sensor" id="humidity-sensor">
             <h2>Humidity</h2>
-            <p>Value: 50%</p>
+            <p>Sensor Offline</p>
         </div>
-        <div class="sensor">
+        <div class="sensor" id="light-sensor">
             <h2>Light Intensity</h2>
-            <p>Value: 800 Lux</p>
+            <p>Sensor Offline</p>
         </div>
-        <div class="sensor">
-            <h2>Pressure</h2>
-            <p>Value: 1013 hPa</p>
+        <div class="sensor" id="co2-sensor">
+            <h2>CO2</h2>
+            <p>Sensor Offline</p>
         </div>
     </div>
     <button onclick="window.location.href='light_config'">Light Configuration</button>
     <button onclick="window.location.href='fan_config'">Fan Configuration</button>
 
     <script>
+        function updateSensorValues() {
+            // Fetch sensor data from the API
+            fetch('/sensors')
+                .then(response => response.json())
+                .then(data => {
+                    // Update sensor values on the page
+                    updateSensorValue('temperature', data.temperature + ' ºC');
+                    updateSensorValue('humidity', data.humidity + ' %');
+                    updateSensorValue('light', data.light_intensity + ' lx');
+                    updateSensorValue('co2', data.co2 == null ? 'Sensor Offline' : data.co2 + ' ppm');
+                })
+                .catch(error => console.error('Error fetching sensor data:', error));
+        }
+
+        function updateSensorValue(sensorName, value) {
+            const sensorElement = document.getElementById(`${sensorName}-sensor`);
+            if (sensorElement) {
+                sensorElement.querySelector('p').innerText = `${value}`;
+            }
+        }
+
         function sendPortConfiguration() {
             const selectedPort = document.getElementById('serialPort').value;
             // Add logic to send the selected port to the API
@@ -136,10 +156,22 @@
                         serialPortSelect.appendChild(option);
                     });
 
-                    sendPortConfiguration();
+                    if (serialPortSelect.children.length > 0) {
+                        serialPortSelect.selectedIndex = 0;
+                        sendPortConfiguration();
+                    } else {
+                        const option = document.createElement('option');
+                        option.value = ' -- No Ports Found -- ';
+                        option.textContent = ' -- No Ports Found -- ';
+                        option.disabled = true;
+                        serialPortSelect.appendChild(option);
+                        serialPortSelect.selectedIndex = 0;
+                    }
                 })
                 .catch(error => console.error('Error fetching serial ports:', error));
         });
+
+        setInterval(updateSensorValues, 100);
     </script>
 </main>
 </body>

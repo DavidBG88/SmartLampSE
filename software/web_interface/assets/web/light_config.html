@@ -25,8 +25,8 @@
         }
 
         label {
-            display: block;
-            margin: 1em 0;
+            font-size: 18px;
+            margin-right: 10px;
         }
 
         input[type="color"],
@@ -96,6 +96,14 @@
         button:hover {
             background-color: #45a049;
         }
+
+        select {
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-top: 1em;
+        }
     </style>
 </head>
 
@@ -104,15 +112,27 @@
     <h1>Light Configuration</h1>
 </header>
 <main>
+    <label for="serialPort">Serial Port:</label>
+    <select id="serialPort" name="serialPort" onchange="sendPortConfiguration()">
+        <!-- Options will be dynamically added here using JavaScript -->
+    </select>
+
+    <br>
+    <br>
+    <br>
     <label for="colorPicker">Color:</label>
     <input type="color" id="colorPicker" name="colorPicker" value="#ff0000">
 
+    <br>
+    <br>
+    <br>
     <label for="powerSlider">Power:</label>
     <div class="slider-container">
         <input type="range" id="powerSlider" name="powerSlider" min="0" max="31" value="15" class="slider">
         <div class="slider-value" id="sliderValue">15</div>
     </div>
 
+    <br>
     <button onclick="sendLightConfiguration()">Send</button>
 
     <script>
@@ -167,6 +187,55 @@
 
         slider.addEventListener('input', function () {
             sliderValue.textContent = this.value;
+        });
+
+        function sendPortConfiguration() {
+            const selectedPort = document.getElementById('serialPort').value;
+            // Add logic to send the selected port to the API
+            fetch('/serial_ports', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ port: selectedPort }),
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to send configuration to the API');
+                    }
+                    return response;
+                })
+                .then(data => console.log('Configuration sent successfully:', data))
+                .catch(error => console.error('Error sending configuration:', error));
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Fetch serial port options from the API
+            fetch('/serial_ports')
+                .then(response => response.json())
+                .then(data => {
+                    const serialPortSelect = document.getElementById('serialPort');
+                    // Populate the dropdown with options
+                    data["ports"].forEach(port => {
+                        const option = document.createElement('option');
+                        option.value = port;
+                        option.textContent = port;
+                        serialPortSelect.appendChild(option);
+                    });
+
+                    if (serialPortSelect.children.length > 0) {
+                        serialPortSelect.selectedIndex = 0;
+                        sendPortConfiguration();
+                    } else {
+                        const option = document.createElement('option');
+                        option.value = ' -- No Ports Found -- ';
+                        option.textContent = ' -- No Ports Found -- ';
+                        option.disabled = true;
+                        serialPortSelect.appendChild(option);
+                        serialPortSelect.selectedIndex = 0;
+                    }
+                })
+                .catch(error => console.error('Error fetching serial ports:', error));
         });
     </script>
 </main>

@@ -34,6 +34,10 @@ impl ServerModel {
         }
     }
 
+    pub async fn has_port(&self) -> bool {
+        self.serial_port_io.lock().await.is_some()
+    }
+
     pub async fn set_port(&self, port_name: String) -> Result<(), ()> {
         let mut serial_port_io_guard = self.serial_port_io.lock().await;
         let mut serial_port_name_guard = self.serial_port_name.lock().await;
@@ -70,18 +74,39 @@ impl ServerModel {
         if let Some(serial_port_io) = &mut *self.serial_port_io.lock().await {
             println!("Writing led config...");
             let message = [0u8, p, r, g, b];
-            serial_port_io.serial_port.write(&message).expect("Oh no :(");
+            let _ = serial_port_io.serial_port.write(&message);
 
             let mut buffer = String::new();
-            serial_port_io.serial_port_reader.read_line(&mut buffer);
+            let _ = serial_port_io.serial_port_reader.read_line(&mut buffer);
             println!("{}", buffer);
         }
     }
 
     pub async fn update_fan_config(&self, speed: u8) {
         if let Some(serial_port_io) = &mut *self.serial_port_io.lock().await {
-            println!("Writing led config...");
-            let _ = serial_port_io.serial_port.write(&[1u8, speed]);
+            println!("Writing fan config...");
+            let message = [1u8, speed];
+            let _ = serial_port_io.serial_port.write(&message);
+
+            let mut buffer = String::new();
+            let _ = serial_port_io.serial_port_reader.read_line(&mut buffer);
+            println!("{}", buffer);
         }
+    }
+
+    pub async fn get_co2(&self) -> Option<u32> {
+        return None;
+    }
+
+    pub async fn get_temperature(&self) -> u32 {
+        return 33;
+    }
+
+    pub async fn get_light_intensity(&self) -> u32 {
+        return 33;
+    }
+
+    pub async fn get_humidity(&self) -> u32 {
+        return 33;
     }
 }
