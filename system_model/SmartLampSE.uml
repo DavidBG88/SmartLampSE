@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ActionLanguage="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile" xmlns:Blocks="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks" xmlns:DeprecatedElements="http://www.eclipse.org/papyrus/sysml/1.6/SysML/DeprecatedElements" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML#//blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML/DeprecatedElements http://www.eclipse.org/papyrus/sysml/1.6/SysML#//deprecatedelements">
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ActionLanguage="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile" xmlns:Blocks="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks" xmlns:DeprecatedElements="http://www.eclipse.org/papyrus/sysml/1.6/SysML/DeprecatedElements" xmlns:Requirements="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Requirements" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML#//blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML/DeprecatedElements http://www.eclipse.org/papyrus/sysml/1.6/SysML#//deprecatedelements http://www.eclipse.org/papyrus/sysml/1.6/SysML/Requirements http://www.eclipse.org/papyrus/sysml/1.6/SysML#//requirements">
   <uml:Model xmi:id="_LrjoMISuEe6oWtQyg54a4A" name="SmartLampSE">
     <packageImport xmi:type="uml:PackageImport" xmi:id="_LsZ8xISuEe6oWtQyg54a4A">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -268,6 +268,38 @@ send_uart_sound_data(max_sound_level);</body>
           </region>
         </packagedElement>
       </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_EPgy8JX9Ee6aQ52eLh7MKg" name="Requirements">
+        <packagedElement xmi:type="uml:Package" xmi:id="_lmxhUJX3Ee6aQ52eLh7MKg" name="System Boot Requirements">
+          <packagedElement xmi:type="uml:Class" xmi:id="_mBlYkJX4Ee6aQ52eLh7MKg" name="ENC-10"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_rjFc0JX5Ee6aQ52eLh7MKg" name="ENC-20">
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_BeMz0JX7Ee6aQ52eLh7MKg" name="ENC-20.1"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_6Ege4JX5Ee6aQ52eLh7MKg" name="ENC-30">
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_tvms0JX7Ee6aQ52eLh7MKg" name="ENC-30.1"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_DOpBQJX8Ee6aQ52eLh7MKg" name="ENC-30.2"/>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_HELS8JX9Ee6aQ52eLh7MKg" name="System Shutdown Requirements">
+          <packagedElement xmi:type="uml:Class" xmi:id="_fspdgJX9Ee6aQ52eLh7MKg" name="AP-10"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_1TrQUJX9Ee6aQ52eLh7MKg" name="AP-20"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_9mv5wJX9Ee6aQ52eLh7MKg" name="AP-30"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_AXXx0JX_Ee6aQ52eLh7MKg" name="Enviroment Motoring Requirements">
+          <packagedElement xmi:type="uml:Class" xmi:id="_AXXx0ZX_Ee6aQ52eLh7MKg" name="MO-10"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_AXXx0pX_Ee6aQ52eLh7MKg" name="MO-20">
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_tTWR0JX_Ee6aQ52eLh7MKg" name="MO-20.1"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_IBB1YJYAEe6aQ52eLh7MKg" name="MO-20.2"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_bWOTAJYBEe6aQ52eLh7MKg" name="MO-30">
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_dOVOsJYCEe6aQ52eLh7MKg" name="MO-30.1"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_86cbIJYCEe6aQ52eLh7MKg" name="MO-30.2"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_Hw5AQJYDEe6aQ52eLh7MKg" name="MO-30.3"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_ZWasgJYDEe6aQ52eLh7MKg" name="MO-30.4"/>
+            <nestedClassifier xmi:type="uml:Class" xmi:id="_DRkf0JYEEe6aQ52eLh7MKg" name="MO-30.5"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_86C9EJYDEe6aQ52eLh7MKg" name="MO-40"/>
+        </packagedElement>
+      </packagedElement>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_LrxqoISuEe6oWtQyg54a4A">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Lrzf0ISuEe6oWtQyg54a4A" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -381,4 +413,24 @@ send_uart_sound_data(max_sound_level);</body>
   <Blocks:BindingConnector xmi:id="_N8Tp4IYOEe6vC-aSU4cbkg" base_Connector="_N8SbwIYOEe6vC-aSU4cbkg"/>
   <Blocks:BindingConnector xmi:id="_d2HbMoYOEe6vC-aSU4cbkg" base_Connector="_d2GNEIYOEe6vC-aSU4cbkg"/>
   <ActionLanguage:TextualRepresentation xmi:id="_LfnoMIYSEe6vC-aSU4cbkg" base_Comment="_LfmaEIYSEe6vC-aSU4cbkg" language="org.eclipse.papyrus.uml.textedit.state.xtext.UmlState"/>
+  <Requirements:Requirement xmi:id="_mBpqAJX4Ee6aQ52eLh7MKg" base_NamedElement="_mBlYkJX4Ee6aQ52eLh7MKg" id="ENC-10" text="Por defecto, se arrancará en primer lugar SMA-LAMP, alimentando la lámpara, para a continuación arrancar SMA-COMP, en el computador de sobremesa." base_Class="_mBlYkJX4Ee6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_rjJHMJX5Ee6aQ52eLh7MKg" base_NamedElement="_rjFc0JX5Ee6aQ52eLh7MKg" id="ENC-20" text="En el momento de arrancar se ofrecerá la información de los sensores disponibles y se indicará el estado de aquellos que requieran un proceso arranque más prolongado." base_Class="_rjFc0JX5Ee6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_6EhtAJX5Ee6aQ52eLh7MKg" base_NamedElement="_6Ege4JX5Ee6aQ52eLh7MKg" id="ENC-30" text="La lámpara debe arrancar respetando la última configuración utilizada en lo referente a leds y ventiladores. En el caso de ser la primera vez que se enciende se optará por una opción intermedia de luz blanca y ventilador apagado." base_Class="_6Ege4JX5Ee6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_BeOB8JX7Ee6aQ52eLh7MKg" base_NamedElement="_BeMz0JX7Ee6aQ52eLh7MKg" id="ENC-20.1" text="SMA-COMP indicará la disponibilidad de cada sensor de SMA-LAMP." base_Class="_BeMz0JX7Ee6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_tvn68JX7Ee6aQ52eLh7MKg" base_NamedElement="_tvms0JX7Ee6aQ52eLh7MKg" id="ENC-30.1" text="SMA-LAMP almacenará la última configuración de los actuadores." base_Class="_tvms0JX7Ee6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_DOqPYJX8Ee6aQ52eLh7MKg" base_NamedElement="_DOpBQJX8Ee6aQ52eLh7MKg" id="ENC-30.2" text="Si no hay configuración de los actuadores almacenada, SMA-LAMP los inicializará de la siguiente forma:&#xA;Luz -> Color = (255, 255, 255), Potencia = 16&#xA;Ventilador -> Velocidad = 0%" base_Class="_DOpBQJX8Ee6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_fsqEkJX9Ee6aQ52eLh7MKg" base_NamedElement="_fspdgJX9Ee6aQ52eLh7MKg" id="AP-10" text="Si se apaga el sistema SMA-COMP, el sistema SMA-LAMP debe seguir funcionando con normalidad según la última configuracion establecida." base_Class="_fspdgJX9Ee6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_1TrQUZX9Ee6aQ52eLh7MKg" base_NamedElement="_1TrQUJX9Ee6aQ52eLh7MKg" id="AP-20" text="Si se apaga SMA-LAMP, SMA-COMP debe indicar que SMA-LAMP se ha desconectado. En este caso, SMA-COMP no debe volver a operar hasta despues de que la aplicación se haya reinicializado." base_Class="_1TrQUJX9Ee6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_9mv5wZX9Ee6aQ52eLh7MKg" base_NamedElement="_9mv5wJX9Ee6aQ52eLh7MKg" id="AP-30" text="SMA-COMP debe ofrecer alguna alternativa para apagar la aplicación." base_Class="_9mv5wJX9Ee6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_AXYY4JX_Ee6aQ52eLh7MKg" base_NamedElement="_AXXx0ZX_Ee6aQ52eLh7MKg" id="MO-10" text="El nivel de ruido es una señal en voltaje. Deben considerarse las siguientes categorías para el ruido:&#xA;- Ruido bajo: La lectura del convertidor analógico digital está en el intervalo [0,400].&#xA;- Ruido intermedio: La lectura del convertidor analógico digital está en el intervalo [401, 900].&#xA;- Ruido alto: La lectura del convertidor analógico digital está por encima de 900." base_Class="_AXXx0ZX_Ee6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_AXY_8JX_Ee6aQ52eLh7MKg" base_NamedElement="_AXXx0pX_Ee6aQ52eLh7MKg" id="MO-20" text="El nivel de ruido debe monitorizarse cada 10 ms, pero en el interfaz humano solo debe mostrarse la catergoría de ruido más alta alcanzada cada segundo." base_Class="_AXXx0pX_Ee6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_tTXf8JX_Ee6aQ52eLh7MKg" base_NamedElement="_tTWR0JX_Ee6aQ52eLh7MKg" id="MO-20.1" text="SMA-LAMP debe muestrear el nivel de ruido cada 10 milisegundos." base_Class="_tTWR0JX_Ee6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_IBB1YZYAEe6aQ52eLh7MKg" base_NamedElement="_IBB1YJYAEe6aQ52eLh7MKg" id="MO-20.2" text="SMA-LAMP debe enviar cada segundo por UART el nivel de ruido máximo de las muestras tomadas durante ese segundo." base_Class="_IBB1YJYAEe6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_bWO6EJYBEe6aQ52eLh7MKg" base_NamedElement="_bWOTAJYBEe6aQ52eLh7MKg" id="MO-30" text="El nivel de CO2, humedad relativa, temperatura y la iluminancia, deben ser muestreados cada 5 segundos y actualizarse en pantalla con el mismo periodo." base_Class="_bWOTAJYBEe6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_dOVOsZYCEe6aQ52eLh7MKg" base_NamedElement="_dOVOsJYCEe6aQ52eLh7MKg" id="MO-30.1" text="SMA-LAMP debe muestrear y enviar por UART la CO2 cada 5 segundos." base_Class="_dOVOsJYCEe6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_86dCMJYCEe6aQ52eLh7MKg" base_NamedElement="_86cbIJYCEe6aQ52eLh7MKg" id="MO-30.2" text="SMA-LAMP debe muestrear y enviar por UART la humedad relativa cada 5 segundos." base_Class="_86cbIJYCEe6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_Hw5AQZYDEe6aQ52eLh7MKg" base_NamedElement="_Hw5AQJYDEe6aQ52eLh7MKg" id="MO-30.3" text="SMA-LAMP debe muestrear y enviar por UART la temperatura cada 5 segundos." base_Class="_Hw5AQJYDEe6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_ZWasgZYDEe6aQ52eLh7MKg" base_NamedElement="_ZWasgJYDEe6aQ52eLh7MKg" id="MO-30.4" text="SMA-LAMP debe muestrear y enviar por UART la iluminancia cada 5 segundos." base_Class="_ZWasgJYDEe6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_86DkIJYDEe6aQ52eLh7MKg" base_NamedElement="_86C9EJYDEe6aQ52eLh7MKg" id="MO-40" text="El nivel de ruido es una señal en voltaje. Deben considerarse las siguientes categorías para el ruido:&#xA;- Ruido bajo: La lectura del convertidor analógico digital está en el intervalo [0,400].&#xA;- Ruido intermedio: La lectura del convertidor analógico digital está en el intervalo [401, 900].&#xA;- Ruido alto: La lectura del convertidor analógico digital está por encima de 900." base_Class="_86C9EJYDEe6aQ52eLh7MKg"/>
+  <Requirements:Requirement xmi:id="_DRkf0ZYEEe6aQ52eLh7MKg" base_NamedElement="_DRkf0JYEEe6aQ52eLh7MKg" id="MO-30.5" text="SMA-LAMP debe muestrear y enviar por UART la iluminancia cada 5 segundos." base_Class="_DRkf0JYEEe6aQ52eLh7MKg"/>
 </xmi:XMI>
