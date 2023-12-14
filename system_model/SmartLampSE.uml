@@ -681,6 +681,19 @@ send_uart_sound_data(max_sound_level);</body>
             <node xmi:type="uml:ValueSpecificationAction" xmi:id="_e5weQJquEe6mLKABmWOohQ" name="OPTION_REGbits.PS = pr" incoming="_e56PQJquEe6mLKABmWOohQ" outgoing="_id-y8JquEe6mLKABmWOohQ"/>
             <node xmi:type="uml:ValueSpecificationAction" xmi:id="_idwwgJquEe6mLKABmWOohQ" name="TMR0 = tmr0_conf" incoming="_id-y8JquEe6mLKABmWOohQ _l7xvgJquEe6mLKABmWOohQ" outgoing="_oHLQEJquEe6mLKABmWOohQ"/>
           </packagedElement>
+          <packagedElement xmi:type="uml:Activity" xmi:id="_-S-ucJqvEe6mLKABmWOohQ" name="TIMING Run every n ticks" node="_IdpysJqwEe6mLKABmWOohQ _tbORsJqwEe6mLKABmWOohQ _Hs5OsJqxEe6mLKABmWOohQ _YeEs4JqxEe6mLKABmWOohQ _h2RLUJqxEe6mLKABmWOohQ _moe9IJqxEe6mLKABmWOohQ">
+            <edge xmi:type="uml:ControlFlow" xmi:id="_tbTKMJqwEe6mLKABmWOohQ" target="_tbORsJqwEe6mLKABmWOohQ" source="_IdpysJqwEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_Hs_VUJqxEe6mLKABmWOohQ" target="_Hs5OsJqxEe6mLKABmWOohQ" source="_tbORsJqwEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_YeLakJqxEe6mLKABmWOohQ" target="_YeEs4JqxEe6mLKABmWOohQ" source="_Hs5OsJqxEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_momR4JqxEe6mLKABmWOohQ" target="_moe9IJqxEe6mLKABmWOohQ" source="_YeEs4JqxEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_uiMEUJqxEe6mLKABmWOohQ" target="_h2RLUJqxEe6mLKABmWOohQ" source="_moe9IJqxEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:InitialNode" xmi:id="_IdpysJqwEe6mLKABmWOohQ" name="TIMING_run_every_n_ticks(uint16_t ticks, void (*function_ptr)(void))" outgoing="_tbTKMJqwEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_tbORsJqwEe6mLKABmWOohQ" name="timing_functions[next_func_idx].function_ptr = function_ptr" incoming="_tbTKMJqwEe6mLKABmWOohQ" outgoing="_Hs_VUJqxEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_Hs5OsJqxEe6mLKABmWOohQ" name="timing_functions[next_func_idx].ticks = ticks" incoming="_Hs_VUJqxEe6mLKABmWOohQ" outgoing="_YeLakJqxEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_YeEs4JqxEe6mLKABmWOohQ" name="timing_functions[next_func_idx].ticks_left = ticks" incoming="_YeLakJqxEe6mLKABmWOohQ" outgoing="_momR4JqxEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ActivityFinalNode" xmi:id="_h2RLUJqxEe6mLKABmWOohQ" name="TIMING_run_every_n_ticks(uint16_t ticks, void (*function_ptr)(void)) end" incoming="_uiMEUJqxEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_moe9IJqxEe6mLKABmWOohQ" name="++next_func_idx" incoming="_momR4JqxEe6mLKABmWOohQ" outgoing="_uiMEUJqxEe6mLKABmWOohQ"/>
+          </packagedElement>
         </packagedElement>
       </packagedElement>
     </packagedElement>
