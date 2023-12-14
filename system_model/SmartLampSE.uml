@@ -629,7 +629,7 @@ send_uart_sound_data(max_sound_level);</body>
           </packagedElement>
         </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="_zWvSEJqpEe6mLKABmWOohQ" name="TIMING driver">
-          <packagedElement xmi:type="uml:Activity" xmi:id="_1O_NIJqpEe6mLKABmWOohQ" name="UART timing init" node="_4KRSgJqpEe6mLKABmWOohQ _-IrKoJqpEe6mLKABmWOohQ _ERmQsJqqEe6mLKABmWOohQ _KZ9WEJqqEe6mLKABmWOohQ">
+          <packagedElement xmi:type="uml:Activity" xmi:id="_1O_NIJqpEe6mLKABmWOohQ" name="TIMING init" node="_4KRSgJqpEe6mLKABmWOohQ _-IrKoJqpEe6mLKABmWOohQ _ERmQsJqqEe6mLKABmWOohQ _KZ9WEJqqEe6mLKABmWOohQ">
             <edge xmi:type="uml:ControlFlow" xmi:id="_-IwqMJqpEe6mLKABmWOohQ" target="_-IrKoJqpEe6mLKABmWOohQ" source="_4KRSgJqpEe6mLKABmWOohQ"/>
             <edge xmi:type="uml:ControlFlow" xmi:id="_ERsXUJqqEe6mLKABmWOohQ" target="_ERmQsJqqEe6mLKABmWOohQ" source="_-IrKoJqpEe6mLKABmWOohQ"/>
             <edge xmi:type="uml:ControlFlow" xmi:id="_NJ9YgJqqEe6mLKABmWOohQ" target="_KZ9WEJqqEe6mLKABmWOohQ" source="_ERmQsJqqEe6mLKABmWOohQ"/>
@@ -681,7 +681,7 @@ send_uart_sound_data(max_sound_level);</body>
             <node xmi:type="uml:ValueSpecificationAction" xmi:id="_e5weQJquEe6mLKABmWOohQ" name="OPTION_REGbits.PS = pr" incoming="_e56PQJquEe6mLKABmWOohQ" outgoing="_id-y8JquEe6mLKABmWOohQ"/>
             <node xmi:type="uml:ValueSpecificationAction" xmi:id="_idwwgJquEe6mLKABmWOohQ" name="TMR0 = tmr0_conf" incoming="_id-y8JquEe6mLKABmWOohQ _l7xvgJquEe6mLKABmWOohQ" outgoing="_oHLQEJquEe6mLKABmWOohQ"/>
           </packagedElement>
-          <packagedElement xmi:type="uml:Activity" xmi:id="_-S-ucJqvEe6mLKABmWOohQ" name="TIMING Run every n ticks" node="_IdpysJqwEe6mLKABmWOohQ _tbORsJqwEe6mLKABmWOohQ _Hs5OsJqxEe6mLKABmWOohQ _YeEs4JqxEe6mLKABmWOohQ _h2RLUJqxEe6mLKABmWOohQ _moe9IJqxEe6mLKABmWOohQ">
+          <packagedElement xmi:type="uml:Activity" xmi:id="_-S-ucJqvEe6mLKABmWOohQ" name="TIMING run every n ticks" node="_IdpysJqwEe6mLKABmWOohQ _tbORsJqwEe6mLKABmWOohQ _Hs5OsJqxEe6mLKABmWOohQ _YeEs4JqxEe6mLKABmWOohQ _h2RLUJqxEe6mLKABmWOohQ _moe9IJqxEe6mLKABmWOohQ">
             <edge xmi:type="uml:ControlFlow" xmi:id="_tbTKMJqwEe6mLKABmWOohQ" target="_tbORsJqwEe6mLKABmWOohQ" source="_IdpysJqwEe6mLKABmWOohQ"/>
             <edge xmi:type="uml:ControlFlow" xmi:id="_Hs_VUJqxEe6mLKABmWOohQ" target="_Hs5OsJqxEe6mLKABmWOohQ" source="_tbORsJqwEe6mLKABmWOohQ"/>
             <edge xmi:type="uml:ControlFlow" xmi:id="_YeLakJqxEe6mLKABmWOohQ" target="_YeEs4JqxEe6mLKABmWOohQ" source="_Hs5OsJqxEe6mLKABmWOohQ"/>
@@ -693,6 +693,67 @@ send_uart_sound_data(max_sound_level);</body>
             <node xmi:type="uml:ValueSpecificationAction" xmi:id="_YeEs4JqxEe6mLKABmWOohQ" name="timing_functions[next_func_idx].ticks_left = ticks" incoming="_YeLakJqxEe6mLKABmWOohQ" outgoing="_momR4JqxEe6mLKABmWOohQ"/>
             <node xmi:type="uml:ActivityFinalNode" xmi:id="_h2RLUJqxEe6mLKABmWOohQ" name="TIMING_run_every_n_ticks(uint16_t ticks, void (*function_ptr)(void)) end" incoming="_uiMEUJqxEe6mLKABmWOohQ"/>
             <node xmi:type="uml:ValueSpecificationAction" xmi:id="_moe9IJqxEe6mLKABmWOohQ" name="++next_func_idx" incoming="_momR4JqxEe6mLKABmWOohQ" outgoing="_uiMEUJqxEe6mLKABmWOohQ"/>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_QWu84JqyEe6mLKABmWOohQ" name="PWM driver">
+          <packagedElement xmi:type="uml:Activity" xmi:id="_eTRwQJqyEe6mLKABmWOohQ" name="PWM init" node="_ksFscJqyEe6mLKABmWOohQ _oIEEEJqyEe6mLKABmWOohQ _tooJoJqyEe6mLKABmWOohQ _x1ZFAJqyEe6mLKABmWOohQ _7LmmcJqyEe6mLKABmWOohQ _EsTgoJqzEe6mLKABmWOohQ _JBibgJqzEe6mLKABmWOohQ _NgCnIJqzEe6mLKABmWOohQ _eTLNIJqzEe6mLKABmWOohQ _jrZPAJqzEe6mLKABmWOohQ _8lxo8JqzEe6mLKABmWOohQ">
+            <edge xmi:type="uml:ControlFlow" xmi:id="_oIJjoJqyEe6mLKABmWOohQ" target="_oIEEEJqyEe6mLKABmWOohQ" source="_ksFscJqyEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_touQQJqyEe6mLKABmWOohQ" target="_tooJoJqyEe6mLKABmWOohQ" source="_oIEEEJqyEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_x1fysJqyEe6mLKABmWOohQ" target="_x1ZFAJqyEe6mLKABmWOohQ" source="_tooJoJqyEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_7Lt7MJqyEe6mLKABmWOohQ" target="_7LmmcJqyEe6mLKABmWOohQ" source="_x1ZFAJqyEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_EsbccJqzEe6mLKABmWOohQ" target="_EsTgoJqzEe6mLKABmWOohQ" source="_7LmmcJqyEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_JBqXUJqzEe6mLKABmWOohQ" target="_JBibgJqzEe6mLKABmWOohQ" source="_EsTgoJqzEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_NgLxEJqzEe6mLKABmWOohQ" target="_NgCnIJqzEe6mLKABmWOohQ" source="_JBibgJqzEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_eTUXEJqzEe6mLKABmWOohQ" target="_eTLNIJqzEe6mLKABmWOohQ" source="_NgCnIJqzEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_jrjAAJqzEe6mLKABmWOohQ" target="_jrZPAJqzEe6mLKABmWOohQ" source="_eTLNIJqzEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_KpZUsJq0Ee6mLKABmWOohQ" target="_8lxo8JqzEe6mLKABmWOohQ" source="_jrZPAJqzEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:InitialNode" xmi:id="_ksFscJqyEe6mLKABmWOohQ" name="PWM_init(void)" outgoing="_oIJjoJqyEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_oIEEEJqyEe6mLKABmWOohQ" name="TRISCbits.TRISC2 = 1" incoming="_oIJjoJqyEe6mLKABmWOohQ" outgoing="_touQQJqyEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_tooJoJqyEe6mLKABmWOohQ" name="T2CONbits.TMR2ON = 0" incoming="_touQQJqyEe6mLKABmWOohQ" outgoing="_x1fysJqyEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_x1ZFAJqyEe6mLKABmWOohQ" name="PWM_set_period(166, 0) // Default freq is 30 Khz" incoming="_x1fysJqyEe6mLKABmWOohQ" outgoing="_7Lt7MJqyEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_7LmmcJqyEe6mLKABmWOohQ" name="CCPR1L = 0" incoming="_7Lt7MJqyEe6mLKABmWOohQ" outgoing="_EsbccJqzEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_EsTgoJqzEe6mLKABmWOohQ" name="CCP1CONbits.DC1B0 = 0" incoming="_EsbccJqzEe6mLKABmWOohQ" outgoing="_JBqXUJqzEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_JBibgJqzEe6mLKABmWOohQ" name="CCP1CONbits.DC1B1 = 0" incoming="_JBqXUJqzEe6mLKABmWOohQ" outgoing="_NgLxEJqzEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_NgCnIJqzEe6mLKABmWOohQ" name="PIR1bits.TMR2IF = 0" incoming="_NgLxEJqzEe6mLKABmWOohQ" outgoing="_eTUXEJqzEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_eTLNIJqzEe6mLKABmWOohQ" name="PIR1bits.TMR2IE = 1" incoming="_eTUXEJqzEe6mLKABmWOohQ" outgoing="_jrjAAJqzEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_jrZPAJqzEe6mLKABmWOohQ" name="T2CONbits.TMR2ON = 1" incoming="_jrjAAJqzEe6mLKABmWOohQ" outgoing="_KpZUsJq0Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ActivityFinalNode" xmi:id="_8lxo8JqzEe6mLKABmWOohQ" name="PWM_init(void) end" incoming="_KpZUsJq0Ee6mLKABmWOohQ"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Activity" xmi:id="_w3UBQJq0Ee6mLKABmWOohQ" name="PWM Tmr2 interrupt handler" node="_9JlEIJq0Ee6mLKABmWOohQ _HV2q4Jq1Ee6mLKABmWOohQ _MSJlwJq1Ee6mLKABmWOohQ _PudUkJq1Ee6mLKABmWOohQ">
+            <edge xmi:type="uml:ControlFlow" xmi:id="_HV7jYJq1Ee6mLKABmWOohQ" target="_HV2q4Jq1Ee6mLKABmWOohQ" source="_9JlEIJq0Ee6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_MSPsYJq1Ee6mLKABmWOohQ" target="_MSJlwJq1Ee6mLKABmWOohQ" source="_HV2q4Jq1Ee6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_UekNkJq1Ee6mLKABmWOohQ" target="_PudUkJq1Ee6mLKABmWOohQ" source="_MSJlwJq1Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:InitialNode" xmi:id="_9JlEIJq0Ee6mLKABmWOohQ" name="PWM_tmr2_interrup_handler(void)" outgoing="_HV7jYJq1Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_HV2q4Jq1Ee6mLKABmWOohQ" name="TRISCbits.TRISC2 = 0" incoming="_HV7jYJq1Ee6mLKABmWOohQ" outgoing="_MSPsYJq1Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_MSJlwJq1Ee6mLKABmWOohQ" name="PIE1bits.TMR2IE = 0" incoming="_MSPsYJq1Ee6mLKABmWOohQ" outgoing="_UekNkJq1Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ActivityFinalNode" xmi:id="_PudUkJq1Ee6mLKABmWOohQ" name="PWM_tmr2_interrupr_handler(void) end" incoming="_UekNkJq1Ee6mLKABmWOohQ"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Activity" xmi:id="_Xa8fIJq1Ee6mLKABmWOohQ" name="PWM set period" node="_aRDwoJq1Ee6mLKABmWOohQ _fMw1oJq1Ee6mLKABmWOohQ _iQqrgJq1Ee6mLKABmWOohQ _ll7XIJq1Ee6mLKABmWOohQ">
+            <edge xmi:type="uml:ControlFlow" xmi:id="_fM1uIJq1Ee6mLKABmWOohQ" target="_fMw1oJq1Ee6mLKABmWOohQ" source="_aRDwoJq1Ee6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_iQwLEJq1Ee6mLKABmWOohQ" target="_iQqrgJq1Ee6mLKABmWOohQ" source="_fMw1oJq1Ee6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_pddpYJq1Ee6mLKABmWOohQ" target="_ll7XIJq1Ee6mLKABmWOohQ" source="_iQqrgJq1Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:InitialNode" xmi:id="_aRDwoJq1Ee6mLKABmWOohQ" name="PWM_set_period(uint8_t pr2, uint8_t tmr2ckps)" outgoing="_fM1uIJq1Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_fMw1oJq1Ee6mLKABmWOohQ" name="PR2 = pr2" incoming="_fM1uIJq1Ee6mLKABmWOohQ" outgoing="_iQwLEJq1Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_iQqrgJq1Ee6mLKABmWOohQ" name="T2CONbits.T2CKPS = tmr2ckps &amp; 0b11" incoming="_iQwLEJq1Ee6mLKABmWOohQ" outgoing="_pddpYJq1Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ActivityFinalNode" xmi:id="_ll7XIJq1Ee6mLKABmWOohQ" name="PWM_set_period(uint8_t pr2, uint8_t tmr2ckps)" incoming="_pddpYJq1Ee6mLKABmWOohQ"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Activity" xmi:id="_zXIdMJq1Ee6mLKABmWOohQ" name="PWM set duty cycle" node="_41I-AJq1Ee6mLKABmWOohQ _8wrmgJq1Ee6mLKABmWOohQ _AOl30Jq2Ee6mLKABmWOohQ _EEoVQJq2Ee6mLKABmWOohQ _JgZaYJq2Ee6mLKABmWOohQ">
+            <edge xmi:type="uml:ControlFlow" xmi:id="_8wwfAJq1Ee6mLKABmWOohQ" target="_8wrmgJq1Ee6mLKABmWOohQ" source="_41I-AJq1Ee6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_AOrXYJq2Ee6mLKABmWOohQ" target="_AOl30Jq2Ee6mLKABmWOohQ" source="_8wrmgJq1Ee6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_EEvC8Jq2Ee6mLKABmWOohQ" target="_EEoVQJq2Ee6mLKABmWOohQ" source="_AOl30Jq2Ee6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_NUEgUJq2Ee6mLKABmWOohQ" target="_JgZaYJq2Ee6mLKABmWOohQ" source="_EEoVQJq2Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:InitialNode" xmi:id="_41I-AJq1Ee6mLKABmWOohQ" name="PWM_set_duty_cycle(uint16_t duty_cycle)" outgoing="_8wwfAJq1Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_8wrmgJq1Ee6mLKABmWOohQ" name="CCPR1L = (uint8_t)(duty_cycle >> 2)" incoming="_8wwfAJq1Ee6mLKABmWOohQ" outgoing="_AOrXYJq2Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_AOl30Jq2Ee6mLKABmWOohQ" name="CCP1CONbits.DC1B1 = duty_cycle &amp; (1 &lt;&lt; 1)" incoming="_AOrXYJq2Ee6mLKABmWOohQ" outgoing="_EEvC8Jq2Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_EEoVQJq2Ee6mLKABmWOohQ" name="CCP1CONbits.DC1B0 = duty_cycle &amp; (1 &lt;&lt; 0)" incoming="_EEvC8Jq2Ee6mLKABmWOohQ" outgoing="_NUEgUJq2Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ActivityFinalNode" xmi:id="_JgZaYJq2Ee6mLKABmWOohQ" name="PWM_set_duty_cycle(uint16_t duty_cycle) end" incoming="_NUEgUJq2Ee6mLKABmWOohQ"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Activity" xmi:id="_W_rqAJq2Ee6mLKABmWOohQ" name="PWM get max duty cycle" node="_a9VyYJq2Ee6mLKABmWOohQ _fZB6kJq2Ee6mLKABmWOohQ _jae90Jq2Ee6mLKABmWOohQ">
+            <edge xmi:type="uml:ControlFlow" xmi:id="_fZGzEJq2Ee6mLKABmWOohQ" target="_fZB6kJq2Ee6mLKABmWOohQ" source="_a9VyYJq2Ee6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_nD3fUJq2Ee6mLKABmWOohQ" target="_jae90Jq2Ee6mLKABmWOohQ" source="_fZB6kJq2Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:InitialNode" xmi:id="_a9VyYJq2Ee6mLKABmWOohQ" name="PWM_get_max_duty_cycle(void)" outgoing="_fZGzEJq2Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_fZB6kJq2Ee6mLKABmWOohQ" name="return (uint16_t)((PR2 + 1) &lt;&lt; 2)" incoming="_fZGzEJq2Ee6mLKABmWOohQ" outgoing="_nD3fUJq2Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ActivityFinalNode" xmi:id="_jae90Jq2Ee6mLKABmWOohQ" name="PWM_get_max_duty_cycle(void) end" incoming="_nD3fUJq2Ee6mLKABmWOohQ"/>
           </packagedElement>
         </packagedElement>
       </packagedElement>
