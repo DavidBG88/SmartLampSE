@@ -638,6 +638,49 @@ send_uart_sound_data(max_sound_level);</body>
             <node xmi:type="uml:ValueSpecificationAction" xmi:id="_ERmQsJqqEe6mLKABmWOohQ" name="INTCONbits.T0IF = 0" incoming="_ERsXUJqqEe6mLKABmWOohQ" outgoing="_NJ9YgJqqEe6mLKABmWOohQ"/>
             <node xmi:type="uml:ActivityFinalNode" xmi:id="_KZ9WEJqqEe6mLKABmWOohQ" name="TIMING_init(void) end" incoming="_NJ9YgJqqEe6mLKABmWOohQ"/>
           </packagedElement>
+          <packagedElement xmi:type="uml:Activity" xmi:id="_XZ7zgJqqEe6mLKABmWOohQ" name="TIMING tmr0 interrupt handler" node="__G0GgJqsEe6mLKABmWOohQ _OxgTMJqsEe6mLKABmWOohQ _qWnqgJqrEe6mLKABmWOohQ _Z9NzIJqrEe6mLKABmWOohQ _VXMDMJqrEe6mLKABmWOohQ _OjC14JqrEe6mLKABmWOohQ _C5YEEJqrEe6mLKABmWOohQ _rZ13gJqqEe6mLKABmWOohQ _hQfB4JqqEe6mLKABmWOohQ _c9SuYJqqEe6mLKABmWOohQ">
+            <edge xmi:type="uml:ControlFlow" xmi:id="_hQkhcJqqEe6mLKABmWOohQ" target="_hQfB4JqqEe6mLKABmWOohQ" source="_c9SuYJqqEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_rZ7XEJqqEe6mLKABmWOohQ" target="_rZ13gJqqEe6mLKABmWOohQ" source="_C5YEEJqrEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_C5fY0JqrEe6mLKABmWOohQ" target="_C5YEEJqrEe6mLKABmWOohQ" source="_hQfB4JqqEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_KflAcJqrEe6mLKABmWOohQ" name="NO" target="_OxgTMJqsEe6mLKABmWOohQ" source="_rZ13gJqqEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_Z9WWAJqrEe6mLKABmWOohQ" target="_Z9NzIJqrEe6mLKABmWOohQ" source="_OjC14JqrEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_jWLGkJqrEe6mLKABmWOohQ" name="YES" target="_VXMDMJqrEe6mLKABmWOohQ" source="_Z9NzIJqrEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_qW1s8JqrEe6mLKABmWOohQ" target="_qWnqgJqrEe6mLKABmWOohQ" source="_VXMDMJqrEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_bnTg8JqsEe6mLKABmWOohQ" name="YES" target="_OjC14JqrEe6mLKABmWOohQ" source="_rZ13gJqqEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="__HDXEJqsEe6mLKABmWOohQ" name="NO" target="__G0GgJqsEe6mLKABmWOohQ" source="_Z9NzIJqrEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_Bxs_cJqtEe6mLKABmWOohQ" target="_rZ13gJqqEe6mLKABmWOohQ" source="__G0GgJqsEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_JfGI8JqtEe6mLKABmWOohQ" target="__G0GgJqsEe6mLKABmWOohQ" source="_qWnqgJqrEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:InitialNode" xmi:id="_c9SuYJqqEe6mLKABmWOohQ" name="TIMING_tmr0_interrupt_handler(void)" outgoing="_hQkhcJqqEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_hQfB4JqqEe6mLKABmWOohQ" name="TMR0 = tmr0_conf" incoming="_hQkhcJqqEe6mLKABmWOohQ" outgoing="_C5fY0JqrEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:DecisionNode" xmi:id="_rZ13gJqqEe6mLKABmWOohQ" name="i >= next_func_idx" incoming="_rZ7XEJqqEe6mLKABmWOohQ _Bxs_cJqtEe6mLKABmWOohQ" outgoing="_KflAcJqrEe6mLKABmWOohQ _bnTg8JqsEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_C5YEEJqrEe6mLKABmWOohQ" name="i = 0" incoming="_C5fY0JqrEe6mLKABmWOohQ" outgoing="_rZ7XEJqqEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_OjC14JqrEe6mLKABmWOohQ" name="timing_functions[i].ticks_left -= 1" incoming="_bnTg8JqsEe6mLKABmWOohQ" outgoing="_Z9WWAJqrEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_VXMDMJqrEe6mLKABmWOohQ" name="(timing_functions[i].function_ptr)()" incoming="_jWLGkJqrEe6mLKABmWOohQ" outgoing="_qW1s8JqrEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:DecisionNode" xmi:id="_Z9NzIJqrEe6mLKABmWOohQ" name="timing_functions[i]->ticks_left == 0" incoming="_Z9WWAJqrEe6mLKABmWOohQ" outgoing="_jWLGkJqrEe6mLKABmWOohQ __HDXEJqsEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_qWnqgJqrEe6mLKABmWOohQ" name="timing_functions[i].ticks_left = timing_functions[i].ticks" incoming="_qW1s8JqrEe6mLKABmWOohQ" outgoing="_JfGI8JqtEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ActivityFinalNode" xmi:id="_OxgTMJqsEe6mLKABmWOohQ" name="TIMING_tmr0_interrupt_handler(void) end" incoming="_KflAcJqrEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="__G0GgJqsEe6mLKABmWOohQ" name="++i" incoming="__HDXEJqsEe6mLKABmWOohQ _JfGI8JqtEe6mLKABmWOohQ" outgoing="_Bxs_cJqtEe6mLKABmWOohQ"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Activity" xmi:id="_VrhpkJqtEe6mLKABmWOohQ" name="TIMING set tick duration" node="_mqK8AJqtEe6mLKABmWOohQ _qtNToJqtEe6mLKABmWOohQ _xuIYsJqtEe6mLKABmWOohQ _Rj7soJquEe6mLKABmWOohQ _VSLgAJquEe6mLKABmWOohQ _akGFkJquEe6mLKABmWOohQ _c08t4JquEe6mLKABmWOohQ _e5weQJquEe6mLKABmWOohQ _idwwgJquEe6mLKABmWOohQ">
+            <edge xmi:type="uml:ControlFlow" xmi:id="_xuN4QJqtEe6mLKABmWOohQ" target="_xuIYsJqtEe6mLKABmWOohQ" source="_mqK8AJqtEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_RkBzQJquEe6mLKABmWOohQ" target="_Rj7soJquEe6mLKABmWOohQ" source="_xuIYsJqtEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_VSSNsJquEe6mLKABmWOohQ" target="_VSLgAJquEe6mLKABmWOohQ" source="_Rj7soJquEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_akOBYJquEe6mLKABmWOohQ" name="YES" target="_akGFkJquEe6mLKABmWOohQ" source="_VSLgAJquEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_c1F30JquEe6mLKABmWOohQ" name="NO" target="_c08t4JquEe6mLKABmWOohQ" source="_VSLgAJquEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_e56PQJquEe6mLKABmWOohQ" target="_e5weQJquEe6mLKABmWOohQ" source="_c08t4JquEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_id-y8JquEe6mLKABmWOohQ" target="_idwwgJquEe6mLKABmWOohQ" source="_e5weQJquEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_l7xvgJquEe6mLKABmWOohQ" target="_idwwgJquEe6mLKABmWOohQ" source="_akGFkJquEe6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_oHLQEJquEe6mLKABmWOohQ" target="_qtNToJqtEe6mLKABmWOohQ" source="_idwwgJquEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:InitialNode" xmi:id="_mqK8AJqtEe6mLKABmWOohQ" name="TIMING_set_tick_duration(uint8_t tmr0, TMR0Prescaler pr)" outgoing="_xuN4QJqtEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ActivityFinalNode" xmi:id="_qtNToJqtEe6mLKABmWOohQ" name="TIMING_set_tick_duration(uint8_t tmr0, TMR0Prescaler pr) end" incoming="_oHLQEJquEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_xuIYsJqtEe6mLKABmWOohQ" name="tmr0_conf = tmr0" incoming="_xuN4QJqtEe6mLKABmWOohQ" outgoing="_RkBzQJquEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_Rj7soJquEe6mLKABmWOohQ" name="pr_bits_conf = pr" incoming="_RkBzQJquEe6mLKABmWOohQ" outgoing="_VSSNsJquEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:DecisionNode" xmi:id="_VSLgAJquEe6mLKABmWOohQ" name="pr == PR1to1 ?" incoming="_VSSNsJquEe6mLKABmWOohQ" outgoing="_akOBYJquEe6mLKABmWOohQ _c1F30JquEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_akGFkJquEe6mLKABmWOohQ" name="OPTION_REGbits.PSA = 1" incoming="_akOBYJquEe6mLKABmWOohQ" outgoing="_l7xvgJquEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_c08t4JquEe6mLKABmWOohQ" name="OPTION_REGbits.PSA = 0" incoming="_c1F30JquEe6mLKABmWOohQ" outgoing="_e56PQJquEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_e5weQJquEe6mLKABmWOohQ" name="OPTION_REGbits.PS = pr" incoming="_e56PQJquEe6mLKABmWOohQ" outgoing="_id-y8JquEe6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_idwwgJquEe6mLKABmWOohQ" name="TMR0 = tmr0_conf" incoming="_id-y8JquEe6mLKABmWOohQ _l7xvgJquEe6mLKABmWOohQ" outgoing="_oHLQEJquEe6mLKABmWOohQ"/>
+          </packagedElement>
         </packagedElement>
       </packagedElement>
     </packagedElement>
