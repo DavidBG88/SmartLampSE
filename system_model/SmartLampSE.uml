@@ -813,6 +813,39 @@ send_uart_sound_data(max_sound_level);</body>
             <node xmi:type="uml:ActivityFinalNode" xmi:id="_BUZQAJq7Ee6mLKABmWOohQ" name="EEPROM_write(uint8_t address, uint8_t data) end" incoming="_Eez9kJq7Ee6mLKABmWOohQ"/>
           </packagedElement>
         </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_bif7oJq7Ee6mLKABmWOohQ" name="ADC driver">
+          <packagedElement xmi:type="uml:Activity" xmi:id="_gbKTsJq7Ee6mLKABmWOohQ" name="ADC init" node="_lUNGQJq7Ee6mLKABmWOohQ _uHSsgJq7Ee6mLKABmWOohQ _zJjsgJq7Ee6mLKABmWOohQ _1-RP0Jq7Ee6mLKABmWOohQ _6HE4QJq7Ee6mLKABmWOohQ __-KncJq7Ee6mLKABmWOohQ _F6FMQJq8Ee6mLKABmWOohQ">
+            <edge xmi:type="uml:ControlFlow" xmi:id="_uHXlAJq7Ee6mLKABmWOohQ" target="_uHSsgJq7Ee6mLKABmWOohQ" source="_lUNGQJq7Ee6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_zJpMEJq7Ee6mLKABmWOohQ" target="_zJjsgJq7Ee6mLKABmWOohQ" source="_uHSsgJq7Ee6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_1-XWcJq7Ee6mLKABmWOohQ" target="_1-RP0Jq7Ee6mLKABmWOohQ" source="_zJjsgJq7Ee6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_6HK-4Jq7Ee6mLKABmWOohQ" target="_6HE4QJq7Ee6mLKABmWOohQ" source="_1-RP0Jq7Ee6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="__-R8MJq7Ee6mLKABmWOohQ" target="__-KncJq7Ee6mLKABmWOohQ" source="_6HE4QJq7Ee6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_IVgF0Jq8Ee6mLKABmWOohQ" target="_F6FMQJq8Ee6mLKABmWOohQ" source="__-KncJq7Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:InitialNode" xmi:id="_lUNGQJq7Ee6mLKABmWOohQ" name="ADC_init(void)" outgoing="_uHXlAJq7Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_uHSsgJq7Ee6mLKABmWOohQ" name="ADCON0bits.ADCS = 0b10" incoming="_uHXlAJq7Ee6mLKABmWOohQ" outgoing="_zJpMEJq7Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_zJjsgJq7Ee6mLKABmWOohQ" name="ADCON1bits.ADFM = 1" incoming="_zJpMEJq7Ee6mLKABmWOohQ" outgoing="_1-XWcJq7Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_1-RP0Jq7Ee6mLKABmWOohQ" name="ADCON1bits.VCFG0 = 0" incoming="_1-XWcJq7Ee6mLKABmWOohQ" outgoing="_6HK-4Jq7Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_6HE4QJq7Ee6mLKABmWOohQ" name="ADCON1bits.VCFG1 = 0" incoming="_6HK-4Jq7Ee6mLKABmWOohQ" outgoing="__-R8MJq7Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="__-KncJq7Ee6mLKABmWOohQ" name="ADCON0bits.ADON = 1" incoming="__-R8MJq7Ee6mLKABmWOohQ" outgoing="_IVgF0Jq8Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ActivityFinalNode" xmi:id="_F6FMQJq8Ee6mLKABmWOohQ" name="ADC_init(void)" incoming="_IVgF0Jq8Ee6mLKABmWOohQ"/>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Activity" xmi:id="_j3T1AJq8Ee6mLKABmWOohQ" name="ADC read" node="_rYCbgJq8Ee6mLKABmWOohQ _uojxEJq8Ee6mLKABmWOohQ _yONpIJq8Ee6mLKABmWOohQ _EW3QkJq9Ee6mLKABmWOohQ _IuxsAJq9Ee6mLKABmWOohQ _ZApYAJq9Ee6mLKABmWOohQ _jTT6oJq9Ee6mLKABmWOohQ">
+            <edge xmi:type="uml:ControlFlow" xmi:id="_uopQoJq8Ee6mLKABmWOohQ" target="_uojxEJq8Ee6mLKABmWOohQ" source="_rYCbgJq8Ee6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_yOTvwJq8Ee6mLKABmWOohQ" target="_yONpIJq8Ee6mLKABmWOohQ" source="_uojxEJq8Ee6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_EW9-QJq9Ee6mLKABmWOohQ" target="_EW3QkJq9Ee6mLKABmWOohQ" source="_yONpIJq8Ee6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_Iu3yoJq9Ee6mLKABmWOohQ" target="_IuxsAJq9Ee6mLKABmWOohQ" source="_EW3QkJq9Ee6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_QmhrYJq9Ee6mLKABmWOohQ" name="NO" target="_IuxsAJq9Ee6mLKABmWOohQ" source="_IuxsAJq9Ee6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_ZAx64Jq9Ee6mLKABmWOohQ" target="_ZApYAJq9Ee6mLKABmWOohQ" source="_IuxsAJq9Ee6mLKABmWOohQ"/>
+            <edge xmi:type="uml:ControlFlow" xmi:id="_mQVFYJq9Ee6mLKABmWOohQ" target="_jTT6oJq9Ee6mLKABmWOohQ" source="_ZApYAJq9Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:InitialNode" xmi:id="_rYCbgJq8Ee6mLKABmWOohQ" name="ADC_read(ADCPin adc_pin)" outgoing="_uopQoJq8Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_uojxEJq8Ee6mLKABmWOohQ" name="PIR1bits.ADIF = 0" incoming="_uopQoJq8Ee6mLKABmWOohQ" outgoing="_yOTvwJq8Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_yONpIJq8Ee6mLKABmWOohQ" name="ADCON0bits.CHS = adc_pin" incoming="_yOTvwJq8Ee6mLKABmWOohQ" outgoing="_EW9-QJq9Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_EW3QkJq9Ee6mLKABmWOohQ" name="ADCON0bits.GO = 1" incoming="_EW9-QJq9Ee6mLKABmWOohQ" outgoing="_Iu3yoJq9Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:DecisionNode" xmi:id="_IuxsAJq9Ee6mLKABmWOohQ" name="ADCON0bits.nDONE ?" incoming="_Iu3yoJq9Ee6mLKABmWOohQ _QmhrYJq9Ee6mLKABmWOohQ" outgoing="_QmhrYJq9Ee6mLKABmWOohQ _ZAx64Jq9Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ValueSpecificationAction" xmi:id="_ZApYAJq9Ee6mLKABmWOohQ" name="return ((uint16_t)ADRESH &lt;&lt; 8) | ADRESL" incoming="_ZAx64Jq9Ee6mLKABmWOohQ" outgoing="_mQVFYJq9Ee6mLKABmWOohQ"/>
+            <node xmi:type="uml:ActivityFinalNode" xmi:id="_jTT6oJq9Ee6mLKABmWOohQ" name="ADC_read(ADCPin adc_pin) end" incoming="_mQVFYJq9Ee6mLKABmWOohQ"/>
+          </packagedElement>
+        </packagedElement>
       </packagedElement>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_LrxqoISuEe6oWtQyg54a4A">
