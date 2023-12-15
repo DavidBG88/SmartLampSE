@@ -19,53 +19,51 @@
 #include "uart.h"
 
 #define NUM_LEDS 10
+#define SOUND_ADC_PIN ADC0
+#define SOUND_BUFFER_SIZE 100
 
-uint8_t debug_10ms = 0;
-uint8_t debug_1000ms = 0;
-uint8_t debug_5000ms = 0;
-uint16_t adc = 0;
+#define UART_CO2_TX_CODE 0
+#define UART_HUMIDITY_TX_CODE 1
+#define UART_TEMPERATURE_TX_CODE 2
+#define UART_SOUND_TX_CODE 3
 
-void every_10ms(void) {
-    debug_10ms = !debug_10ms;
+#define UART_LIGHT_RX_CODE 0
+#define UART_FAN_RX_CODE 1
+
+uint16_t max_sound = 0;
+
+void record_sound_level(void) {
+    uint16_t read_sound = ADC_read(SOUND_ADC_PIN);
+
+    if (read_sound > max_sound)
+        max_sound = read_sound;
 }
 
-void every_1000ms(void) {
-    debug_1000ms = !debug_1000ms;
+void send_sound_level(void) {
+    uint8_t message_bytes[] = {UART_SOUND_TX_CODE, ((uint8_t*)&max_sound)[1],
+                               ((uint8_t*)&max_sound)[0]};
 
-    char message[16];
+    UART_write_n_bytes(message_bytes, 3);
 
-    sprintf(message, "ADC 0: %d\r\n", ADC_read(ADC0));
-    UART_puts(message);
-
-    sprintf(message, "ADC 1: %d\r\n", ADC_read(ADC1));
-    UART_puts(message);
-
-    sprintf(message, "ADC 2: %d\r\n", ADC_read(ADC2));
-    UART_puts(message);
+    max_sound = 0;
 }
 
-void every_5000ms(void) {
-    debug_5000ms = !debug_5000ms;
-}
+void every_5000ms(void) {}
 
 void update_light(uint8_t p, uint8_t r, uint8_t g, uint8_t b) {
     APA102_set_color(p, r, g, b);
 
-    /*
     char message[16];
     sprintf(message, "LIGHT: (%d, %d, %d)\r\n", r, g, b);
     UART_puts(message);
-    */
 }
 
 void update_fan_speed(uint8_t speed) {
     PWM_set_duty_cycle(PWM_get_max_duty_cycle() * speed / 255);
 
-    /*
     char message[16];
     sprintf(message, "FAN SPEED: %d\r\n", speed);
     UART_puts(message);
-    */
 }
 
 void report_invalid_command(uint8_t command) {
@@ -83,20 +81,20 @@ void match_incomming_uart_command(void) {
     uint8_t command = UART_read_byte();
 
     switch (command) {
-        case 0: {  // Light
+        case UART_LIGHT_RX_CODE: {  // Light
             uint8_t prgb[4];
             UART_read_n_bytes(prgb, sizeof(prgb));
             update_light(prgb[0], prgb[1], prgb[2], prgb[3]);
             break;
         }
-        case 1: {  // Fan speed
+        case UART_FAN_RX_CODE: {  // Fan speed
             uint8_t speed;
             UART_read_n_bytes(&speed, sizeof(speed));
             update_fan_speed(speed);
             break;
         }
         default:
-            report_invalid_command(command);
+            //report_invalid_command(command);
             break;
     }
 }
@@ -126,9 +124,9 @@ int main(void) {
     TIMING_set_tick_duration(256 - 250, PR1to8);  // Tick = 1.6us * 250 = 400us
 
     // Set timing callbacks
-    TIMING_run_every_n_ticks(25, every_10ms);       // Every 10ms   -> 25 ticks
-    TIMING_run_every_n_ticks(2500, every_1000ms);   // Every 1000ms -> 2500 ticks
-    TIMING_run_every_n_ticks(12500, every_5000ms);  // Every 5000ms -> 12500 ticks
+    TIMING_run_every_n_ticks(25, record_sound_level);  // Every 10ms   -> 25 ticks
+    TIMING_run_every_n_ticks(2500, send_sound_level);  // Every 1000ms -> 2500 ticks
+    TIMING_run_every_n_ticks(12500, every_5000ms);     // Every 5000ms -> 12500 ticks
 
     // Initialize UART
     UART_init();
@@ -149,7 +147,7 @@ void __interrupt() interrupt_handler(void) {
         //uint8_t input_byte = UART_read_byte();
         //UART_write_byte(input_byte);
 
-        //match_incomming_uart_command();
+        match_incomming_uart_command();
         PIR1bits.RCIF = 0;
     } else if (PIR1bits.TMR2IF) {
         PWM_tmr2_interrupt_handler();

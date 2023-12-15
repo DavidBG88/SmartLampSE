@@ -54,8 +54,9 @@ void TIMING_set_tick_duration(uint8_t tmr0, TMR0Prescaler pr) {
 
 void TIMING_run_every_n_ticks(uint16_t ticks, void (*function_ptr)(void)) {
     TimingFunction* tf = &timing_functions[next_func_idx];
-    ++next_func_idx;
 
     tf->function_ptr = function_ptr;
     tf->ticks_left = tf->ticks = ticks;
+
+    ++next_func_idx;
 }
