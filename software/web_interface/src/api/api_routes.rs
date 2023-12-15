@@ -16,9 +16,9 @@ use crate::model::model::ServerModel;
 #[derive(Serialize)]
 struct EnvironmentVariables {
     co2: Option<u32>,
-    humidity: u32,
-    light_intensity: u32,
-    temperature: u32,
+    humidity: Option<u32>,
+    light_intensity: Option<u32>,
+    temperature: Option<u32>,
 }
 
 #[derive(Serialize)]

@@ -20,10 +20,29 @@ impl SerialPortIO {
     }
 }
 
+pub struct SensorData {
+    light: Option<u32>,
+    co2: Option<u32>,
+    temperature: Option<u32>,
+    humidity: Option<u32>,
+}
+
+impl SensorData {
+    pub fn new() -> SensorData {
+        SensorData {
+            light: None,
+            co2: None,
+            temperature: None,
+            humidity: None,
+        }
+    }
+}
+
 #[derive(Clone)]
 pub struct ServerModel {
     serial_port_name: Arc<Mutex<String>>,
     serial_port_io: Arc<Mutex<Option<SerialPortIO>>>,
+    sensor_data: Arc<Mutex<SensorData>>
 }
 
 impl ServerModel {
@@ -31,6 +50,7 @@ impl ServerModel {
         ServerModel {
             serial_port_name: Arc::new(Mutex::new("".to_string())),
             serial_port_io: Arc::new(Mutex::new(None)),
+            sensor_data: Arc::new(Mutex::new(SensorData::new()))
         }
     }
 
@@ -94,19 +114,59 @@ impl ServerModel {
         }
     }
 
+    pub async fn update_sensor_data(&self, serial_reader: &mut impl BufRead) {
+        let mut first_byte: u8 = 0;
+        let _ = serial_reader.read_exact(std::slice::from_mut(&mut first_byte));
+
+        let mut sensors_data = self.sensor_data.lock().await;
+
+        match first_byte {
+            0 => { // CO2
+                //sensors_data.co2 = read_co2();
+            }
+            1 => { // Humidity
+                //sensors_data.humidity = read_humidity();
+            }
+            2 => { // Temperature
+                sensors_data.temperature = Self::read_temperature(serial_reader);
+            }
+            3 =>  { // Sound
+                //sensors_data.sound = read_sound();
+            }
+            _ => {}
+        }
+    }
+
+    fn read_co2(serial_reader: &mut impl BufRead) -> Option<u32> {
+        todo!();
+        //let input_buff = vec![0u8; 3];
+        //serial_reader.read_exact(input_buff.as_mut_slice());
+    }
+
+    fn read_temperature(serial_reader: &mut impl BufRead) -> Option<u32> {
+        let mut input_buff =[0u8; 2];
+        let input: u16;
+
+        if let Ok(()) = serial_reader.read_exact(&mut input_buff) {
+            Some(u16::from_be_bytes(input_buff) as u32)
+        } else {
+            None
+        }
+    }
+
     pub async fn get_co2(&self) -> Option<u32> {
-        return None;
+        if self.has_port().await { Some(33) } else { None }
     }
 
-    pub async fn get_temperature(&self) -> u32 {
-        return 33;
+    pub async fn get_temperature(&self) -> Option<u32> {
+        if self.has_port().await { Some(33) } else { None }
     }
 
-    pub async fn get_light_intensity(&self) -> u32 {
-        return 33;
+    pub async fn get_light_intensity(&self) -> Option<u32> {
+        if self.has_port().await { Some(33) } else { None }
     }
 
-    pub async fn get_humidity(&self) -> u32 {
-        return 33;
+    pub async fn get_humidity(&self) -> Option<u32> {
+        if self.has_port().await { Some(33) } else { None }
     }
 }
