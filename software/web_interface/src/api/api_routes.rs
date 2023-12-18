@@ -15,10 +15,11 @@ use crate::model::model::ServerModel;
 
 #[derive(Serialize)]
 struct EnvironmentVariables {
-    co2: Option<u32>,
-    humidity: Option<u32>,
-    light_intensity: Option<u32>,
-    temperature: Option<u32>,
+    co2: Option<u16>,
+    humidity: Option<u16>,
+    light_intensity: Option<u16>,
+    temperature: Option<u16>,
+    sound: Option<u8>,
 }
 
 #[derive(Serialize)]
@@ -107,6 +108,7 @@ async fn get_sensors_handler(State(server_model): State<ServerModel>) -> ApiResp
         temperature: server_model.get_temperature().await,
         light_intensity: server_model.get_light_intensity().await,
         humidity: server_model.get_humidity().await,
+        sound: server_model.get_sound().await,
     }))
 }
 

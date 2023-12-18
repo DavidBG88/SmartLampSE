@@ -1,9 +1,11 @@
 use std::io::{BufRead, BufReader, Read, Write};
 use std::sync::Arc;
+use std::thread;
 use std::time::Duration;
 use serialport::{DataBits, FlowControl, Parity, SerialPort, SerialPortBuilder, SerialPortInfo, StopBits};
 use serialport::DataBits::Eight;
 use tokio::sync::{Mutex, MutexGuard};
+use tokio::task;
 use tokio::time::Timeout;
 
 pub struct SerialPortIO {
@@ -21,10 +23,11 @@ impl SerialPortIO {
 }
 
 pub struct SensorData {
-    light: Option<u32>,
-    co2: Option<u32>,
-    temperature: Option<u32>,
-    humidity: Option<u32>,
+    light: Option<u16>,
+    co2: Option<u16>,
+    temperature: Option<u16>,
+    humidity: Option<u16>,
+    sound: Option<u8>,
 }
 
 impl SensorData {
@@ -34,6 +37,7 @@ impl SensorData {
             co2: None,
             temperature: None,
             humidity: None,
+            sound: None,
         }
     }
 }
@@ -47,11 +51,14 @@ pub struct ServerModel {
 
 impl ServerModel {
     pub fn new() -> ServerModel {
-        ServerModel {
+        let model = ServerModel {
             serial_port_name: Arc::new(Mutex::new("".to_string())),
             serial_port_io: Arc::new(Mutex::new(None)),
             sensor_data: Arc::new(Mutex::new(SensorData::new()))
-        }
+        };
+
+
+        model
     }
 
     pub async fn has_port(&self) -> bool {
@@ -122,16 +129,19 @@ impl ServerModel {
 
         match first_byte {
             0 => { // CO2
-                //sensors_data.co2 = read_co2();
+                //sensors_data.co2 = Self::read_co2(serial_reader);
             }
             1 => { // Humidity
-                //sensors_data.humidity = read_humidity();
+                //sensors_data.humidity = Self::read_humidity(serial_reader);
             }
             2 => { // Temperature
                 sensors_data.temperature = Self::read_temperature(serial_reader);
             }
             3 =>  { // Sound
-                //sensors_data.sound = read_sound();
+                sensors_data.sound = Self::read_sound(serial_reader);
+            }
+            4 => { // Light
+                //sensors_data.light = Self::read_light(serial_reader);
             }
             _ => {}
         }
@@ -143,30 +153,44 @@ impl ServerModel {
         //serial_reader.read_exact(input_buff.as_mut_slice());
     }
 
-    fn read_temperature(serial_reader: &mut impl BufRead) -> Option<u32> {
+    fn read_temperature(serial_reader: &mut impl BufRead) -> Option<u16> {
         let mut input_buff =[0u8; 2];
-        let input: u16;
 
         if let Ok(()) = serial_reader.read_exact(&mut input_buff) {
-            Some(u16::from_be_bytes(input_buff) as u32)
+            Some(u16::from_be_bytes(input_buff))
         } else {
             None
         }
     }
 
-    pub async fn get_co2(&self) -> Option<u32> {
+    fn read_sound(serial_reader: &mut impl BufRead) -> Option<u8> {
+        let mut input_buff = [0u8; 1];
+
+        if let Ok(()) = serial_reader.read_exact(&mut input_buff) {
+            Some(u8::from_be_bytes(input_buff))
+        } else {
+            None
+        }
+    }
+
+    pub async fn get_co2(&self) -> Option<u16> {
         if self.has_port().await { Some(33) } else { None }
     }
 
-    pub async fn get_temperature(&self) -> Option<u32> {
+    pub async fn get_temperature(&self) -> Option<u16> {
         if self.has_port().await { Some(33) } else { None }
     }
 
-    pub async fn get_light_intensity(&self) -> Option<u32> {
+    pub async fn get_light_intensity(&self) -> Option<u16> {
         if self.has_port().await { Some(33) } else { None }
     }
 
-    pub async fn get_humidity(&self) -> Option<u32> {
+    pub async fn get_humidity(&self) -> Option<u16> {
         if self.has_port().await { Some(33) } else { None }
+    }
+
+    pub async fn get_sound(&self) -> Option<u8> {
+        let mut sensors_data = self.sensor_data.lock().await;
+        if self.has_port().await { sensors_data.sound.clone() } else { None }
     }
 }
