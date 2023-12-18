@@ -5,6 +5,11 @@
 
 #define _XTAL_FREQ 20000000  // necessary for __delay_us
 
+void SPI_init() {
+    PORTB = 0;
+    TRISB  = 0;
+}
+
 uint8_t SPI_write_read(uint8_t byte) {
     uint8_t answer = 0;
 

@@ -1,6 +1,8 @@
 #ifndef PWM_TEST_H
 #define PWM_TEST_H
 
+#include "stdint.h"
+
 const uint8_t duty_arr[] = {0, 64, 128, 192, 255};
 
 /**
