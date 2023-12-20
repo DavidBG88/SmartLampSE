@@ -22,7 +22,7 @@ void I2C_start(void);
 
 void I2C_stop(void);
 
-void I2C_rstart(void);
+void I2C_restart(void);
 
 uint8_t I2C_write(uint8_t byte);
 
