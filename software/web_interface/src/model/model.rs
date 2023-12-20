@@ -125,7 +125,7 @@ impl ServerModel {
         let mut first_byte: u8 = 0;
         let mut sensors_data = self.sensor_data.lock().await;
 
-        while serial_reader.read_exact(std::slice::from_mut(&mut first_byte)) {
+        while let Ok(()) = serial_reader.read_exact(std::slice::from_mut(&mut first_byte)) {
             match first_byte {
                 0 => { // CO2
                     sensors_data.co2 = Self::read_co2(serial_reader);
@@ -200,7 +200,10 @@ impl ServerModel {
     }
 
     pub async fn get_sensors_data(&self) -> SensorData {
-        println!("ASDFASDF");
-        self.update_sensor_data(&mut self.serial_port_io.lock().await.as_mut().unwrap().serial_port_reader).await
+        if self.has_port().await {
+            self.update_sensor_data(&mut self.serial_port_io.lock().await.as_mut().unwrap().serial_port_reader).await
+        } else {
+            SensorData::new()
+        }
     }
 }

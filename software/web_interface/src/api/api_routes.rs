@@ -110,10 +110,18 @@ async fn get_sensors_handler(State(server_model): State<ServerModel>) -> ApiResp
         humidity: sensor_data.humidity,
         light_intensity: sensor_data.light,
         temperature: sensor_data.temperature,
-        sound: sensor_data.sound,
+        sound: adc_sound_to_levels(sensor_data.sound),
     }))
 }
 
 async fn fallback_handler(uri: Uri) -> ApiResponse<()> {
     ErrApiResponse(ApiErrorCode::UriNotFound, format!("Uri \'{}\' not found", uri))
+}
+
+fn adc_sound_to_levels(adc_sound: Option<u16>) -> Option<u16> {
+    adc_sound.map(|x| match x {
+        0..=400 => 0u16,
+        401..=900 => 1u16,
+        _ => 2u16,
+    })
 }

@@ -26,6 +26,7 @@
 #define UART_HUMIDITY_TX_CODE 1
 #define UART_TEMPERATURE_TX_CODE 2
 #define UART_SOUND_TX_CODE 3
+#define UART_LIGHT_TX_CODE 4
 
 #define UART_LIGHT_RX_CODE 0
 #define UART_FAN_RX_CODE 1
@@ -58,11 +59,23 @@ void record_and_send_co2_data(void) {
     UART_write_n_bytes(message_bytes, 3);
 }
 
-void record_and_send_temperature(void) {}
+void record_and_send_temperature(void) {
+    uint8_t message_bytes[] = {UART_TEMPERATURE_TX_CODE, 10, 10};
 
-void record_and_send_light_lux(void) {}
+    UART_write_n_bytes(message_bytes, 3);
+}
 
-void record_and_send_humidity(void) {}
+void record_and_send_light_lux(void) {
+    uint8_t message_bytes[] = {UART_LIGHT_TX_CODE, 10, 10};
+
+    UART_write_n_bytes(message_bytes, 3);
+}
+
+void record_and_send_humidity(void) {
+    uint8_t message_bytes[] = {UART_HUMIDITY_TX_CODE, 10, 10};
+
+    UART_write_n_bytes(message_bytes, 3);
+}
 
 void record_and_send_environment_data(void) {
     record_and_send_co2_data();

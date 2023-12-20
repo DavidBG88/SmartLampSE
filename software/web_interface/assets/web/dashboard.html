@@ -105,6 +105,8 @@
     <button onclick="window.location.href='fan_config'">Fan Configuration</button>
 
     <script>
+        const sound_level = ['Bajo', 'Intermedio', 'Alto'];
+
         function updateSensorValues() {
             // Fetch sensor data from the API
             fetch('/sensors')
@@ -115,7 +117,7 @@
                     updateSensorValue('humidity', data.humidity == null ? 'Sensor Offline' : data.humidity + ' %');
                     updateSensorValue('light', data.light_intensity == null ? 'Sensor Offline' : data.light_intensity + ' lx');
                     updateSensorValue('co2', data.co2 == null ? 'Sensor Offline' : data.co2 + ' ppm');
-                    updateSensorValue('sound', data.sound == null ? 'Sensor Offline' : data.sound);
+                    updateSensorValue('sound', data.sound == null ? 'Sensor Offline' : sound_level[data.sound]);
                 })
                 .catch(error => console.error('Error fetching sensor data:', error));
         }
