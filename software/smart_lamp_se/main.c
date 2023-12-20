@@ -86,18 +86,10 @@ void record_and_send_environment_data(void) {
 
 void update_light(uint8_t p, uint8_t r, uint8_t g, uint8_t b) {
     APA102_set_color(p, r, g, b);
-
-    char message[16];
-    sprintf(message, "LIGHT: (%d, %d, %d)\r\n", r, g, b);
-    UART_puts(message);
 }
 
 void update_fan_speed(uint8_t speed) {
     PWM_set_duty_cycle(PWM_get_max_duty_cycle() * speed / 255);
-
-    char message[16];
-    sprintf(message, "FAN SPEED: %d\r\n", speed);
-    UART_puts(message);
 }
 
 void report_invalid_command(uint8_t command) {

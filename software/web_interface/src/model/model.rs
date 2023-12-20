@@ -102,10 +102,6 @@ impl ServerModel {
             println!("Writing led config...");
             let message = [0u8, p, r, g, b];
             let _ = serial_port_io.serial_port.write(&message);
-
-            let mut buffer = String::new();
-            let _ = serial_port_io.serial_port_reader.read_line(&mut buffer);
-            println!("{}", buffer);
         }
     }
 
@@ -114,10 +110,6 @@ impl ServerModel {
             println!("Writing fan config...");
             let message = [1u8, speed];
             let _ = serial_port_io.serial_port.write(&message);
-
-            let mut buffer = String::new();
-            let _ = serial_port_io.serial_port_reader.read_line(&mut buffer);
-            println!("{}", buffer);
         }
     }
 
