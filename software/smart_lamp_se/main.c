@@ -48,7 +48,28 @@ void send_sound_level(void) {
     max_sound = 0;
 }
 
-void every_5000ms(void) {}
+void record_and_send_co2_data(void) {
+    //IAQCORE_Reading reading = IAQCORE_read();
+
+    //uint8_t message_bytes[] = {UART_CO2_TX_CODE, ((uint8_t*)&reading.eco2_ppm)[1],
+    //                           ((uint8_t*)&reading.eco2_ppm)[0]};
+    uint8_t message_bytes[] = {UART_CO2_TX_CODE, 10, 10};
+
+    UART_write_n_bytes(message_bytes, 3);
+}
+
+void record_and_send_temperature(void) {}
+
+void record_and_send_light_lux(void) {}
+
+void record_and_send_humidity(void) {}
+
+void record_and_send_environment_data(void) {
+    record_and_send_co2_data();
+    record_and_send_temperature();
+    record_and_send_light_lux();
+    record_and_send_humidity();
+}
 
 void update_light(uint8_t p, uint8_t r, uint8_t g, uint8_t b) {
     APA102_set_color(p, r, g, b);
@@ -126,7 +147,8 @@ int main(void) {
     // Set timing callbacks
     TIMING_run_every_n_ticks(25, record_sound_level);  // Every 10ms   -> 25 ticks
     TIMING_run_every_n_ticks(2500, send_sound_level);  // Every 1000ms -> 2500 ticks
-    TIMING_run_every_n_ticks(12500, every_5000ms);     // Every 5000ms -> 12500 ticks
+    TIMING_run_every_n_ticks(12500,
+                             record_and_send_environment_data);  // Every 5000ms -> 12500 ticks
 
     // Initialize UART
     UART_init();
