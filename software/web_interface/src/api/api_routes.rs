@@ -19,7 +19,7 @@ struct EnvironmentVariables {
     humidity: Option<u16>,
     light_intensity: Option<u16>,
     temperature: Option<u16>,
-    sound: Option<u8>,
+    sound: Option<u16>,
 }
 
 #[derive(Serialize)]
@@ -103,12 +103,14 @@ async fn post_serial_ports_handler(State(server_model): State<ServerModel>, ApiJ
 }
 
 async fn get_sensors_handler(State(server_model): State<ServerModel>) -> ApiResponse<Json<EnvironmentVariables>> {
+    let sensor_data = server_model.get_sensors_data().await;
+
     OkApiResponse(StatusCode::OK, Json(EnvironmentVariables {
-        co2: server_model.get_co2().await,
-        temperature: server_model.get_temperature().await,
-        light_intensity: server_model.get_light_intensity().await,
-        humidity: server_model.get_humidity().await,
-        sound: server_model.get_sound().await,
+        co2: sensor_data.co2,
+        humidity: sensor_data.humidity,
+        light_intensity: sensor_data.light,
+        temperature: sensor_data.temperature,
+        sound: sensor_data.sound,
     }))
 }
 

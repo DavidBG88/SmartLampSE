@@ -1,0 +1,6 @@
+POST localhost:3000/serial_ports
+Content-Type: application/json
+
+{
+  "port": "asd"
+}
