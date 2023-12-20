@@ -11,6 +11,9 @@
 #include <xc.h>
 
 #include "APA102.h"
+#include "HIH4000.h"
+#include "LM35.h"
+#include "VEML7700.h"
 #include "adc.h"
 #include "eeprom.h"
 #include "iAQCore.h"
@@ -19,8 +22,11 @@
 #include "uart.h"
 
 #define NUM_LEDS 10
-#define SOUND_ADC_PIN ADC0
 #define SOUND_BUFFER_SIZE 100
+
+#define SOUND_ADC_PIN ADC0
+#define TEMPERATURE_ADC_PIN ADC1
+#define HUMIDITY_ADC_PIN ADC2
 
 #define UART_CO2_TX_CODE 0
 #define UART_HUMIDITY_TX_CODE 1
@@ -60,19 +66,28 @@ void record_and_send_co2_data(void) {
 }
 
 void record_and_send_temperature(void) {
+    //uint16_t temp = LM35_read_celsius(TEMPERATURE_ADC_PIN);
+
+    //uint8_t message_bytes[] = {UART_TEMPERATURE_TX_CODE, (uint8_t)(temp << 8), (uint8_t)temp};
     uint8_t message_bytes[] = {UART_TEMPERATURE_TX_CODE, 10, 10};
 
     UART_write_n_bytes(message_bytes, 3);
 }
 
 void record_and_send_light_lux(void) {
-    uint8_t message_bytes[] = {UART_LIGHT_TX_CODE, 10, 10};
+    uint16_t lux = VEML7700_read_light_lux();
+
+    uint8_t message_bytes[] = {UART_LIGHT_TX_CODE, (uint8_t)(lux << 8), (uint8_t)lux};
+    //uint8_t message_bytes[] = {UART_LIGHT_TX_CODE, 10, 10};
 
     UART_write_n_bytes(message_bytes, 3);
 }
 
 void record_and_send_humidity(void) {
-    uint8_t message_bytes[] = {UART_HUMIDITY_TX_CODE, 10, 10};
+    uint16_t humidity = HIH4000_read_humidity(HUMIDITY_ADC_PIN);
+
+    uint8_t message_bytes[] = {UART_HUMIDITY_TX_CODE, (uint8_t)(humidity << 8), (uint8_t)humidity};
+    //uint8_t message_bytes[] = {UART_HUMIDITY_TX_CODE, 10, 10};
 
     UART_write_n_bytes(message_bytes, 3);
 }
