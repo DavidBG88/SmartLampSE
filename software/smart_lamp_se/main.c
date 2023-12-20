@@ -37,6 +37,20 @@
 #define UART_LIGHT_RX_CODE 0
 #define UART_FAN_RX_CODE 1
 
+#define CONFIG_MEM_CONTROL 0b01010101
+#define CONFIG_MEM_CONTROL_ADDR 0x0
+#define LIGHT_P_MEM_ADDR 0x1
+#define LIGHT_R_MEM_ADDR 0x2
+#define LIGHT_G_MEM_ADDR 0x3
+#define LIGHT_B_MEM_ADDR 0x4
+#define FAN_SPEED_MEM_ADDR 0X5
+
+#define DEFAULT_FAN_SPEED 0
+#define DEFAULT_P_LIGHT 16
+#define DEFAULT_R_LIGHT 255
+#define DEFAULT_G_LIGHT 255
+#define DEFAULT_B_LIGHT 255
+
 uint16_t max_sound = 0;
 
 void record_sound_level(void) {
@@ -66,19 +80,19 @@ void record_and_send_co2_data(void) {
 }
 
 void record_and_send_temperature(void) {
-    //uint16_t temp = LM35_read_celsius(TEMPERATURE_ADC_PIN);
+    uint16_t temp = LM35_read_celsius(TEMPERATURE_ADC_PIN);
 
-    //uint8_t message_bytes[] = {UART_TEMPERATURE_TX_CODE, (uint8_t)(temp << 8), (uint8_t)temp};
-    uint8_t message_bytes[] = {UART_TEMPERATURE_TX_CODE, 10, 10};
+    uint8_t message_bytes[] = {UART_TEMPERATURE_TX_CODE, (uint8_t)(temp << 8), (uint8_t)temp};
+    //uint8_t message_bytes[] = {UART_TEMPERATURE_TX_CODE, 10, 10};
 
     UART_write_n_bytes(message_bytes, 3);
 }
 
 void record_and_send_light_lux(void) {
-    uint16_t lux = VEML7700_read_light_lux();
+    //uint16_t lux = VEML7700_read_light_lux();
 
-    uint8_t message_bytes[] = {UART_LIGHT_TX_CODE, (uint8_t)(lux << 8), (uint8_t)lux};
-    //uint8_t message_bytes[] = {UART_LIGHT_TX_CODE, 10, 10};
+    //uint8_t message_bytes[] = {UART_LIGHT_TX_CODE, (uint8_t)(lux << 8), (uint8_t)lux};
+    uint8_t message_bytes[] = {UART_LIGHT_TX_CODE, 10, 10};
 
     UART_write_n_bytes(message_bytes, 3);
 }
@@ -140,11 +154,32 @@ void match_incomming_uart_command(void) {
     }
 }
 
+inline bool prev_conf_exists() {
+    return EEPROM_read(CONFIG_MEM_CONTROL_ADDR) == CONFIG_MEM_CONTROL;
+}
+
 int main(void) {
     // Enable interrupts
     INTCONbits.GIE = 1;   // Enable interrupts
     INTCONbits.PEIE = 1;  // Enable peripheral interrupts
     INTCONbits.T0IE = 1;  // Enable Timer0 interrupts
+
+    uint8_t fan_speed;
+    uint8_t p, r, g, b;
+
+    if (!prev_conf_exists()) {
+        EEPROM_write(LIGHT_P_MEM_ADDR, DEFAULT_P_LIGHT);
+        EEPROM_write(LIGHT_R_MEM_ADDR, DEFAULT_R_LIGHT);
+        EEPROM_write(LIGHT_G_MEM_ADDR, DEFAULT_G_LIGHT);
+        EEPROM_write(LIGHT_B_MEM_ADDR, DEFAULT_B_LIGHT);
+        EEPROM_write(FAN_SPEED_MEM_ADDR, DEFAULT_FAN_SPEED);
+    }
+
+    p = EEPROM_read(LIGHT_P_MEM_ADDR);
+    r = EEPROM_read(LIGHT_R_MEM_ADDR);
+    g = EEPROM_read(LIGHT_G_MEM_ADDR);
+    b = EEPROM_read(LIGHT_B_MEM_ADDR);
+    fan_speed = EEPROM_read(FAN_SPEED_MEM_ADDR);
 
     // Initialize ADC
     ADC_init();
