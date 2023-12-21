@@ -18,6 +18,8 @@
 #include "eeprom.h"
 #include "iAQCore.h"
 #include "pwm.h"
+#include "i2c.h"
+#include "spi.h"
 #include "timing.h"
 #include "uart.h"
 
@@ -26,7 +28,7 @@
 
 #define SOUND_ADC_PIN ADC0
 #define TEMPERATURE_ADC_PIN ADC1
-#define HUMIDITY_ADC_PIN ADC2
+#define HUMIDITY_ADC_PIN ADC1
 
 #define UART_CO2_TX_CODE 0
 #define UART_HUMIDITY_TX_CODE 1
@@ -70,37 +72,36 @@ void send_sound_level(void) {
 }
 
 void record_and_send_co2_data(void) {
-    //IAQCORE_Reading reading = IAQCORE_read();
+    IAQCORE_Reading reading = IAQCORE_read();
 
-    //uint8_t message_bytes[] = {UART_CO2_TX_CODE, ((uint8_t*)&reading.eco2_ppm)[1],
-    //                           ((uint8_t*)&reading.eco2_ppm)[0]};
-    uint8_t message_bytes[] = {UART_CO2_TX_CODE, 10, 10};
-
+    uint8_t message_bytes[] = {UART_CO2_TX_CODE, ((uint8_t*)&reading.eco2_ppm)[1],
+                               ((uint8_t*)&reading.eco2_ppm)[0]};
+                               
     UART_write_n_bytes(message_bytes, 3);
 }
 
 void record_and_send_temperature(void) {
     uint16_t temp = LM35_read_celsius(TEMPERATURE_ADC_PIN);
 
-    uint8_t message_bytes[] = {UART_TEMPERATURE_TX_CODE, (uint8_t)(temp << 8), (uint8_t)temp};
+    uint8_t message_bytes[] = {UART_TEMPERATURE_TX_CODE, (uint8_t)(temp >> 8), (uint8_t)temp};
     //uint8_t message_bytes[] = {UART_TEMPERATURE_TX_CODE, 10, 10};
 
     UART_write_n_bytes(message_bytes, 3);
 }
 
 void record_and_send_light_lux(void) {
-    //uint16_t lux = VEML7700_read_light_lux();
+    uint16_t lux = VEML7700_read_light_lux();
 
-    //uint8_t message_bytes[] = {UART_LIGHT_TX_CODE, (uint8_t)(lux << 8), (uint8_t)lux};
-    uint8_t message_bytes[] = {UART_LIGHT_TX_CODE, 10, 10};
+    uint8_t message_bytes[] = {UART_LIGHT_TX_CODE, (uint8_t)(lux >> 8), (uint8_t)lux};
+    //uint8_t message_bytes[] = {UART_LIGHT_TX_CODE, 10, 10};
 
     UART_write_n_bytes(message_bytes, 3);
 }
 
 void record_and_send_humidity(void) {
-    uint16_t humidity = HIH4000_read_humidity(HUMIDITY_ADC_PIN);
+    uint16_t humidity = HIH4000_read_humidity(HUMIDITY_ADC_PIN, LM35_read_celsius(TEMPERATURE_ADC_PIN));
 
-    uint8_t message_bytes[] = {UART_HUMIDITY_TX_CODE, (uint8_t)(humidity << 8), (uint8_t)humidity};
+    uint8_t message_bytes[] = {UART_HUMIDITY_TX_CODE, (uint8_t)(humidity >> 8), (uint8_t)humidity};
     //uint8_t message_bytes[] = {UART_HUMIDITY_TX_CODE, 10, 10};
 
     UART_write_n_bytes(message_bytes, 3);
@@ -118,7 +119,7 @@ void update_light(uint8_t p, uint8_t r, uint8_t g, uint8_t b) {
 }
 
 void update_fan_speed(uint8_t speed) {
-    PWM_set_duty_cycle(PWM_get_max_duty_cycle() * speed / 255);
+    PWM_set_duty_cycle((uint16_t)(PWM_get_max_duty_cycle() * (uint32_t)speed / 255));
 }
 
 void report_invalid_command(uint8_t command) {
@@ -140,12 +141,17 @@ void match_incomming_uart_command(void) {
             uint8_t prgb[4];
             UART_read_n_bytes(prgb, sizeof(prgb));
             update_light(prgb[0], prgb[1], prgb[2], prgb[3]);
+            EEPROM_write(LIGHT_P_MEM_ADDR, prgb[0]);
+            EEPROM_write(LIGHT_R_MEM_ADDR, prgb[1]);
+            EEPROM_write(LIGHT_G_MEM_ADDR, prgb[2]);
+            EEPROM_write(LIGHT_B_MEM_ADDR, prgb[3]);
             break;
         }
         case UART_FAN_RX_CODE: {  // Fan speed
             uint8_t speed;
             UART_read_n_bytes(&speed, sizeof(speed));
             update_fan_speed(speed);
+            EEPROM_write(FAN_SPEED_MEM_ADDR, speed);
             break;
         }
         default:
@@ -173,6 +179,7 @@ int main(void) {
         EEPROM_write(LIGHT_G_MEM_ADDR, DEFAULT_G_LIGHT);
         EEPROM_write(LIGHT_B_MEM_ADDR, DEFAULT_B_LIGHT);
         EEPROM_write(FAN_SPEED_MEM_ADDR, DEFAULT_FAN_SPEED);
+        EEPROM_write(CONFIG_MEM_CONTROL_ADDR, CONFIG_MEM_CONTROL);
     }
 
     p = EEPROM_read(LIGHT_P_MEM_ADDR);
@@ -180,6 +187,10 @@ int main(void) {
     g = EEPROM_read(LIGHT_G_MEM_ADDR);
     b = EEPROM_read(LIGHT_B_MEM_ADDR);
     fan_speed = EEPROM_read(FAN_SPEED_MEM_ADDR);
+    
+    // Initialize I2C and SPI
+    SPI_init();
+    I2C_init();
 
     // Initialize ADC
     ADC_init();
@@ -210,6 +221,9 @@ int main(void) {
     UART_set_baud_rate(32);  // 9600 bauds / sec
     PIE1bits.RCIE = 1;       // Enable RX interrupt
 
+    update_fan_speed(fan_speed);
+    update_light(p, r, g, b);
+    
     while (1) {
         //SLEEP();
         //NOP();
