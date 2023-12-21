@@ -22,7 +22,7 @@ bool EEPROM_write(uint8_t address, uint8_t data) {
         /* To understand this loop, check the datasheet
         eeprom write example and aplication notice AN576 */
         INTCONbits.GIE = 0;
-    } while (!INTCONbits.GIE);
+    } while (INTCONbits.GIE);
 
     EECON2 = 0x55;
     EECON2 = 0xAA;
