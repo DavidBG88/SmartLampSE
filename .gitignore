@@ -49,6 +49,9 @@ software/smart_lamp_se/funclist
 software/smart_lamp_se/nbproject/Makefile-*
 software/smart_lamp_se/disassembly/
 software/smart_lamp_se/.generated_files/
+software/web_interface/target/
+software/web_interface/.idea/
+software/web_interface/Cargo.lock
 
 ######################################
 # --------- Kicad Files ------------ #

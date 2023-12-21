@@ -1,0 +1,10 @@
+"hola"
+
+// Set light to (32, 32, 32)
+00 20 20 20
+
+// Wait 100 ms
+//wait 100 ms
+
+// Set fan speed to 50%
+01 80
