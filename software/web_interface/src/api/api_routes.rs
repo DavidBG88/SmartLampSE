@@ -119,9 +119,13 @@ async fn fallback_handler(uri: Uri) -> ApiResponse<()> {
 }
 
 fn adc_sound_to_levels(adc_sound: Option<u16>) -> Option<u16> {
-    adc_sound.map(|x| match x {
-        0..=400 => 0u16,
-        401..=900 => 1u16,
-        _ => 2u16,
-    })
+    if let Some(sound) = adc_sound {
+        let scaled_sound : u32 = u32::from(sound) * 1023 / 113;
+
+        if (scaled_sound < 400) { return Some(0u16); }
+        else if (scaled_sound < 900) { return Some(1u16); }
+        else { return Some(2u16); }
+    }
+
+    None
 }
