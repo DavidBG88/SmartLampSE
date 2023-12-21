@@ -6,6 +6,9 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+    
+#define ADC_VREF 5
+#define ADC_RESOLUTION 1023
 
 typedef enum ADCPin { ADC0 = 8, ADC1 = 10, ADC2 = 12 } ADCPin;
 
