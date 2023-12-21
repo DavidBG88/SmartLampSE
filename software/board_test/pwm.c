@@ -49,5 +49,5 @@ uint16_t PWM_get_max_duty_cycle(void) {
     // DCR = conf_value / (4 * (PR2 + 1))
     // 1 = conf_value / (4 * (PR2 + 1))
     // (4 * (PR2 + 1)) = conf_value
-    return (uint16_t)((PR2 + 1) << 2);
+    return (uint16_t)((PR2 + 1) << 2) - 1;
 }

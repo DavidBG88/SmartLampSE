@@ -84,3 +84,9 @@ void I2C_read_n_bytes(uint8_t* bytes, uint8_t num_bytes) {
         bytes[i] = I2C_read(I2C_ACK_OK_BIT);
     }
 }
+
+void I2C_read_n_bytes_reverse(uint8_t* bytes, uint8_t num_bytes) {
+    for (uint8_t i = num_bytes; i > 0; --i) {
+        bytes[i - 1] = I2C_read(I2C_ACK_OK_BIT);
+    }
+}

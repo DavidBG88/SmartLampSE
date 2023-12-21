@@ -22,7 +22,7 @@ void I2C_start(void);
 
 void I2C_stop(void);
 
-void I2C_rstart(void);
+void I2C_restart(void);
 
 uint8_t I2C_write(uint8_t byte);
 
@@ -34,5 +34,7 @@ uint8_t I2C_write_address(uint8_t address, uint8_t read_write_bit);
 uint8_t I2C_read(uint8_t master_ack);
 
 void I2C_read_n_bytes(uint8_t* bytes, uint8_t num_bytes);
+
+void I2C_read_n_bytes_reverse(uint8_t* bytes, uint8_t num_bytes);
 
 #endif /* I2C_H */

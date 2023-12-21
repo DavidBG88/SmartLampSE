@@ -14,10 +14,10 @@ IAQCORE_Reading IAQCORE_read(void) {
 
     IAQCORE_Reading reading;
 
-    I2C_read_n_bytes((uint8_t*)&reading.eco2_ppm, sizeof(reading.eco2_ppm));
-    I2C_read_n_bytes((uint8_t*)&reading.status, sizeof(reading.status));
-    I2C_read_n_bytes((uint8_t*)&reading.resistance, sizeof(reading.resistance));
-    I2C_read_n_bytes((uint8_t*)&reading.etvoc_ppb, sizeof(reading.etvoc_ppb));
+    I2C_read_n_bytes_reverse((uint8_t*)&reading.eco2_ppm, sizeof(reading.eco2_ppm));
+    I2C_read_n_bytes_reverse((uint8_t*)&reading.status, sizeof(reading.status));
+    I2C_read_n_bytes_reverse((uint8_t*)&reading.resistance, sizeof(reading.resistance));
+    I2C_read_n_bytes_reverse((uint8_t*)&reading.etvoc_ppb, sizeof(reading.etvoc_ppb));
 
     I2C_stop();
 
