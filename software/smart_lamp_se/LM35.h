@@ -8,9 +8,7 @@ extern "C" {
 #include <stdint.h>
 
 #include "adc.h"
-
-#define ADC_VREF 5
-#define ADC_RESOLUTION 1024
+    
 #define LM35_SCALE_FACTOR 10.0
 
 uint16_t LM35_read_celsius(ADCPin adc_pin);
