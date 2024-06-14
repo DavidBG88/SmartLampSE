@@ -1,7 +1,7 @@
 # **SmartLampSE**
 
 ## **Overview**
-This repository contains the code for the Smart Lamp System Engineering (SmartLampSE) project. The project involves designing and implementing a smart lamp system using various technologies and programming languages.
+This repository contains the code for the Smart Lamp EmbeddedSystem (SmartLampSE) project. The project involves designing and implementing a smart lamp system using various technologies and programming languages.
 
 ## **Features**
 - **Electronics Design**: Schematics and PCB design for the smart lamp hardware.
